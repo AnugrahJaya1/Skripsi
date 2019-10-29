@@ -24,7 +24,7 @@ Untuk itu diperlukan sebuah sistem yang dapat memberikan rekomendasi program stu
 	\item Bagaimana kualitas hasil rekomendasi dari perangkat lunak yang dibangun ?
 \end{enumerate}
 
-%\dtext{6}
+\dtext{6}
 
 \section{Tujuan}
 \label{sec:tujuan}
@@ -35,7 +35,7 @@ Untuk itu diperlukan sebuah sistem yang dapat memberikan rekomendasi program stu
 	\item Menguji hasil rekomendasi dari perangkat lunak yang sudah dibangun.
 \end{enumerate}
 
-%\dtext{7}
+\dtext{7}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
@@ -45,14 +45,13 @@ Mengingat banyaknya peruruan tinggi dan program studi yang ada di Indonesia, mak
 		\item Program studi Universitas Parahyangan.
 		\item Data mahasiswa berupa nilai pada angkatan 2014 - 2016.
 	\end{enumerate}
-	
-%\dtext{8}
+\dtext{8}
 
 \section{Metodologi}
 \label{sec:metlit}
 Tentunya akan diisi dengan metodologi yang serius sehingga templatenya terkesan lebih serius.
 
-%\dtext{9}
+\dtext{9}
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
@@ -60,4 +59,4 @@ Rencananya Bab 2 akan berisi petunjuk penggunaan template dan dasar-dasar \LaTeX
 Mungkin bab 3,4,5 dapt diisi oleh ketiga jurusan, misalnya peraturan dasar skripsi atau pedoman penulisan, tentu jika berkenan.
 Bab 6 akan diisi dengan kesimpulan, bahwa membuat template ini ternyata sungguh menghabiskan banyak waktu.
 
-%\dtext{10}
+\dtext{10}

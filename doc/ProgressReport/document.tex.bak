@@ -28,7 +28,7 @@
 %ISILAH DATA BERIKUT INI:
 \newcommand{\nama}{Anugrah Jaya Sakti}
 \newcommand{\@npm}{2016730053}
-\newcommand{\tanggal}{07/10/2019} %Tanggal pembuatan dokumen
+\newcommand{\tanggal}{23/09/2019} %Tanggal pembuatan dokumen
 \newcommand{\@judultopik}{Rekomendasi Program Studi di Perguruan Tinggi untuk Siswa SMA} % Judul/topik anda
 \newcommand{\kodetopik}{HUH4703}
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
@@ -487,39 +487,28 @@ Memiliki tiga bidang dan satu sistem manufaktur (mempelajari peningkatan kualita
 				\item Fisika
 					Mempelajari gejala alam yang tidak hidup atau materi dalam lingkup ruang dan waktu, mempelajari perilaku dan sifat materi dalam bidang yang sangat beragam (partikel submikroskopis - perilaku materi alam semesta sebagai satu kesatuan kosmos). Ilmu fisika sangat mendukung perkembangan teknologi, yaitu industri, komunikasi, kerekayasaan, kimia, dan kedokteran. 
 					\begin{itemize}
-						\item Syarat Jurusan SMA : IPA
-						\item Ujian USM : Inggris, Fisika, dan Matematika
-						\item Syarat PMDK : Inggris dan Matematika
+						\item 
 						\item Peminatan :
 						\begin{itemize}
-							\item Fisika
+							\item 
 						\end{itemize}
 						\item Karakteristik :
 						\begin{itemize}
-							\item Senang berhitung (matematika dan fisika)
-							\item Senang menganalisis
-							\item Mampu memecahkan masalah
-							\item Teliti
+							\item 
 						\end{itemize}
 					\end{itemize}
 					
 				\item Teknik Informatika
-					Mempelajari dan menerapkan prinsip-prinsip ilmu komputer dan analisa matematis untuk desain, pengembangan, pengujian, evaluasi perangkat lunak, sistem operasi, dan kerja komputer. Menghasilkan ide kreatif, merealisasikan ide, mendiferensiasikan berbagai macam fungsi, dan menciptakan struktur instruksi yang sangat detail dalam bahasa pemrograman untuk mengajarkan komputer apa yang harus dilakukan.
+					
 					\begin{itemize}
-						\item Syarat Jurusan SMA : IPA
-						\item Ujian USM : Inggris dan Matematika
-						\item Syarat PMDK : Inggris dan Matematika
+						\item 
 						\item Peminatan :
 						\begin{itemize}
-							\item Data Science
-							\item Computer Science
+							\item 
 						\end{itemize}
 						\item Karakteristik :
 						\begin{itemize}
-							\item Tertarik dengan teknologi
-							\item Senang menganalisis
-							\item Senang memecahkan masalah
-							\item Senang berhitung (matematika)
+							\item 
 						\end{itemize}
 					\end{itemize}
 			\end{enumerate}

@@ -97,21 +97,18 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		Melakukan studi literatur tentang sistem rekomendasi.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} \\
-		Studi literatur telah dilakukan dengan cara membaca buku mengenai sistem rekomendasi. Buku yang digunakan untuk referensi "Judul buku". Secara singkat Sistem rekomin dasi adalah \textit{Recommender Systems Handbook}.\\
-		\textbf{Sistem Rekomendasi} (SR) alat dan teknik perangkat lunak yang menyediakan saran untuk item yang akan digunakan oleh pengguna. Saran terkait dengan berbagai proses pengambilan keputusan, seperti barang apa yang akan dibeli, musik apa yang akan didengarkan, atau berita online apa yang akan dibaca.\\
-		SR biasanya fokus pada item tertentu (buku,musik,dll), SR ditujukan untuk individu/personal yang kurang memiliki pengalaman pribadi. Contoh SR buku (Amazon.com). Item yang ditawarkan sebagai daftar item peringkat. RS mencoba memprediksi produk dengan cara mengumpulkan preferensi dari pengguna lainnya.\\
+		Studi literatur telah dilakukan dengan cara membaca buku mengenai sistem rekomendasi. Buku yang digunakan untuk referensi \textit{Recommender Systems Handbook}.\\
+		Sistem Rekomendasi (SR) adalah perangkat lunak yang menyediakan saran untuk item yang akan digunakan oleh pengguna. Saran terkait dengan berbagai proses pengambilan keputusan, seperti barang apa yang akan dibeli, musik apa yang akan didengarkan, atau berita online apa yang akan dibaca.\\
+		SR biasanya fokus pada item tertentu (buku,musik,dll), SR ditujukan untuk individu/personal yang kurang memiliki pengalaman pribadi. Contoh SR buku (Amazon.com). Item yang ditawarkan sebagai daftar item peringkat. SR mencoba memprediksi produk dengan cara mengumpulkan referensi dari pengguna lainnya.\\
 		Pengembangan SR dimulai dari pengamatan yang sederhana : Rekomendasi yang diberikan oleh orang lain dalam membuat keputusan rutin sehari-hari (buku,musik,film{ulasan film},rekrutmen karyawan{surat rekomendasi},dkk).\\
-		SR menghasilkan rekomendasi menggunakan berbagai jenis pengetahuan dan data tentang pengguna, item yang tersedia, dan transaksi sebelumnya (contoh e-commerce, mengatasi masalah kelebihan informasi yang terjadi akibat transaksi pengguna sebelumnya). Fungsi utama RS adalah menemukan item yang relevan dengan kebutuhan pengguna.\\
+		SR menghasilkan rekomendasi menggunakan berbagai jenis pengetahuan dan data tentang pengguna, item yang tersedia, dan transaksi sebelumnya (contoh e-commerce, mengatasi masalah kelebihan informasi yang terjadi akibat transaksi pengguna sebelumnya). Fungsi utama SR adalah menemukan item yang relevan dengan kebutuhan pengguna.\\
 		
 		Data yang digunakan pada SR mengacu pada tiga jenis objek :
 		
 		\begin{enumerate}
-			\item Item
-				Item adalah objek yang direkomendasikan, item bisa ditandai oleh kompleksitasnya dan nilai atau kegunaannya. Bisa bernilai positif jika sesuai atau negatif jika tidak sesuai.
-			\item Pengguna
-				Memiliki tujuan dan karakteristik beragam. Untuk mempersonalisasi rekomendasi RS mengeksploitasi berbagai informasi pengguna. Dalam CF pengguna dimodelkan sebagai daftar sederhana berisi peringkat yang disediakan oleh pengguna untuk item, menggunakan beberapa atribut untuk digunakan. Pengguna juga dapat dijelaskan oleh data pola perilaku (pola penelusuran web, atau pola  pencarian perjalanan).
-			\item Transaksi
-				Interaksi yang direkam antara pengguna RS. Transaksi adalah data seperti log yang menyimpan informasi penting yang dihasilkan selama interaksi manusia-komputer dan berguna untuk algoritma pembuatan rekomendasi yang digunakan sistem. Faktanya peringkat(rating) bentuk transaksi yang paling populer yang dikumpulkan oleh RS, bentuk dari peringkat :
+			\item Item adalah objek yang direkomendasikan, item bisa ditandai oleh kompleksitasnya dan nilai atau kegunaannya. Bisa bernilai positif jika sesuai atau negatif jika tidak sesuai.
+			\item Pengguna adalah objek yang menggunakan sistem, memiliki tujuan dan karakteristik beragam. Untuk mempersonalisasi rekomendasi SR mengeksploitasi berbagai informasi pengguna. Pengguna juga dapat dijelaskan oleh data pola perilaku (pola penelusuran web, atau pola  pencarian perjalanan).
+			\item Transaksi, Interaksi yang direkam antara pengguna SR. Transaksi adalah data seperti log yang menyimpan informasi penting yang dihasilkan selama interaksi manusia-komputer dan berguna untuk algoritma pembuatan rekomendasi yang digunakan sistem. Bentuk dari peringkat/\textit{rating} yang populer di SR :
 				\begin{itemize}
 					\item Peringkat numerik 1-5
 					\item Peringkat ordinal (sangat setuju, setuju, netral, tidak setuju, sangat tidak setuju)
@@ -122,18 +119,18 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		
 		Berikut merupakan teknik-teknik yang biasa digunakan pada sistem rekomendasi :
 		\begin{itemize}
-			\item Content-based
+			\item Content-based :
 				Sistem merekomendasikan item yang mirip berdasarkan item yang disukai pengguna di masa lalu. Kesamaan dihitung berdasarkan fitur(atribut) yang terkait dengan item. misal , review positif film komedi, maka akan direkomendasikan film di genre yang sama. 
-			\item Collaborative Filtering
+			\item Collaborative Filtering (CF) :
 				Implementasi paling sederhana, merekomendasikan item yang disukai pengguna lain dengan selera serupa di masa lalu. CF populer dan banyak digunakan pada RS. Nearest neighbors meningkatkan popularitas karena sederhana, efisien, dan kemampuan mereka untuk menghasilkan rekomendasi yang akurat dan dipersonalisasi.
-			\item Demographic
+			\item Demographic :
 				Rekomendasi berdasarkan profil demografis pengguna. Asumsinya bahwa rekomendasi yang berbeda harus dihasilkan untuk demografis yang berbeda. Misalnya diarahkan ke web dengan bahasa atau negara pengguna.
-			\item Knowledge-based
+			\item Knowledge-based :
 				Merekomendasikan item berdasarkan pengetahuan domain spesifik tentang fitur (atribut) item tertentu yang memenuhi kebutuhan atau referensi pengguna. 
-			\item Community-based
+			\item Community-based :
 				Merekomendasikan item berdasarkan teman-teman pengguna. Bukti menunjukan bahwa orang cenderung lebih mengandalkan rekomendasi dari teman-teman dari pada rekomendasi dari orang yang belum dikenal. 
-			\item Hybrid recommender systems
-				Kombinasi dari hal diatas. Menggunakan teknik A dan B mencoba untuk menggunakan keunggulan A dan memperbaiki kelemahan B. misal CF memiliki kelemahan terhadap item yang tidak memiliki peringkat (ga ada histori)  bisa digabungkan dengan metode content-based.
+			\item Hybrid recommender systems :
+				Kombinasi dari hal diatas. Menggunakan teknik A dan B mencoba untuk menggunakan keunggulan A dan memperbaiki kelemahan B. misal CF memiliki kelemahan terhadap item yang tidak memiliki peringkat (tidak memiliki riwayat)  bisa digabungkan dengan metode content-based.
 		\end{itemize}
 		
 		Evaluasi pada SR dibedakan menjadi dua, yaitu :
@@ -148,7 +145,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		
 		Terdapat beberapa pekerjaan terkait mengenai sistem rekomendasi, yaitu :
 		\begin{itemize}
-			\item A Source Recommender System by Graduating Attributes
+			\item A Source Recommender System by Graduating Attributes \\
 				Universitas Alberta pada 2011 mendefinisikan 7 atribut kelulusan dengan 27 sub-atribut. Diusulkan untuk menggambarkan kualitas, nilai, dan watak yang dikembangkan siswa selama mereka belajar di universitas.    \\
 				Menurut Bawden etal Graduating Attributes (GAs) adalah kualitas, keterampilan, dan pemahaman yang menurut universitas harus dikembangkan oleh mahasiswa selama berada dalam institusi.  Atribut tersebut adalah kualitas yang juga mempersiapkan lulusan sebagai agen sosial di masa depan.\\
 				Dalam dua dekade terakhir, universitas sudah mengidentifikasikan GAs, tetapi sulit dipahami. Ipperciel dan El Atia mengusulkan model dinamis untuk mendefinisikan GAs, model ini menggunakan skala likert dengan range 1 - 5 untuk masing-masing atribut.\\
@@ -160,8 +157,9 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 				\item Dalam memperbarui hasil kompetensi, semua mata kuliah yang diambil memiliki dampak. Asumsi bahwa setiap mahasiswa menghabiskan waktu yang sama pada setiap mata kuliah, menjumlahkan dampak dari semua mata kuliah dan membaginya dengan jumlah mata kuliah. 
 				\item Jumlah mata kuliah yang diambil setiap semester 4 - 6 mata kuliah.  
 				\end{itemize}
-				Menggunakan algoritma \textit{Collaborative Filtering} (CF), n-\textit{nearest neighbors}, dan untuk ambang korelasi menggunakan \textit{Correlation Thresholding}. Nilai k yang efektif berkisar antara 10 - 15 dengan nilai ambang 0,7. 
-			\item College recommender system using student’ preferences/voting : A system development with empirical study
+				Menggunakan algoritma \textit{Collaborative Filtering} (CF), k-\textit{nearest neighbors}, dan untuk ambang korelasi menggunakan \textit{Correlation Thresholding}. Nilai k yang efektif berkisar antara 10 - 15 dengan nilai ambang 0,7. 
+			
+			\item College recommender system using student’ preferences/voting : A system development with empirical study\\
 				Terdapat 750 perguruan tinggi teknik di Andhra Pradesh, banyak hal yang harus dipertimbangkan oleh calon mahasiswa, calon mahasiswa perlu untuk menganalisis atau mempelajari, hal ini sangat melelahkan, dibutuhkan sistem untuk mempertimbangkan dan menganalisis perguruan tinggi dengan preferensi (diutamakan) calon mahasiswa baru.\\
 				Algoritma yang digunakan :
 				\begin{itemize}
@@ -174,8 +172,9 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 					\item R-Tree
 						Struktur data tree indeks multidimensi. R-tree sangat berguna untuk manajemen efisien dari kumpulan data pelatihan yang sangat besar. 
 				\end{itemize}
-		Data menggunakan data 2000 mahasiswa yang didapatkan dari hasil kuesioner online. Dari hasil eksperimen dapat dinyatakan bahwa dengan menggunakan algoritma usulan hasil lebih cepat dan baik
-			\item Improving the Accuracy of Top-N Recommendation using a Preference Model
+		Data menggunakan data 2000 mahasiswa yang didapatkan dari hasil kuesioner online. Dari hasil eksperimen dapat dinyatakan bahwa dengan menggunakan algoritma usulan hasil lebih cepat dan baik.
+		
+			\item Improving the Accuracy of Top-N Recommendation using a Preference Model\\
 			Menggunakan \textit{Collaborative Filtering} (CF), \textit{neighborhood models} : \textit{user-based \& item-based}, dan \textit{matrix factorization}.\\
 			Terdapat dua \textit{dataset} yang digunakan. \textit{dataset} pertama MovieLens 100K dengan 943 pengguna, 1.782 item, dan 100.000 rating. \textit{dataset} kedua MovieLens 1M dengan 6.040 pengguna, 3.952 item, dan 1.000.209 rating. \textit{dataset} dibagi menjadi 2 bagian, untuk \textit{train set} 80\% dan \textit{test set} 20\%. 
 			Terdapat beberapa metric akurasi untuk evaluasi top-n SR, yang digunakan pada makalah ini adalah Metric akurasi tradisional,\textit{Normalized discounted cumulative gain} (NDCG), dan  \textit{area under the recall curve} (ATOP).
