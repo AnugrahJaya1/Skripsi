@@ -1,124 +1,169 @@
 %versi 2 (8-10-2016)
 \chapter{Landasan Teori}
 \label{chap:teori}
-
-\section{Program Studi}
-\label{sec:program studi} 
- 
-Diisi dengan penjelasan program studi dan syarat-syaratnya
-
-
-\dtext{11-12} 
-
 \section{Sistem Rekomendasi}
 \label{sec:sistem rekomendasi}
 
-Sistem rekomendasi (SR) adalah alat dan teknik perangkat lunak yang menyediakan saran untuk item yang akan digunakan oleh pengguna. Saran terkait dengan berbagai proses pengambilan keputusan, seperti barang apa yang akan dibeli, musik apa yang akan didengarkan, atau berita online apa yang akan dibaca. \\
+Sistem rekomendasi adalah alat dan teknik perangkat lunak yang menyediakan saran untuk item yang akan digunakan oleh pengguna. Saran terkait dengan berbagai proses pengambilan keputusan, seperti barang apa yang akan dibeli, musik apa yang akan didengarkan, atau berita online apa yang akan dibaca. % RS hanbook
 
-SR biasanya fokus pada item tertentu seperti buku,musik,dll. SR ditujukan untuk individu atau personal yang kurang memiliki pengalaman pribadi. Contoh SR buku adalah \textit{website} Amazon.com. Item yang ditawarkan sebagai daftar item peringkat. SR mencoba memprediksi produk dengan cara mengumpulkan referensi dari pengguna lainnya.\\
+Sistem rekomendasi biasanya berfokus pada item tertentu seperti buku,musik,dll. Sistem rekomendasi ditujukan untuk individu atau personal yang kurang memiliki pengalaman pribadi. Contoh Sistem rekomendasi buku adalah \textit{website} Amazon.com. Item yang ditawarkan sebagai daftar item peringkat. Sistem rekomendasi mencoba memprediksi produk dengan cara mengumpulkan referensi dari pengguna lainnya.\\ %RS hanbook
 
-Pengembangan SR dimulai dari pengamatan yang sederhana berupa rekomendasi yang diberikan oleh orang lain dalam membuat keputusan rutin sehari-hari bisa berupa buku, musik, film, rekrutmen karyawan, dll.\\
+Pengembangan sistem rekomendasi dimulai dari pengamatan yang sederhana berupa rekomendasi yang diberikan oleh orang lain dalam membuat keputusan rutin sehari-hari bisa berupa buku, musik, film, rekrutmen karyawan, dll. %RS hanbook
 
-SR menghasilkan rekomendasi menggunakan berbagai jenis pengetahuan dan data tentang pengguna, item yang tersedia, dan transaksi sebelumnya, contohnya berupa e-commerce yang mengatasi masalah kelebihan informasi yang terjadi akibat transaksi pengguna sebelumnya. 
+Sistem rekomendasi menghasilkan rekomendasi menggunakan berbagai jenis pengetahuan dan data tentang pengguna, item yang tersedia, dan transaksi sebelumnya, contohnya berupa e-commerce yang mengatasi masalah kelebihan informasi yang terjadi akibat transaksi pengguna sebelumnya. \\ %RS hanbook
 
 \subsection{Fungsi Sistem Rekomendasi}
-Fungsi utama SR adalah menemukan item yang relevan dengan kebutuhan pengguna.\\
-Terdapat juga beberapa fungsi dari sistem rekomendasi, sebagai berikut :
+Fungsi utama sistem rekomendasi adalah menemukan item yang relevan dengan kebutuhan pengguna.Selain untuk menemukan item yang relevan terdapat juga beberapa fungsing sistem rekomendasi, yaitu  : %RS hanbook
 	\begin{enumerate}
-		\item Menemukan beberapa item bagus\\
-			Merekomendasikan beberapa item kepada pengguna berupa daftar peringkat item hasil prediksi seberapa suka pengguna dengan item tersebut. contoh, mengguna skala 1 - 5.
-		
-		\item Menemukan semua item bagus\\
-			Merekeomendasikan semua item yang dapat memenuhi kebutuhan pengguna. Dalam kasus tersebut tidak cukup hanya menemukan beberapa item.
-			 
-		\item Penjelasan dalam konteks\\
-			Diberikan konteks yang ada, misalnya, daftar item, menekankan beberapa diantaranya tergantung pada preferensi jangka panjang pengguna. Sebagai contoh, sistem rekomendasi TV mungkin membuat penjelasan acara TV mana yang yang layak untuk ditonton pada panduan program elektronik.
-		
-		\item Rekomendasikan urutan\\
-			Merekomendasikan urutan item yang menyenangkan secara kesuluruhan. 
+		\item Meningkatkan jumlah penjualan barang\\
+			Salah satu fungsi penting untuk sistem rekomendasi yang komersil. Peningkatan jumlah penjualan item ini disebabkan karena penjualan item dilakukan tepat sasaran kepada pembeli yang memang membutuhkan dan menginginkan item tersebut. Merekomendasikan item yang sesuai dengan kebutuhan atau minat pengguna.
 			
-		\item Rekomendasi bundle\\
-			Merekomendasikan kelompok item yang cocok dengan kebutuhan pengguna.
+		\item Menjual barang-barang yang lebih beragam\\
+			Memberikan rekomendasi item yang mungkin sulit ditemukan oleh pengguna jika tanpa menggunakan sistem rekomendasi.
 			
-		\item Hanya \textit{browsing}\\
-			Pengguna hanya melakukkan \textit{browsing} tanpa ada keinginan untuk membeli barang. Tugas pemberi rekomendasi adalah membantu pengguna untuk menelusuri item-item yang masuk dalam ruang lingkup minat pengguna. 
+		\item Meningkatkan kepuasan pengguna\\
+			Sistem rekomendasi yang dirancang dengan baik memberikan rekomendasi yang sesuai dengan kebutuhan pengguna sehingga pengguna akan merasa senang menggunakan sistem tersebut.
 		
-		\item Menemukan pemberi rekomendasi yang kredibel\\
-			Beberapa pengguna tidak percaya kepada sistem rekomendasi mereka menggunakan sistem untuk melihat seberapa baik sistem dalam membuat rekomendasi. 
-		
-		\item Meningkatkan profil\\
-			Berhubungan dengan kemampuan pengguna untuk memberikan (masukan) informasi kepada sistem rekomendasi tentang apa yang disukai dan tidak disukai. Ini adalah tugas mendasar yang sangat diperlukan untuk memberikan hasil rekomendasi yang personal. Jika sistem tidak memiliki pengetahuan khusus tentang pengguna akfit maka hanya dapat memebrikan rekomendasi yang sama kepada seluruh pengguna.
-		
-			\item \textit{Express selft}\\
-		Beberapa pengguna mungkin tidak peduli dengan rekomendasi sama sekali. Sebaliknya, yang penting bagi pengguna adalah dapat berkontribusi dengan mengekspresikan pendapat. Kepuasan pengguna untuk aktivitas tersebut dapat bertindak sebagai pengaruh kepada pengguna agar tetap menggunakan aplikasi.
-		
-		\item Membantu orang lain\\
-			Beberapa pengguna senang benkontribusi, karena mereka percaya masyarakat mendapat manfaat dari kontribusi. Ini bisa menjadi motivasi utama untuk memasukkan informasi kepada sistem rekomendasi yang tidak digunakan secara rutin. 
-		
-		\item Mempengaruhi orang lain\\
-			Didalam sistem rekomendasi berbasis \textit{website}, ada pengguna yang bertujuan untuk mempengaruhi pengguna lain untuk membeli produk tertentu. 
+		\item Meningkatkan kesetiaan pengguna\\
+			Pengguna akan tetap menggunakan sebuah \textit{website} jika sistem rekomendasi yang hasilkan rekomendasi yang sesuai dengan kebutuhan pengguna. 
+			
+		\item Lebih mengerti apa yang diinginkan pengguna\\
+			Sistem dapat memebrikan hasil rekomendasi item yang sesuai dengan kebutuhan pengguna.
 	\end{enumerate} \leavevmode
 
 \subsection{Sumber Data dan Pengetahuan}
 \label{sec:sumber data dan pengetahuan}
-SR adalah sistem pemrosesan informasi yang secara aktif mengumpulkan berbagai jenis data untuk membangun rekomendasinya. Data utama berupa data item yang disarankan dan pengguna yang akan menerima rekomendasi. Data yang digunakan SR mengacu pada tige jenis objek :
+Sistem rekomendasi adalah sistem pemrosesan informasi yang secara aktif mengumpulkan berbagai jenis data untuk membangun rekomendasinya. Data utama berupa data item yang disarankan dan pengguna yang akan menerima rekomendasi. Data yang digunakan sistem rekomendasi mengacu pada tige jenis objek, yaitu : %RS hanbook
 	\begin{enumerate}
 	\item Item\\
 		Item adalah objek yang direkomendasikan, item bisa ditandai oleh kompleksitasnya dan nilai atau kegunaannya. Bisa bernilai positif jika sesuai atau negatif jika tidak sesuai.
 	
 	\item Pengguna\\
-		Pengguna adalah objek yang menggunakan sistem, memiliki tujuan dan karakteristik beragam. Untuk mempersonalisasi rekomendasi SR mengeksploitasi berbagai informasi pengguna. Pengguna juga dapat dijelaskan oleh data pola perilaku (pola penelusuran web, atau pola pencarian perjalanan)
+		Pengguna adalah objek yang menggunakan sistem, memiliki tujuan dan karakteristik beragam. Untuk mempersonalisasi rekomendasi, sistem rekomendasi mengeksploitasi berbagai informasi pengguna. Pengguna juga dapat dijelaskan oleh data pola perilaku (pola penelusuran web, atau pola pencarian perjalanan)
 	
 	\item Transaksi\\
-		Interaksi yang direkam antara pengguna SR. Transaksi adalah data seperti log yang menyimpan informasi penting yang dihasilkan selama interaksi manusia-komputer dan berguna untuk algoritma pembuatan rekomendasi yang digunakan sistem. Bentuk dari peringkat/rating yang populer di SR :
+		Interaksi yang direkam antara pengguna sistem rekomendasi. Transaksi adalah data seperti log yang menyimpan informasi penting yang dihasilkan selama interaksi manusia-komputer dan berguna untuk algoritma pembuatan rekomendasi yang digunakan sistem. Bentuk dari peringkat yang populer di sistem rekomendasi :
 		
 		\begin{itemize}
-		\item Peringkat numerik 1 - 5
-		\item Peringkat ordinal (sangat setuju, setuju, netral, tidak setuju, dan sangat tidak setuju)
-		\item Peringkat biner, buruk (0) dan baik (1)
-		\item Peringkat unary menunjukkan bahwa pengguna telah mengamati atau membeli barang atau menilai barang secara positif
+			\item Peringkat numerik 1 - 5
+		
+			\item Peringkat ordinal (sangat setuju, setuju, netral, tidak setuju, dan sangat tidak setuju)
+		
+			\item Peringkat biner, buruk (0) dan baik (1)
+		
+			\item Peringkat unary menunjukkan bahwa pengguna telah mengamati atau membeli barang atau menilai barang secara positif
 		\end{itemize}
+		
 	\end{enumerate}
 	
 \subsection{Teknik Rekomendasi}
 \label{sec:teknik rekomendasi}
+Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : \\%RS hanbook
 \begin{enumerate}
-\item \textit{Content-based}\\
-	Sistem merekomendasikan item yang mirip berdasarkan item yang disukai pengguna di masa lalu. Kesamaan dihitung berdasarkan fitur(atribut) yang terkait dengan item. misal , review positif film komedi, maka akan direkomendasikan film di genre yang sama. 
+	\item \textit{Content-based}\\
+		Sistem merekomendasikan item yang mirip berdasarkan item yang disukai pengguna di masa lalu. Kesamaan dihitung berdasarkan fitur(atribut) yang terkait dengan item. misal , review positif film komedi, maka akan direkomendasikan film di genre yang sama. 
 
-\item \textit{Collaborative Filtering} \\
-	Implementasi paling sederhana, merekomendasikan item yang disukai pengguna lain dengan selera serupa di masa lalu. CF populer dan banyak digunakan pada RS. Nearest neighbors meningkatkan popularitas karena sederhana, efisien, dan kemampuan mereka untuk menghasilkan rekomendasi yang akurat dan dipersonalisasi.
+	\item \textit{Collaborative Filtering} \\
+		Implementasi paling sederhana, merekomendasikan item yang disukai pengguna lain dengan selera serupa di masa lalu. CF populer dan banyak digunakan pada RS. Nearest neighbors meningkatkan popularitas karena sederhana, efisien, dan kemampuan mereka untuk menghasilkan rekomendasi yang akurat dan dipersonalisasi.
 	
-\item \textit{Demographic} \\
-	Rekomendasi berdasarkan profil demografis pengguna. Asumsinya bahwa rekomendasi yang berbeda harus dihasilkan untuk demografis yang berbeda. Misalnya diarahkan ke web dengan bahasa atau negara pengguna. 
+	\item \textit{Demographic} \\
+		Rekomendasi berdasarkan profil demografis pengguna. Asumsinya bahwa rekomendasi yang berbeda harus dihasilkan untuk demografis yang berbeda. Misalnya diarahkan ke web dengan bahasa atau negara pengguna. 
 
-\item \textit{Knowledge-based} \\
-	Merekomendasikan item berdasarkan pengetahuan domain spesifik tentang fitur (atribut) item tertentu yang memenuhi kebutuhan atau referensi pengguna. 
+	\item \textit{Knowledge-based} \\
+		Merekomendasikan item berdasarkan pengetahuan domain spesifik tentang fitur (atribut) item tertentu yang memenuhi kebutuhan atau referensi pengguna. 
 
-\item \textit{Community-based} \\
-	Merekomendasikan item berdasarkan teman-teman pengguna. Bukti menunjukan bahwa orang cenderung lebih mengandalkan rekomendasi dari teman-teman dari pada rekomendasi dari orang yang belum dikenal. 
+	\item \textit{Community-based} \\
+		Merekomendasikan item berdasarkan teman-teman pengguna. Bukti menunjukan bahwa orang cenderung lebih mengandalkan rekomendasi dari teman-teman dari pada rekomendasi dari orang yang belum dikenal. 
 
-\item \textit{Hybrid recomender systems} \\
-	Kombinasi dari hal diatas. Menggunakan teknik A dan B mencoba untuk menggunakan keunggulan A dan memperbaiki kelemahan B. misal CF memiliki kelemahan terhadap item yang tidak memiliki peringkat (ga ada histori)  bisa digabungkan dengan metode content-based
+	\item \textit{Hybrid recomender systems} \\
+		Kombinasi dari hal diatas. Menggunakan teknik A dan B mencoba untuk menggunakan keunggulan A dan memperbaiki kelemahan B. misal CF memiliki kelemahan terhadap item yang tidak memiliki peringkat (ga ada histori)  bisa digabungkan dengan metode content-based
 \end{enumerate}
+
+% jelasin konsep dasar Collabrative Filtering
+\subsection{\textit{Collaborative Filtering}}
+\label{sec:collaborative filtering}
+	Dalam pengembangan sistem rekomendasi dapat menggunkan teknik \textit{Collaborative Filtering}. \textit{Collaborative Filtering} menghasilkan rekomendasi item yang spesifik untuk pengguna berdasarkan peringkat tanpa memerlukan informasi tambahan mengenai item ataupun pengguna. Gagasan utamanya adalah peringkat pengguna u untuk item i cenderung mirip dengan pengguna v, jika u dan v memberikan peringkat item lain dengan nilai yang sama. \\%RS hanbook
+	Tantangan dalam membangun sistem rekomendasi menggunakan teknik \textit{Collaborative Filtering} adalah sedikitnya jumlah data pengguna sebelumnya yang sudah memberikan peringkat kepada suatu item. Dalam \textit{Collaborative Filltering} terdapat salah satu algoritma yaitu \textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering}.
+	
+\subsubsection{\textit{Neighborhood-based Collaborative Filtering}}
+textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering} adalah algoritma pertama yang dikembangan untuk teknik \textit{Collaborative Filtering}. Algoritma ini peringkat \textit{user-item} disimpan dalam sistem secara langsung digunakan untuk memprediksi peringkat item baru, dapat dilakukan dengan \textit{user-based model}. %RS hanbook
+
+\subsubsection{\textit{•User-based Neighborhood Model}}
+\textit{User-based} bekerja dengan mengidentifikasi pengguna yang akan diberikan rekomendasi dengan pengguna yang memiliki kesamaan. Aktivitas pengguna yang memiliki kesamaan ini akan menjadi dasar dalam memberikan rekomendasi kepada pengguna. Aktivitas bisa berupa memberikan peringkat kepada item. Berikut adalah tahapan yang perlu dilakukan pada \textit{User-based} : 
+
+\begin{enumerate}
+	\item Mencari nilai rata-rata peringkat yang sudah diberikan oleh pengguna sebelumnya.
+	
+	\item Menghitung kesamaan atau similaritas pengguna menggunakan \textit{Pearson Correlation Coefficient} 2.1 :
+	
+	\begin{equation}
+		sim(i,j) = Pearson(i,j) = \frac{\Sigma _{k\epsilon} I_{i} \cap I_{j} (r_{i,k}-\mu_{i}) \cdot (r_{j,k}-\mu_{j})}{\sqrt{\Sigma _{k\epsilon} I_{i} \cap I_{j} (r_{i,k}-\mu_{i})^2} \cdot \sqrt{\Sigma _{k\epsilon} I_{i} \cap I_{j} (r_{j,k}-\mu_{j})^2 }}
+	\end{equation}\leavevmode \\
+	Keterangan : 
+	\begin{itemize}
+		\item sim(i,j) = Kesamaan atau similaritas antara pengguna i dan pengguna j
+		
+		\item $\Sigma _{k\epsilon} I_{i} \cap I_{j}$ = Himpunan item pengguna i dan pengguna j yang saling beririsan
+		
+		\item $r_{i,k}$ = Nilai yang diberikan pengguna i terhadap item k
+		
+		\item $r_{j,k}$ = Nilai yang diberikan pengguna j terhadap item k
+		
+		\item $\mu_{i}$ = Rata-rata nilai yang diberikan pengguna i
+		
+		\item $\mu_{j}$ = Rata-rata nilai yang diberikan pengguna j
+	\end{itemize}\leavevmode
+	
+	\item Mengurutkan nilai kesamaan atau similaritas dari yang terbesar ke terkecil. Memiliki rentan nilai -1, 0, dan +1 untuk pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati -1, berarti pengguna tersebut kurang memiliki kesamaan dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati 1, berarti pengguna tersebut memiliki kesamaan yang cukup baik dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati +1, berarti pengguna tersebut memiliki kesamaan yang tinggi dengan pengguna yang akan diberikan rekomendasi.
+	%kayanya bagian ini ga usah, soalnya nnti ambil K tetangga terdekat, liat IPK + jurusan, filteri IPK > 2
+	\item Menghitung nilai prediksi dengan rumus umum prediksi 2.2 :
+	
+	\begin{equation}
+		r_{i,k} = \mu_{i} + \frac{\Sigma _{j \epsilon} P_{i} Sim(i,j)\cdot (r_{j,k} - \mu_{j})}{\Sigma _{j \epsilon} P_{i(k)} |Sim(i,j)|}
+	\end{equation}\leavevmode \\
+	
+	Keterangan :
+	\begin{itemize}
+		\item $r_{i,k}$ = Nilai prediksi pengguna i untuk item k
+		
+		\item Sim(i,j)= kesamaan atau similiaritas pengguna i dan pengguna j
+		
+		\item $r_{j,k}$ = Penilaian pengguna j terhdap item k
+		
+		\item $\mu_{j}$ = Nilai rata-rata pengguna j
+		
+		\item $\mu_{i}$ = Nilai rata-rata pengguna i
+	\end{itemize}\leavevmode
+	
+	\item Menentukan skala prediksi yang akan ditampilkan kepada pengguna 
+\end{enumerate}\leavevmode
+
+
 
 \subsection{Aplikasi dan Evalusi}
 \label{sec:aplikasi dan evaluasi}
 \subsubsection{Aplikasi}
-Faktor pertama yang harus dipertimbangkan adalah domain aplikasi, memiliki efek yang besar pada pendekatan algoritmik yang diambil. Kelas domain paling umum :
+Faktor pertama yang harus dipertimbangkan adalah domain aplikasi, memiliki efek yang besar pada pendekatan algoritmik yang diambil. Kelas domain paling umum : %RS hanbook
 \begin{enumerate}
-\item Entertainment : rekomendasi film dan musik
-\item Content : personalisasi berita, dokukumen, dan web page
-\item E-commerce : rekomendasi produk untuk di beli
-\item Services : rekomendasi servis travel, hotel, dan rumah
+	\item Entertainment : rekomendasi film dan musik
+	\item Content : personalisasi berita, dokukumen, dan web page
+	\item E-commerce : rekomendasi produk untuk di beli
+	\item Services : rekomendasi servis travel, hotel, dan rumah
 \end{enumerate}
 
 \subsubsection{Evalusi}
-Evaluasi diperlukan untuk SR. Evaluasi \textit{offline} dilakukan dengan cara menjalankan beberapa algoritma pada data yang sama dan membandingkan kinerjanya. Evaluasi \textit{online} dilakukan saat sistem sudah diluncurkan, melibatkan pengguna nyata. \textit{Focused user study}, jika
+Evaluasi diperlukan untuk sistem rekomendasi. Evaluasi \textit{offline} dilakukan dengan cara menjalankan beberapa algoritma pada data yang sama dan membandingkan kinerjanya. Evaluasi \textit{online} dilakukan saat sistem sudah diluncurkan, melibatkan pengguna nyata. \textit{Focused user study}, jika
 evaluasi online tidak layak atau terlalu beresiko, meminta beberapa pengguna untuk mencoba
 sistem.
 
-\dtext{13-14}
+\section{Program Studi}
+\label{sec:program studi} 
+%Diisi dengan penjelasan program studi dan syarat-syaratnya
+Perguruan tinggi adalah satuan pendidikan yang menyelenggarakan pendidikan tinggi yang dapat berbentuk akademi, politeknik, sekolah tinggi, institut. atau universitas. Pendidikan tinggi adalah kelanjutan pendidikan menengah yang
+diselenggarakan untuk menyiapkan peserta didik menjadi anggota masyarakat yang memiliki kemampuan akademik dan/atau profesional yang dapat menerapkan, mengembangkan dan/atau menciptakan ilmu pengetahuan. teknologi dan/atau kesenian. \\ %SK MENDIKNAS 232
+
+Program studi adalah kesatuan rencana belajar sebagai pedoman penyelenggaraan pendidikan akademik dan/atau profesional yang diselenggarakan atas dasar suatu kurikulum serta ditujukan agar mahasiswa dapat menguasai pengetahuan, keterampilan, dan sikap sesuai dengan sasaran kurikulum. Kurikulum pendidikan tinggi adalah seperangkat rencana dan pengaturan mengenai isi maupun bahan kajian dan pelajaran serta cara penyampaian dan penilaiannya yang digunakan sebagai pedoman penyelenggaraan kegiatan belajar - mengajar di perguruan tinggi. \\ %SK MENDIKNAS 232
+
 
 
 \section{Template Skripsi FTIS UNPAR}
