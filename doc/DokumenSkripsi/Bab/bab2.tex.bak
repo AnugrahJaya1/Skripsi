@@ -115,7 +115,7 @@ textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \tex
 	\end{itemize}\leavevmode
 	
 	\item Mengurutkan nilai kesamaan atau similaritas dari yang terbesar ke terkecil. Memiliki rentan nilai -1, 0, dan +1 untuk pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati -1, berarti pengguna tersebut kurang memiliki kesamaan dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati 1, berarti pengguna tersebut memiliki kesamaan yang cukup baik dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati +1, berarti pengguna tersebut memiliki kesamaan yang tinggi dengan pengguna yang akan diberikan rekomendasi.
-	%kayanya bagian ini ga usah, soalnya nnti ambil K tetangga terdekat, liat IPK + jurusan, filteri IPK > 2
+	%kayanya bagian ini ga usah, soalnya nnti ambil K tetangga terdekat, liat IPK + jurusan, filteri IPK > 2, trs count jurusannya, rekomendasiin
 	\item Menghitung nilai prediksi dengan rumus umum prediksi 2.2 :
 	
 	\begin{equation}
@@ -135,7 +135,8 @@ textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \tex
 		\item $\mu_{i}$ = Nilai rata-rata pengguna i
 	\end{itemize}\leavevmode
 	
-	\item Menentukan skala prediksi yang akan ditampilkan kepada pengguna 
+	\item Menentukan skala nilai prediksi yang akan ditampilkan kepada pengguna yang akan diberikan rekomendasi. Sehingga rekomendasi yang berada dibawah skala yang sudah ditentukan dapat disaring dan tidak merusak prediksi yang dibuat. %[3]
+	 
 \end{enumerate}\leavevmode
 
 
@@ -156,15 +157,465 @@ Evaluasi diperlukan untuk sistem rekomendasi. Evaluasi \textit{offline} dilakuka
 evaluasi online tidak layak atau terlalu beresiko, meminta beberapa pengguna untuk mencoba
 sistem.
 
-\section{Program Studi}
-\label{sec:program studi} 
-%Diisi dengan penjelasan program studi dan syarat-syaratnya
+\section{Program Studi Universitas Katolik Parahyangan}
+
+\subsection{Universitas Katolik Parahyangan}
 Perguruan tinggi adalah satuan pendidikan yang menyelenggarakan pendidikan tinggi yang dapat berbentuk akademi, politeknik, sekolah tinggi, institut. atau universitas. Pendidikan tinggi adalah kelanjutan pendidikan menengah yang
 diselenggarakan untuk menyiapkan peserta didik menjadi anggota masyarakat yang memiliki kemampuan akademik dan/atau profesional yang dapat menerapkan, mengembangkan dan/atau menciptakan ilmu pengetahuan. teknologi dan/atau kesenian. \\ %SK MENDIKNAS 232
 
+Universitas Katolik Parahyangan adalah sebuah univessitas atau Perguruan tinggi katolik pertama yang didirikan pada 17 Januari 1955. Saat ini terletak di Jalan Ciumbuleuit No.94, Bandung, Jawa Barat, Indonesia. Terdapat tujuh fakultas dengan total program studi yaitu tujuh belas dengan enam belas program studi sarjana dan satu program studi D3. %unpar.ac.id
+
+\subsection{Program Studi}
+\label{sec:program studi} 
+%Diisi dengan penjelasan program studi dan syarat-syaratnya
 Program studi adalah kesatuan rencana belajar sebagai pedoman penyelenggaraan pendidikan akademik dan/atau profesional yang diselenggarakan atas dasar suatu kurikulum serta ditujukan agar mahasiswa dapat menguasai pengetahuan, keterampilan, dan sikap sesuai dengan sasaran kurikulum. Kurikulum pendidikan tinggi adalah seperangkat rencana dan pengaturan mengenai isi maupun bahan kajian dan pelajaran serta cara penyampaian dan penilaiannya yang digunakan sebagai pedoman penyelenggaraan kegiatan belajar - mengajar di perguruan tinggi. \\ %SK MENDIKNAS 232
 
+Terdapat tujuh fakultas yang ada di Universitas Katolik Parahyangan, yaitu :
+	\begin{enumerate}
+		\item Fakultas Ekonomi 
+		\item Fakultas Hukum
+		\item Fakultas Ilmu Sosial dan Ilmu Politik
+		\item Fakultas Teknik
+		\item Fakultas Falsafah dan Peradaban
+		\item Fakultas Teknologi Industri
+		\item Fakultas Teknologi Informasi dan Sains
+	\end{enumerate}\leavevmode
+	
+\subsubsection{Fakultas Ekonomi}
+Terdapat empat program studi pada fakultas Ekonomi, yaitu : Ekonomi Pembangunan, Manajemen, Akuntansi, Manajemen Perusahaan. Manajemen Perusahaan merupakan program studi D3 yang ada di Universitas Katolik Parahyangan. Berikut merupakan penjelasan program studi yang ada pada Fakultas Ekonomi :
+	
+	\begin{enumerate}
+		\item Ekonomi Pembangunan\\
+			 Mempelajari persoalan pembangunan yang sudah, sedang, dan akan
+terjadi di negara berkembang. Menganalisis isu perekonomian untuk mencari dan menemukan solusi dari berbagai persoalan ekonomi secara kritis, kreatif, dan inovatif. Program studi Ekonomi Pembangunan mempersiapkan mahasiswanya untuk menjadi perencana bidang pembangunan ekonomi. Ekonomi Pembangunan cabang ilmu ekonomi. Mempelajari pembangunan industri, perbankan, keuangan, dan bisnis. Berkutat dengan analisis berbagai isu perekonomian untuk mendapatkan solusi dari persoalan ekonomi.\\
 
+			Terdapat tiga peminatan pada program studi Ekonomi Pembangunan, yaitu :
+			\begin{itemize}
+				\item Ekomoni Industri dan Perdagangan
+				\item Ekonomi Kawasan dan Lingkungan
+				\item Ekonomi Moneter dan Keuangan
+			\end{itemize}\leavevmode
+
+		\item Manajemen\\
+			Mempelajari bagaimana mengelola suatu perusahaan atau organisasi. Fokus pada kegiatan mengelola, merencanakan, dan mengatur semua proses dalam perusahaan untuk mencapai tujuan.\\
+			
+			Terdapat satu peminatan pada program studi Manajemen, yaitu :
+			\begin{itemize}
+				\item Manajemen
+			\end{itemize}\leavevmode
+
+		\item Akuntansi\\
+			Mempelajari mengenai keuangan dan ilmu ekonomi, Mahasiswa akan  memiliki pengetahuan dan penguasaan materi tentang keuangan dan ilmu ekonomi. Mampu mengelola keuangan bisnis.\\
+			
+			Terdapat satu peminatan pada program studi Akuntansi, yaitu :
+			\begin{itemize}
+				\item Akuntansi
+			\end{itemize}\leavevmode
+		
+		\item Manajemen Perusahaan\\
+			Terdapat satu peminatan pada program studi Manajemen Perusahaan, yaitu :
+			\begin{itemize}
+				\item Manajemen Perusahaan
+			\end{itemize}\leavevmode
+			
+	\end{enumerate}\leavevmode
+
+\subsubsection{Fakultas Hukum}
+Terdapat satu program studi pada Fakultas Hukum, yaitu : Ilmu Hukum.
+
+	%program studi
+	\begin{enumerate}
+		\item Ilmu Hukum\\
+			Mempelajari tentang hukum baik praktek maupun teori. Hukum mengatur bagaimana manusia bertindak dan bertingkah laku agar tidak merugikan orang lain. Mendalami konsep, teori, dan beberapa kasus hukum yang terjadi.\\
+			
+			Terdapat satu peminatan pada program studi Ilmu Hukum, yaitu :
+			
+			\begin{itemize}
+				\item Ilmu Hukum
+			\end{itemize}\leavevmode
+			
+	\end{enumerate}\leavevmode
+
+\subsubsection{Fakultas Ilmu Sosial dan Ilmu Politik}
+Terdapat tiga program studi pada Fakultas Ilmu Sosial dan Ilmu Politik, yaitu : Ilmu Administrasi Publik, Ilmu Administrasi Bisni, dan Ilmu Hubungan Internasional.
+	%program studi
+	\begin{enumerate}
+		\item Ilmu Administrasi Publik\\
+			Mempelajari seluk beluk pemerintahan, masyarakat, dan kebijakan
+publik, sistem pemerintahan, pembuatan kebijakan hingga pengimplementasian dan evaluasi, pelayanan masyarakat, dan segala sesuatu yang berkaitan dengan birokrasi.\\
+
+			Terdapat satu peminatan pada program studi Ilmu Administrasi Publik, yaitu :
+			
+			\begin{itemize}
+				\item Ilmu Administrasi Publik
+			\end{itemize}\leavevmode
+			
+		\item Ilmu Administrasi Bisni\\
+			Mempelajari mengenai kegiatan operasional bisnis dan perusahaan,
+yaitu : pemasaran (marketing), pengelolaan keuangan, pengelolaan personalia (SDM), hingga kegiatan produksi. Mempelajari untuk membuat produk sendiri, bukan membuat, menjual, dan mendapatkan keuntungan, tetapi menciptakan value pada produk yang dipasarkan. Mempelajari urusan klarikal kantor, mengelola sarana dan prasarana kantor, memproses data secara akurat, dan mengelola informasi yang berhubungan dengan pekerjaan kantor. Program studi ini cocok dengan orang yang memiliki ketertarikan dalam bidang pengurusan dokumen.\\
+			
+			Terdapat dua peminatan pada program studi Ilmu Administrasi Bisnis, yaitu :
+			
+			\begin{itemize}
+				\item \textit{General Business}
+				\item \textit{Digital Business}
+			\end{itemize}\leavevmode
+						
+		\item Ilmu Hubungan Internasional\\
+			Mempelajari mengenai interaksi, relasi, dan komunikasi yang terjadi secara internasional. Tidak hanya mempelajari hubungan diplomasi satu negara dengan negara lain, tapi juga konflik, kesejahteraan, ekonomi, dan perdamaian dunia. Beberapa kajian diplomasi dan negosiasi, politik luar negeri, perdagangan luar negeri, politik internasional, ekonomi internasional, hukum internasional, globalisasi, dll. Diasah mengenai isu-isu global, tokoh-tokoh, dan organisasi internasional yang berpengaruh, dan kerjasama internasional.\\
+			
+			Terdapat satu peminatan pada program studi Ilmu Administrasi Bisnis, yaitu :
+			
+			\begin{itemize}
+				\item Ilmu Hubungan Internasional
+			\end{itemize}\leavevmode
+
+	\end{enumerate}\leavevmode
+	
+\subsubsection{Fakultas Teknik}
+Terdapat dua program studi pada Fakultas Teknik, yaitu : Teknik Sipil dan Arsitektur.
+	%program studi
+	\begin{enumerate}
+		\item Teknik Sipil\\
+			 Mempelajari proses merancang, membangun, dan merenovasi gedung serta infrastruktur lain, seperti jalan, jembatan, bendungan, dan infrastruktur lainnya. Memahami unsur-unsur bangunan seperti beton, baja, aspal, dan lain-lain. Mempelajari perancangan struktur bangunan yang kuat, layak, dan efisien.\\
+			
+			Terdapat satu peminatan pada program studi Teknik Sipil, yaitu :
+			
+			\begin{itemize}
+				\item Teknik Sipil
+			\end{itemize}\leavevmode
+			
+		\item Arsitektur\\
+			Mempelajari desain dan rancangan konstruksi bangunan. Lebih menuangkan ide, konsep, dan desain di atas kertas, sedangkan realisasi akan dikerjakan oleh teknik sipil. Harus mempelajari kekuatan bangunan (firmitasi), estetika atau keindahan bangunan (venustas), dan fungsi bangunan (utilitas). \\
+			
+			Terdapat satu peminatan pada program studi Arsitektur, yaitu :
+			
+			\begin{itemize}
+				\item Arsitektur
+			\end{itemize}\leavevmode
+
+	\end{enumerate}\leavevmode
+	
+\subsubsection{Fakultas Falsafah dan Peradaban}
+Terdapat satu program studi pada Fakultas Falsafah dan Peradaban, yaitu : Ilmu Filsafat.
+	
+	%program studi
+	\begin{enumerate}
+		\item Ilmu Filsafat\\
+			 Filsafat sebagai induk semua ilmu, filsafat lebih mempelajari tentang permasalahan mendasar manusia dan hubungannya dengan realita. Bersifat abstrak dan memerlukan pemahaman yang mendasar. Kajian utamanya yaitu tujuan hidup, esensi manusia, moralitas, dan hati nurani. Mempelajari pemikiran para filsuf. Membantu berpikir secara terstruktur dan mampu memproses informasi secara jernih.\\
+			
+			Terdapat dua peminatan pada program studi Ilmu Filsafat, yaitu :
+			
+			\begin{itemize}
+				\item Filsafat Keilahian
+				\item Filsafat Budaya
+			\end{itemize}\leavevmode
+			
+	\end{enumerate}\leavevmode
+	
+\subsubsection{Fakultas Teknologi Industri}
+Terdapat tiga program studi pada Fakultas Teknologi Industri, yaitu : Teknik Industri, Teknik Kimia, dan Teknik Elektro.
+	%program studi
+	\begin{enumerate}
+		\item Teknik Industri\\
+			Mempelajari proses industri baik dari sisi manajemen ataupun teknik. Turunan dari teknik mesin. Mempelajari disiplin ilmu lain seperti matematika, fisika, fisiologi, dan manajemen saintifik. Teknik Industri berfokus pada perancangan, peningkatan, dan pemasangan sistem terintegrasi yang membutuhkan manusia, material, peralatan, dan energi. Memiliki tiga bidang dan satu sistem manufaktur (mempelajari peningkatan kualitas, produktivitas, dan efisiensi sistem produk), dua manajemen industri (mempelajari manajemen keuangan, operasional, manajemen inovasi, perencanaan dan pengendalian produksi, dan ekonomi teknik), dan tiga sistem industri dan tekno ekonomi, seperti logistik, statistik, penelitian operasional, dan sistem basis data.\\
+			
+			Terdapat satu peminatan pada program studi Teknik Industri, yaitu :
+			
+			\begin{itemize}
+				\item Teknik Industri
+			\end{itemize}\leavevmode
+			
+		\item Teknik Kimia\\
+			Cabang ilmu teknik yang mempelajari bagaimana proses dan cara mengubah bahan baku/mentah dan bahan kimia menjadi sebuah produk yang lebih bernilai secara komersial maupun perubahan sifat fisik dan kimia bahan mentah. Dididik untuk merencanakan dan merancang alat-alat proses, mengoperasikan, mengendalikan dan memelihara pabrik/industri, mengkontruksi pendirian suatu pabrik, mengadakan penelitian dan pengembangan proses, serta merencanakan serta mengelola penjualan dan pelayanan.\\
+			
+			Terdapat satu peminatan pada program studi Teknik Kimia, yaitu :
+			
+			\begin{itemize}
+				\item Teknik Kimia
+			\end{itemize}\leavevmode
+
+		\item Teknik Elektro\\
+			Mempelajari sifat-sifat elektron yang kita kenal sebagai listrik, mempelajari aplikasi dan pemanfaatan listrik dalam kehidupan sehari-hari, serta teknologi yang terkait. Cakupannya meliputi pembangkit tenaga listrik, sistem jaringan distribusi, pemanfaatan oleh pengguna akhir.\\
+			
+			Terdapat satu peminatan pada program studi Teknik Elektro, yaitu :
+			
+			\begin{itemize}
+				\item Mekatronika
+			\end{itemize}\leavevmode
+
+	\end{enumerate}
+	
+\subsubsection{Fakultas Teknologi Informasi dan Sains}
+Terdapat tiga program studi pada Fakultas Teknologi Informasi dan Sains, yaitu : Matematika, Fisika, dan Teknik Informatika.
+	
+	%program studi
+	\begin{enumerate}
+		\item Matematika\\
+			Mempelajari matematika murni seperti aljabar, geometri, dan analisis matematika; statistika; komputasi; aktuaria; dan riset operasi.\\
+
+			Terdapat dua peminatan pada program studi Matematika, yaitu :
+			
+			\begin{itemize}
+				\item Aktuaria
+				\item Matematika Terapan
+			\end{itemize}\leavevmode
+			
+		\item Fisika\\
+			 Mempelajari gejala alam yang tidak hidup atau materi dalam lingkup ruang dan waktu, mempelajari perilaku dan sifat materi dalam bidang yang sangat beragam (partikel submikroskopis - perilaku materi alam semesta sebagai satu kesatuan kosmos). Ilmu fisika sangat mendukung perkembangan teknologi, yaitu industri, komunikasi, kerekayasaan, kimia, dan kedokteran.\\
+			 
+			 Terdapat satu peminatan pada program studi Fisika, yaitu :
+			
+			\begin{itemize}
+				\item Fisika
+			\end{itemize}\leavevmode
+
+		\item Teknik Informatika\\
+			Mempelajari dan menerapkan prinsip-prinsip ilmu komputer dan analisa matematis untuk desain, pengembangan, pengujian, evaluasi perangkat lunak, sistem operasi, dan kerja komputer. Menghasilkan ide kreatif, merealisasikan ide, mendiferensiasikan berbagai macam fungsi, dan menciptakan struktur instruksi yang sangat detail dalam bahasa pemrograman untuk mengajarkan komputer apa yang harus dilakukan.\\
+			
+			Terdapat dua peminatan pada program studi Teknik Informatika, yaitu :
+			
+			\begin{itemize}
+				\item \textit{Data Science}
+				\item \textit{Computer Science}
+			\end{itemize}\leavevmode
+			
+	\end{enumerate}\leavevmode
+	
+\subsection{Syarat Masuk Program Studi}
+Berikut merupakan syarat untuk program studi yang ada di Universitas Katolik Parahyangan :
+\begin{table}[H] %atau h saja untuk "kira kira di sini"
+	\centering 
+	\caption{Tabel syarat program studi}
+	\label{tab:contoh1}
+	\begin{tabular}{| c | c | c | c | c |}
+		\hline
+		Program Studi & Syarat Jurusan & USM  & PMDK & Syarat Khusus\\
+
+		\hline
+		\multirow{3}{10em}{Ekonomi Pembangunan} & IPA & Matematika IPS & Matematika & \\
+		& IPS & Inggris & Indonesia & \\
+		& & & Inggris & \\
+		
+		\hline
+		\multirow{2}{10em}{Manajemen} & IPA & Matematika IPS & Matematika & \\
+		& IPS & Inggris & Inggris & \\
+		
+		\hline
+		\multirow{2}{10em}{Akuntansi} & IPA & Matematika IPS & Matematika & \\
+		& IPS & Inggris & Inggris & \\
+		
+		\hline
+		\multirow{4}{10em}{Manajemen Perusahaan} & IPA & Esai & Matematika & \\
+		& IPS & & & \\
+		& Bahasa & & & \\
+		& SMK & & & \\
+		\hline
+		\multirow{3}{10em}{Ilmu Hukum} & IPA & Matematika IPS & Matematika & \\
+		& IPS & Inggris & Inggris & \\
+		& Bahasa & & & \\
+		
+		\hline
+		\multirow{4}{10em}{Ilmu Administrasi Publik} & IPA & Matematika IPS & Matematika & \\
+		& IPS & Inggris & Inggris & \\
+		& Bahasa & & & \\
+		& SMK & & & \\
+		
+		\hline
+		\multirow{4}{10em}{Ilmu Administrasi Bisnis} & IPA & Matematika IPS & Matematika & \\
+		& IPS & Inggris & Inggris & \\
+		& Bahasa & & & \\
+		& SMK & & & \\
+		
+		\hline
+		\multirow{3}{10em}{Ilmu Hubungan Internasional} & IPA & Matematika IPS & Matematika & \\
+		& IPS & Inggris & Inggris & \\
+		& Bahasa & & Uraian Bahasa Inggris & \\
+		
+		\hline
+		\multirow{3}{10em}{Teknik Sipil} & IPA & Matematika & Matematika & \\
+		& & Inggris & Inggris & \\
+		& & Fisika & Fisika & \\
+		
+		\hline
+		\multirow{3}{10em}{Arsitektur} & IPA & Matematika & Matematika & \\
+		& & Inggris & Inggris & \\
+		& & Gambar & Gambar & \\
+		
+		\hline
+		\multirow{4}{10em}{Ilmu Filsafat} & IPA & Matematika IPS & Inggris & \\
+		& IPS & Inggris & Indonesia & \\
+		& Bahasa & Wawancara & & \\
+		& SMK & & & \\
+		
+		\hline
+	\end{tabular} 
+\end{table}
+
+
+\begin{table}[H] %atau h saja untuk "kira kira di sini"
+	\centering 
+	\caption{Tabel syarat program studi}
+	\label{tab:contoh1}
+	\begin{tabular}{| c | c | c | c | c |}
+		\hline
+		Program Studi & Syarat Jurusan & USM  & PMDK & Syarat Khusus\\		
+		
+		\hline
+		\multirow{2}{10em}{Teknik Industri} & IPA & Matematika & Inggris & \\
+		& & Matematika & Inggris & \\
+		
+		\hline
+		\multirow{4}{10em}{Teknik Kimia} & IPA & Matematika & Matematika & Tidak buta warna\\
+		& & Inggris & Inggris & \\
+		& & Fisika & Fisika & \\
+		& & & Kimia & \\
+		
+		\hline
+		\multirow{3}{10em}{Teknik Elektro} & IPA & Matematika & Matematika & Tidak buta warna \\
+		& & Inggris & Inggris & \\
+		& & Fisika & Fisika & \\
+		
+		\hline
+		\multirow{2}{10em}{Matematika} & IPA & Matematika & Matematika & \\
+		& & Inggris & Inggris & \\
+		& & & & \\
+		
+		\hline
+		\multirow{3}{10em}{Fisika} & IPA & Matematika & Matematika & \\
+		& & Inggris & Inggris & \\
+		& & Fisika & & \\
+		
+		\hline
+		\multirow{2}{10em}{Teknik Informatika} & IPA & Matematika & Matematika & \\
+		& & Inggris & Inggris & \\
+		
+		\hline		
+	\end{tabular} 
+\end{table}
+	
+\subsection{Karakteristik Program Studi}
+Berikut merupakan kriteria untuk calon mahasiswa sesuai dengan program studi :
+
+\begin{table}[H] %atau h saja untuk "kira kira di sini"
+	\centering 
+	\caption{Tabel kriteria}
+	\label{tab:contoh1}
+	\begin{tabular}{| c | c |}
+		\hline
+		Program Studi & Karakteristik \\
+
+		\hline
+		\multirow{5}{10em}{Ekonomi Pebangunan} & Tertarik dengan Ilmu Ekonomi \\
+		& Tertarik denan perhitungan \\
+		& Kritis \\
+		& Senang menganalisis\\
+		& Mampu memecahkan masalah\\
+		
+		\hline
+		\multirow{3}{10em}{Manajemen} & Keterampilan komunikasi \\
+		& Senang menganalisis\\
+		& Senang memecahkan\\
+		
+		\hline
+		\multirow{3}{10em}{Akuntansi} & Tertarik dengan akuntansi \\
+		& Memiliki kemampuan berhitung yang kuat dan teliti \\
+		& Senang menganalisis\\
+		
+		\hline
+		\multirow{3}{10em}{Manajemen Perusahaan} &  \\
+		& \\
+		& \\
+		
+		\hline
+		\multirow{4}{10em}{Ilmu Hukum} & Tertarik dengan hukum \\
+		& Teliti dan Kritis \\
+		& Keterampilan komunikasi \\
+		& Mampuan menganalisis\\
+		
+		\hline
+		\multirow{3}{10em}{Ilmu Administrasi Publik} & Terstruktur \\
+		& Senang menganalisis\\
+		& Senang memecahkan masalah\\
+		
+		\hline
+		\multirow{4}{10em}{Ilmu Administrasi Bisnis} & Memiliki minat yang tinggi untuk usaha \\
+		& Kemampuan komunikasi\\
+		& Kemampuan berhitung\\
+		& Terstruktur\\
+		
+		\hline
+		\multirow{4}{10em}{Ilmu Hubungan Internasional} & Tertarik dengan interaksi internasional \\
+		& Kemampuan berbahasa Inggris \\
+		& Berwawasan luas \\
+		& Kemampuan komunikasi\\
+		
+		\hline
+		\multirow{2}{10em}{Teknik Sipil} & Senang berhitung \\
+		& Terstruktur \\
+		
+		\hline
+		\multirow{4}{10em}{Arsitektur} & Tertarik dengan desain dan rancangan bangunan \\
+		& Tertarik dengan matematika \\
+		& Tertarik dengan menggambar dan seni\\
+		& Tertarik dengan humaniora, sains, dan teknologi \\
+		
+		\hline
+		\multirow{4}{10em}{Ilmu Filsafat} & Tipe pemikir \\
+		& Berwawasan luas \\
+		& Rasional \\
+		& Kritis \\
+		
+		\hline
+	\end{tabular} 
+\end{table}
+
+\begin{table}[H] %atau h saja untuk "kira kira di sini"
+	\centering 
+	%\caption{Tabel kriteria}
+	\label{tab:contoh1}
+	\begin{tabular}{| c | c |}
+		\hline
+		Program Studi & Karakteristik \\		
+		
+		\hline
+		\multirow{2}{10em}{Teknik Industri} &  Senang berhitung \\
+		& Terstruktur \\
+		
+		\hline
+		\multirow{4}{10em}{Teknik Kimia} & Tertarik dengan Kimia \\
+		& Senang berhitung \\
+		& Terstruktur \\
+		& Tidak buta warna\\
+		
+		\hline
+		\multirow{4}{10em}{Teknik Elektro} & Tidak buta warna \\
+		& Senang berhitung \\
+		& Terstruktur \\
+		& Teliti \\
+
+		\hline
+		\multirow{4}{10em}{Matematika} & Tertarik dengan Matematika \\
+		& Senang memecahkan masalah \\
+		& Terstruktur \\
+		& Teliti \\
+		
+		\hline
+		\multirow{4}{10em}{Fisika} & Senang berhitung \\
+		& Senang menganalisis \\
+		& Mampu memecahkan masalah\\
+		& Teliti \\
+		
+		\hline
+		\multirow{4}{10em}{Teknik Informatika} & Tertarik dengan teknologi \\
+		& Senang menganalisis \\
+		& Senang memecahkan masalah \\
+		& Senang berhitung \\
+
+		\hline
+		
+	\end{tabular} 
+\end{table}
 
 \section{Template Skripsi FTIS UNPAR}
 \label{sec:template}
