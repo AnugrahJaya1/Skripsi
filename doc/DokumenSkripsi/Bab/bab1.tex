@@ -14,9 +14,13 @@ Ketidak cocokan program studi dengan mahasiswa di Indonesia masih cukup tinggi. 
 
 Maka dari itu diperlukan sebuah sistem rekomendasi yang dapat memberikan rekomendasi item berupa program studi yang sesuai dengan minat siswa SMA. Sistem rekomendasi adalah alat dan teknik perangkat lunak yang menyediakan saran untuk item yang akan digunakan oleh pengguna. Sistem rekomendasi berfokus pada item tertentu dan ditujukan untuk individu atau personal. Beberapa teknik yang biasa digunakan pada sistem rekomendasi, yaitu : \textit{Content-based}, \textit{Collaborative Filtering}, \textit{Demographic}, \textit{Knowledge-based}, \textit{Community-based}, \textit{Hybrid recommender systems}. Teknik yang akan digunakan pada sistem rekomendasi yang akan dibangun adalah \textit{Collaborative Filtering}.\\
 
-\textit{Collaborative Filtering} merupakan teknik yang merekomendasikan item yang sesusi dengan kebutuhan pengguna berdasarkan \textit{rating} tanpa memerlukan informasi mengenai item ataupun pengguna. Secara sederhana \textit{Collaborative Filtering} menghitung kesamaan atau similaritas antara pengguna aktif dengan beberapa pengguna yang memiliki selera atau minat yang serupa. Untuk menghitung similaritas digunakan metode \textit{Pearson Correlation Coefficient}. \textit{Pearson Correlation Coefficient} bekerja dengan cara menghitung korelasi antara dua variable dari masing-masing pengguna yang sedang dibandingkan. Semakin tinggi nilai yang dihasilkan maka mengidentifikasikan kedua pengguna memiliki similaritas yang cukup tinggi. \\
+\textit{Collaborative Filtering} merupakan teknik yang merekomendasikan item yang sesuai dengan kebutuhan pengguna berdasarkan \textit{rating} tanpa memerlukan informasi mengenai item ataupun pengguna, contoh informasi yang dimaksud adalah deskripsi mengenai item atau pengguna. Secara sederhana \textit{Collaborative Filtering} menghitung kesamaan atau similaritas antara pengguna aktif dengan beberapa pengguna yang memiliki selera atau minat yang serupa. Untuk menghitung similaritas digunakan metode \textit{Pearson Correlation Coefficient}. \textit{Pearson Correlation Coefficient} bekerja dengan cara menghitung korelasi antara dua variabel dari masing-masing pengguna yang sedang dibandingkan. Semakin tinggi nilai korelasi yang dihasilkan maka mengidentifikasikan kedua pengguna memiliki similaritas yang cukup tinggi. \\
  
-Pada skripsi ini akan dibangun sebuah sistem rekomendasi yang dapat memberikan rekomendasi item berupa program studi yang sesuai dengan minat siswa SMA. Sistem rekomendasi ini akan mengguna algoritma \textit{Collaborative Filtering} dengan model \textit{Neighborhood} dengan pendekatan \textit{User-based}. \textit{User-based} memprediksi berdasarkan kesamaan \textit{rating} pengguna dengan item.
+Pada skripsi ini akan dibangun sebuah perangkat lunak sistem rekomendasi yang dapat memberikan rekomendasi item berupa program studi yang sesuai dengan minat siswa SMA. Sistem rekomendasi ini akan mengguna algoritma \textit{Collaborative Filtering} dengan model \textit{Neighborhood} dengan pendekatan \textit{User-based}. \textit{User-based} memprediksi berdasarkan kesamaan \textit{rating} pengguna dengan item. \\
+
+\textit{Rating} yang dalam kasus ini adalah indeks prestasi kumulatif (IPK) . Berdasarkan Pasal 23 ayat 5 Peraturan Menteri Pendidikan dan Kebudayaan Republik Indonesia Nomor Tahun 2014 tentang Standar Nasional Pendidikan Tinggi yang berbunyi Hasil penilaian capaian pembelajaran lulusan pada akhir program studi dinyatakan dengan indeks prestasi kumulatif (IPK).
+% sumber permen_tahun2014_nomor049
+
 %\dtext{5-10}
 
 \section{Rumusan Masalah}
@@ -50,8 +54,9 @@ Tujuan dari penuisan skripsi ini adalah sebagai berikut : \\
 %Untuk mempermudah pembuatan template ini, tentu ada hal-hal yang harus dibatasi, misalnya saja bahwa template ini bukan berupa style \LaTeX{} pada umumnya (dengan alasannya karena belum mampu jika diminta membuat seperti itu)
 Mengingat banyaknya perguruan tinggi dan program studi yang ada di Indonesia, maka perlu adanya batasan masalah yang jelas mengenai apa yang dibuat dan diselesaikan dalam penulisan skripsi ini. Berikut merupakan batasan-batasan masalah pada skirpsi ini : \\
 	\begin{enumerate}
-		\item Program studi Universitas Katolik Parahyangan (UNPAR).
-		\item Data mahasiswa UNPAR yang masuk melalui jalur Penelusuran Minat dan Kemampuan (PMDK).
+		\item 15 Program studi Universitas Katolik Parahyangan (UNPAR).
+		\item Data mahasiswa UNPAR yang masuk melalui jalur Penelusuran Minat dan Kemampuan (PMDK) pada tahun 2013-2018 yang sudah lulus.
+		\item Hanya menggunakan nilai mata pelajaran Matematika, Bahasa Indonesia, Bahasa Inggris, Pendidikan Kewarganegaraan, Fisika, dan Kimia sebagai atribut.
 	\end{enumerate}
 	
 %\dtext{8}
@@ -75,5 +80,9 @@ Mengingat banyaknya perguruan tinggi dan program studi yang ada di Indonesia, ma
 \label{sec:sispem}
 \begin{enumerate}
 	\item Bab 1 menjelaskan mengenai latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi penelitian, dan sistematika pembahasan untuk sistem rekomendasi program studi di perguruan tinggi untuk anak SMA.
+	\item Bab 2 
+	\item Bab 3
+	\item Bab 4
+	\item Bab 5
 \end{enumerate}
 %\dtext{10}

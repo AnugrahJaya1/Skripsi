@@ -12,6 +12,7 @@ Pengembangan sistem rekomendasi dimulai dari pengamatan yang sederhana berupa re
 
 Sistem rekomendasi menghasilkan rekomendasi menggunakan berbagai jenis pengetahuan dan data tentang pengguna, item yang tersedia, dan transaksi sebelumnya, contohnya berupa e-commerce yang mengatasi masalah kelebihan informasi yang terjadi akibat transaksi pengguna sebelumnya. \\ %RS hanbook
 
+% kemungkinan besar dihapus (ga kepake di skripsi, cuman informasi aja)
 \subsection{Fungsi Sistem Rekomendasi}
 Fungsi utama sistem rekomendasi adalah menemukan item yang relevan dengan kebutuhan pengguna.Selain untuk menemukan item yang relevan terdapat juga beberapa fungsing sistem rekomendasi, yaitu  : %RS hanbook
 	\begin{enumerate}
@@ -33,13 +34,13 @@ Fungsi utama sistem rekomendasi adalah menemukan item yang relevan dengan kebutu
 
 \subsection{Sumber Data dan Pengetahuan}
 \label{sec:sumber data dan pengetahuan}
-Sistem rekomendasi adalah sistem pemrosesan informasi yang secara aktif mengumpulkan berbagai jenis data untuk membangun rekomendasinya. Data utama berupa data item yang disarankan dan pengguna yang akan menerima rekomendasi. Data yang digunakan sistem rekomendasi mengacu pada tige jenis objek, yaitu : %RS hanbook
+Sistem rekomendasi adalah sistem pemrosesan informasi yang secara aktif mengumpulkan berbagai jenis data untuk membangun rekomendasinya. Data utama berupa data item yang disarankan dan pengguna yang akan menerima rekomendasi. Data yang digunakan sistem rekomendasi mencakup pada tige jenis objek, yaitu : %RS hanbook
 	\begin{enumerate}
 	\item Item\\
 		Item adalah objek yang direkomendasikan, item bisa ditandai oleh kompleksitasnya dan nilai atau kegunaannya. Bisa bernilai positif jika sesuai atau negatif jika tidak sesuai.
 	
 	\item Pengguna\\
-		Pengguna adalah objek yang menggunakan sistem, memiliki tujuan dan karakteristik beragam. Untuk mempersonalisasi rekomendasi, sistem rekomendasi mengeksploitasi berbagai informasi pengguna. Pengguna juga dapat dijelaskan oleh data pola perilaku (pola penelusuran web, atau pola pencarian perjalanan)
+		Pengguna adalah objek yang menggunakan sistem, memiliki tujuan dan karakteristik beragam. Pengguna juga dapat dijelaskan oleh data pola perilaku (pola penelusuran web, atau pola pencarian perjalanan)
 	
 	\item Transaksi\\
 		Interaksi yang direkam antara pengguna sistem rekomendasi. Transaksi adalah data seperti log yang menyimpan informasi penting yang dihasilkan selama interaksi manusia-komputer dan berguna untuk algoritma pembuatan rekomendasi yang digunakan sistem. Bentuk dari peringkat yang populer di sistem rekomendasi :
@@ -64,7 +65,7 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : \\%R
 		Sistem merekomendasikan item yang mirip berdasarkan item yang disukai pengguna di masa lalu. Kesamaan dihitung berdasarkan fitur(atribut) yang terkait dengan item. misal , review positif film komedi, maka akan direkomendasikan film di genre yang sama. 
 
 	\item \textit{Collaborative Filtering} \\
-		Implementasi paling sederhana, merekomendasikan item yang disukai pengguna lain dengan selera serupa di masa lalu. CF populer dan banyak digunakan pada RS. Nearest neighbors meningkatkan popularitas karena sederhana, efisien, dan kemampuan mereka untuk menghasilkan rekomendasi yang akurat dan dipersonalisasi.
+		 Rekomendasi berdasarkan item yang disukai pengguna lain yang memiliki kesamaan. Implementasi paling sederhana, merekomendasikan item yang disukai pengguna lain dengan selera serupa di masa lalu.  \textit{Collaborative Filtering} populer dan banyak digunakan pada sistem rekomendasi. \textit{Nearest neighbors} meningkatkan popularitas karena sederhana, efisien, dan kemampuan mereka untuk menghasilkan rekomendasi yang akurat dan menunjukkan ciri personal tertentu.
 	
 	\item \textit{Demographic} \\
 		Rekomendasi berdasarkan profil demografis pengguna. Asumsinya bahwa rekomendasi yang berbeda harus dihasilkan untuk demografis yang berbeda. Misalnya diarahkan ke web dengan bahasa atau negara pengguna. 
@@ -76,7 +77,8 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : \\%R
 		Merekomendasikan item berdasarkan teman-teman pengguna. Bukti menunjukan bahwa orang cenderung lebih mengandalkan rekomendasi dari teman-teman dari pada rekomendasi dari orang yang belum dikenal. 
 
 	\item \textit{Hybrid recomender systems} \\
-		Kombinasi dari hal diatas. Menggunakan teknik A dan B mencoba untuk menggunakan keunggulan A dan memperbaiki kelemahan B. misal CF memiliki kelemahan terhadap item yang tidak memiliki peringkat (ga ada histori)  bisa digabungkan dengan metode content-based
+		Kombinasi dari beberapa teknik yang sudah disebutkan sebelumnya. Menggunakan teknik A dan B mencoba untuk menggunakan keunggulan A dan memperbaiki kelemahan B. Contoh, \textit{Collaborative Filtering} memiliki kelemahan terhadap item yang tidak memiliki peringkat (tidak terdapat riwayat) bisa digabungkan dengan metode \textit{Content-based}.
+		
 \end{enumerate}
 
 % jelasin konsep dasar Collabrative Filtering
@@ -88,11 +90,12 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : \\%R
 \subsubsection{\textit{Neighborhood-based Collaborative Filtering}}
 textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering} adalah algoritma pertama yang dikembangan untuk teknik \textit{Collaborative Filtering}. Algoritma ini peringkat \textit{user-item} disimpan dalam sistem secara langsung digunakan untuk memprediksi peringkat item baru, dapat dilakukan dengan \textit{user-based model}. %RS hanbook
 
+% kayanya lebih ke item based, berdasarkan fullbook01
 \subsubsection{\textit{•User-based Neighborhood Model}}
 \textit{User-based} bekerja dengan mengidentifikasi pengguna yang akan diberikan rekomendasi dengan pengguna yang memiliki kesamaan. Aktivitas pengguna yang memiliki kesamaan ini akan menjadi dasar dalam memberikan rekomendasi kepada pengguna. Aktivitas bisa berupa memberikan peringkat kepada item. Berikut adalah tahapan yang perlu dilakukan pada \textit{User-based} : 
 
 \begin{enumerate}
-	\item Mencari nilai rata-rata peringkat yang sudah diberikan oleh pengguna sebelumnya.
+	\item Mencari nilai rata-rata \textit{rating} yang sudah diberikan oleh pengguna sebelumnya.
 	
 	\item Menghitung kesamaan atau similaritas pengguna menggunakan \textit{Pearson Correlation Coefficient} 2.1 :
 	
@@ -118,21 +121,27 @@ textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \tex
 	%kayanya bagian ini ga usah, soalnya nnti ambil K tetangga terdekat, liat IPK + jurusan, filteri IPK > 2, trs count jurusannya, rekomendasiin
 	\item Menghitung nilai prediksi dengan rumus umum prediksi 2.2 :
 	
+	%\begin{equation}
+	%	r_{i,k} = \mu_{i} + \frac{\Sigma _{j \epsilon} P_{i} Sim(i,j)\cdot (r_{j,k} - \mu_{j})}{\Sigma _{j \epsilon} P_{i(k)} |Sim(i,j)|}
+	%\end{equation}\leavevmode \\
+
 	\begin{equation}
-		r_{i,k} = \mu_{i} + \frac{\Sigma _{j \epsilon} P_{i} Sim(i,j)\cdot (r_{j,k} - \mu_{j})}{\Sigma _{j \epsilon} P_{i(k)} |Sim(i,j)|}
-	\end{equation}\leavevmode \\
-	
+		r_{i,k} = \frac{\Sigma (sim(i,j)*r_{j,k}) }{\Sigma sim(i,j)}
+	\end{equation}		
+		
 	Keterangan :
 	\begin{itemize}
 		\item $r_{i,k}$ = Nilai prediksi pengguna i untuk item k
 		
 		\item Sim(i,j)= kesamaan atau similiaritas pengguna i dan pengguna j
 		
-		\item $r_{j,k}$ = Penilaian pengguna j terhdap item k
+		\item $r_{j,k} $ = Penilaian pengguna j terhadap item k
 		
-		\item $\mu_{j}$ = Nilai rata-rata pengguna j
+		%\item $r_{j,k}$ = Penilaian pengguna j terhdap item k
 		
-		\item $\mu_{i}$ = Nilai rata-rata pengguna i
+		%\item $\mu_{j}$ = Nilai rata-rata pengguna j
+		
+		%\item $\mu_{i}$ = Nilai rata-rata pengguna i
 	\end{itemize}\leavevmode
 	
 	\item Menentukan skala nilai prediksi yang akan ditampilkan kepada pengguna yang akan diberikan rekomendasi. Sehingga rekomendasi yang berada dibawah skala yang sudah ditentukan dapat disaring dan tidak merusak prediksi yang dibuat. %[3]
@@ -144,7 +153,7 @@ textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \tex
 \subsection{Aplikasi dan Evalusi}
 \label{sec:aplikasi dan evaluasi}
 \subsubsection{Aplikasi}
-Faktor pertama yang harus dipertimbangkan adalah domain aplikasi, memiliki efek yang besar pada pendekatan algoritmik yang diambil. Kelas domain paling umum : %RS hanbook
+Faktor pertama yang harus dipertimbangkan adalah domain aplikasi yang akan dibangun karena memiliki efek yang besar pada algoritma yang akan digunakan. Kelas domain paling umum : %RS hanbook
 \begin{enumerate}
 	\item Entertainment : rekomendasi film dan musik
 	\item Content : personalisasi berita, dokukumen, dan web page
@@ -153,9 +162,21 @@ Faktor pertama yang harus dipertimbangkan adalah domain aplikasi, memiliki efek 
 \end{enumerate}
 
 \subsubsection{Evalusi}
-Evaluasi diperlukan untuk sistem rekomendasi. Evaluasi \textit{offline} dilakukan dengan cara menjalankan beberapa algoritma pada data yang sama dan membandingkan kinerjanya. Evaluasi \textit{online} dilakukan saat sistem sudah diluncurkan, melibatkan pengguna nyata. \textit{Focused user study}, jika
-evaluasi online tidak layak atau terlalu beresiko, meminta beberapa pengguna untuk mencoba
-sistem.
+Sebuah sistem rekomendasi banyak digunakan untuk memberikan prediksi berupa saran item yang sesuai dengan minat pengguna. Prediksi yang diberikan sistem rekomendasi memiliki nilai keakuratan yang dapat berbeda sesuai dengan kasus yang dihadapi dan juga algoritma yang digunakan. Prediksi yang diberikan harus akurat, oleh karena itu diperlukan evaluasi pada sistem rekomndasi. Evalusasi dapat menggunakan tiga metode yaitu :
+
+\begin{enumerate}
+	\item \textit{Offline}\\
+		Metode \textit{offline} dilakukan dengan cara menjalankan beberapa algoritma pada data yang sama dan membandingkan kinerjanya.
+
+	\item \textit{Online}\\
+		Metode \textit{online} dilakukan saat perangkat lunak sudah diluncurkan dan melibatkan pengguna nyata. 
+		
+	\item \textit{Focused user study}\\
+		Metode \textit{Focused user study} dilakukkan saat metode \textit{online} tidak layak dilakukan atau terlalu beresiko.
+	
+\end{enumerate}
+
+%Evaluasi diperlukan untuk sistem rekomendasi. Evaluasi \textit{offline} dilakukan dengan cara menjalankan beberapa algoritma pada data yang sama dan membandingkan kinerjanya. Evaluasi \textit{online} dilakukan saat sistem sudah diluncurkan, melibatkan pengguna nyata. \textit{Focused user study}, jika evaluasi online tidak layak atau terlalu beresiko, meminta beberapa pengguna untuk mencoba sistem.
 
 \section{Program Studi Universitas Katolik Parahyangan}
 
@@ -186,8 +207,8 @@ Terdapat empat program studi pada fakultas Ekonomi, yaitu : Ekonomi Pembangunan,
 	
 	\begin{enumerate}
 		\item Ekonomi Pembangunan\\
-			 Mempelajari persoalan pembangunan yang sudah, sedang, dan akan
-terjadi di negara berkembang. Menganalisis isu perekonomian untuk mencari dan menemukan solusi dari berbagai persoalan ekonomi secara kritis, kreatif, dan inovatif. Program studi Ekonomi Pembangunan mempersiapkan mahasiswanya untuk menjadi perencana bidang pembangunan ekonomi. Ekonomi Pembangunan cabang ilmu ekonomi. Mempelajari pembangunan industri, perbankan, keuangan, dan bisnis. Berkutat dengan analisis berbagai isu perekonomian untuk mendapatkan solusi dari persoalan ekonomi.\\
+			 Mempelajari persoalan pembangunan ekonomi yang sudah, sedang, dan akan
+terjadi di negara berkembang. Menganalisis isu perekonomian untuk mencari dan menemukan solusi dari berbagai persoalan ekonomi secara kritis, kreatif, dan inovatif. Program studi Ekonomi Pembangunan mempersiapkan mahasiswanya untuk menjadi perencana bidang pembangunan ekonomi. Ekonomi Pembangunan adalah cabang ilmu ekonomi. Mempelajari pembangunan industri, perbankan, keuangan, dan bisnis. Berkutat dengan analisis berbagai isu perekonomian untuk mendapatkan solusi dari persoalan ekonomi.\\
 
 			Terdapat tiga peminatan pada program studi Ekonomi Pembangunan, yaitu :
 			\begin{itemize}
@@ -205,18 +226,18 @@ terjadi di negara berkembang. Menganalisis isu perekonomian untuk mencari dan me
 			\end{itemize}\leavevmode
 
 		\item Akuntansi\\
-			Mempelajari mengenai keuangan dan ilmu ekonomi, Mahasiswa akan  memiliki pengetahuan dan penguasaan materi tentang keuangan dan ilmu ekonomi. Mampu mengelola keuangan bisnis.\\
+			Mempelajari mengenai keuangan dan ilmu ekonomi, Mahasiswa pada program studi Akuntansi akan memiliki pengetahuan dan penguasaan materi tentang keuangan dan ilmu ekonomi. Mampu mengelola keuangan bisnis.\\
 			
 			Terdapat satu peminatan pada program studi Akuntansi, yaitu :
 			\begin{itemize}
 				\item Akuntansi
 			\end{itemize}\leavevmode
 		
-		\item Manajemen Perusahaan\\
-			Terdapat satu peminatan pada program studi Manajemen Perusahaan, yaitu :
-			\begin{itemize}
-				\item Manajemen Perusahaan
-			\end{itemize}\leavevmode
+		%\item Manajemen Perusahaan\\
+			%Terdapat satu peminatan pada program studi Manajemen Perusahaan, yaitu :
+			%\begin{itemize}
+				%\item Manajemen Perusahaan
+			%\end{itemize}\leavevmode
 			
 	\end{enumerate}\leavevmode
 
@@ -393,58 +414,59 @@ Berikut merupakan syarat untuk program studi yang ada di Universitas Katolik Par
 		Program Studi & Syarat Jurusan & USM  & PMDK & Syarat Khusus\\
 
 		\hline
-		\multirow{3}{10em}{Ekonomi Pembangunan} & IPA & Matematika IPS & Matematika & \\
-		& IPS & Inggris & Indonesia & \\
-		& & & Inggris & \\
+		\multirow{3}{10em}{Ekonomi Pembangunan} & IPA & Matematika & Matematika & \\
+		& IPS & Bahasa Inggris & Bahasa Indonesia & \\
+		& & & Bahasa Inggris & \\
 		
 		\hline
-		\multirow{2}{10em}{Manajemen} & IPA & Matematika IPS & Matematika & \\
-		& IPS & Inggris & Inggris & \\
+		\multirow{2}{10em}{Manajemen} & IPA & Matematika & Matematika & \\
+		& IPS & Bahasa Inggris & Bahasa Inggris & \\
 		
 		\hline
-		\multirow{2}{10em}{Akuntansi} & IPA & Matematika IPS & Matematika & \\
-		& IPS & Inggris & Inggris & \\
+		\multirow{2}{10em}{Akuntansi} & IPA & Matematika & Matematika & \\
+		& IPS & Bahasa Inggris & Bahasa Inggris & \\
 		
 		\hline
-		\multirow{4}{10em}{Manajemen Perusahaan} & IPA & Esai & Matematika & \\
-		& IPS & & & \\
-		& Bahasa & & & \\
-		& SMK & & & \\
-		\hline
-		\multirow{3}{10em}{Ilmu Hukum} & IPA & Matematika IPS & Matematika & \\
-		& IPS & Inggris & Inggris & \\
-		& Bahasa & & & \\
+		%\multirow{4}{10em}{Manajemen Perusahaan} & IPA & Esai & Matematika & \\
+		%& IPS & & & \\
+		%& Bahasa & & & \\
+		%& SMK & & & \\
 		
 		\hline
-		\multirow{4}{10em}{Ilmu Administrasi Publik} & IPA & Matematika IPS & Matematika & \\
-		& IPS & Inggris & Inggris & \\
-		& Bahasa & & & \\
-		& SMK & & & \\
+		\multirow{3}{10em}{Ilmu Hukum} & IPA & Matematika & Matematika & \\
+		& IPS & Bahasa Inggris & Bahasa Inggris & \\
+		& Bahasa & & Pendidikan Kewarganegaraan & \\
 		
 		\hline
-		\multirow{4}{10em}{Ilmu Administrasi Bisnis} & IPA & Matematika IPS & Matematika & \\
-		& IPS & Inggris & Inggris & \\
+		\multirow{4}{10em}{Ilmu Administrasi Publik} & IPA & Matematika & Matematika & \\
+		& IPS & Bahasa Inggris & Bahasa Inggris & \\
 		& Bahasa & & & \\
 		& SMK & & & \\
 		
 		\hline
-		\multirow{3}{10em}{Ilmu Hubungan Internasional} & IPA & Matematika IPS & Matematika & \\
-		& IPS & Inggris & Inggris & \\
+		\multirow{4}{10em}{Ilmu Administrasi Bisnis} & IPA & Matematika & Matematika & \\
+		& IPS & Bahasa Inggris & Bahasa Inggris & \\
+		& Bahasa & & & \\
+		& SMK & & & \\
+		
+		\hline
+		\multirow{3}{10em}{Ilmu Hubungan Internasional} & IPA & Matematika & Matematika & \\
+		& IPS & Bahasa Inggris & Bahasa Inggris & \\
 		& Bahasa & & Uraian Bahasa Inggris & \\
 		
 		\hline
 		\multirow{3}{10em}{Teknik Sipil} & IPA & Matematika & Matematika & \\
-		& & Inggris & Inggris & \\
+		& & Bahasa Inggris & Bahasa Inggris & \\
 		& & Fisika & Fisika & \\
 		
 		\hline
 		\multirow{3}{10em}{Arsitektur} & IPA & Matematika & Matematika & \\
-		& & Inggris & Inggris & \\
+		& & Bahasa Inggris & Bahasa Inggris & \\
 		& & Gambar & Gambar & \\
 		
 		\hline
-		\multirow{4}{10em}{Ilmu Filsafat} & IPA & Matematika IPS & Inggris & \\
-		& IPS & Inggris & Indonesia & \\
+		\multirow{4}{10em}{Ilmu Filsafat} & IPA & Matematika & Bahasa Inggris & \\
+		& IPS & Bahasa Inggris & Bahasa Indonesia & \\
 		& Bahasa & Wawancara & & \\
 		& SMK & & & \\
 		
@@ -462,33 +484,33 @@ Berikut merupakan syarat untuk program studi yang ada di Universitas Katolik Par
 		Program Studi & Syarat Jurusan & USM  & PMDK & Syarat Khusus\\		
 		
 		\hline
-		\multirow{2}{10em}{Teknik Industri} & IPA & Matematika & Inggris & \\
-		& & Matematika & Inggris & \\
+		\multirow{2}{10em}{Teknik Industri} & IPA & Matematika & Bahasa Inggris & \\
+		& & Matematika & Bahasa Inggris & \\
 		
 		\hline
 		\multirow{4}{10em}{Teknik Kimia} & IPA & Matematika & Matematika & Tidak buta warna\\
-		& & Inggris & Inggris & \\
+		& & Bahasa Inggris & Bahasa Inggris & \\
 		& & Fisika & Fisika & \\
 		& & & Kimia & \\
 		
 		\hline
 		\multirow{3}{10em}{Teknik Elektro} & IPA & Matematika & Matematika & Tidak buta warna \\
-		& & Inggris & Inggris & \\
+		& & Bahasa Inggris & Bahasa Inggris & \\
 		& & Fisika & Fisika & \\
 		
 		\hline
 		\multirow{2}{10em}{Matematika} & IPA & Matematika & Matematika & \\
-		& & Inggris & Inggris & \\
+		& & Bahasa Inggris & Bahasa Inggris & \\
 		& & & & \\
 		
 		\hline
 		\multirow{3}{10em}{Fisika} & IPA & Matematika & Matematika & \\
-		& & Inggris & Inggris & \\
+		& & Bahasa Inggris & Bahasa Inggris & \\
 		& & Fisika & & \\
 		
 		\hline
 		\multirow{2}{10em}{Teknik Informatika} & IPA & Matematika & Matematika & \\
-		& & Inggris & Inggris & \\
+		& & Bahasa Inggris & Bahasa Inggris & \\
 		
 		\hline		
 	\end{tabular} 
@@ -507,15 +529,15 @@ Berikut merupakan kriteria untuk calon mahasiswa sesuai dengan program studi :
 
 		\hline
 		\multirow{5}{10em}{Ekonomi Pebangunan} & Tertarik dengan Ilmu Ekonomi \\
-		& Tertarik denan perhitungan \\
-		& Kritis \\
+		& Tertarik dengan perhitungan \\
+		& Berpikir kritis \\
 		& Senang menganalisis\\
 		& Mampu memecahkan masalah\\
 		
 		\hline
 		\multirow{3}{10em}{Manajemen} & Keterampilan komunikasi \\
 		& Senang menganalisis\\
-		& Senang memecahkan\\
+		& Senang memecahkan masalah\\
 		
 		\hline
 		\multirow{3}{10em}{Akuntansi} & Tertarik dengan akuntansi \\
@@ -523,13 +545,13 @@ Berikut merupakan kriteria untuk calon mahasiswa sesuai dengan program studi :
 		& Senang menganalisis\\
 		
 		\hline
-		\multirow{3}{10em}{Manajemen Perusahaan} &  \\
-		& \\
-		& \\
+		%\multirow{3}{10em}{Manajemen Perusahaan} &  \\
+		%& \\
+		%& \\
 		
 		\hline
 		\multirow{4}{10em}{Ilmu Hukum} & Tertarik dengan hukum \\
-		& Teliti dan Kritis \\
+		& Teliti dan berpikir kritis \\
 		& Keterampilan komunikasi \\
 		& Mampuan menganalisis\\
 		
@@ -616,6 +638,14 @@ Berikut merupakan kriteria untuk calon mahasiswa sesuai dengan program studi :
 		
 	\end{tabular} 
 \end{table}
+
+\section{\textit{Cluster}}
+\label{sec:cluster}
+
+%penjelasan cluster
+
+\subsection{K-Means}
+
 
 \section{Template Skripsi FTIS UNPAR}
 \label{sec:template}
