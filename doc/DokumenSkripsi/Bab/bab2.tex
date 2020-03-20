@@ -78,8 +78,8 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : \\%R
 
 	\item \textit{Hybrid recomender systems} \\
 		Kombinasi dari beberapa teknik yang sudah disebutkan sebelumnya. Menggunakan teknik A dan B mencoba untuk menggunakan keunggulan A dan memperbaiki kelemahan B. Contoh, \textit{Collaborative Filtering} memiliki kelemahan terhadap item yang tidak memiliki peringkat (tidak terdapat riwayat) bisa digabungkan dengan metode \textit{Content-based}.
-		
 \end{enumerate}
+
 
 % jelasin konsep dasar Collabrative Filtering
 \subsection{\textit{Collaborative Filtering}}
@@ -88,14 +88,15 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : \\%R
 	Tantangan dalam membangun sistem rekomendasi menggunakan teknik \textit{Collaborative Filtering} adalah sedikitnya jumlah data pengguna sebelumnya yang sudah memberikan peringkat kepada suatu item. Dalam \textit{Collaborative Filltering} terdapat salah satu algoritma yaitu \textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering}.
 	
 \subsubsection{\textit{Neighborhood-based Collaborative Filtering}}
-textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering} adalah algoritma pertama yang dikembangan untuk teknik \textit{Collaborative Filtering}. Algoritma ini peringkat \textit{user-item} disimpan dalam sistem secara langsung digunakan untuk memprediksi peringkat item baru, dapat dilakukan dengan \textit{user-based model}. %RS hanbook
+textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering} adalah algoritma pertama yang dikembangan untuk teknik \textit{Collaborative Filtering}. Pada algoritma ini \textit{rating} \textit{user-item} disimpan dalam sistem secara langsung digunakan untuk memprediksi peringkat item baru, dapat dilakukan dengan \textit{user-based model}. %RS hanbook
 
-% kayanya lebih ke item based, berdasarkan fullbook01
+%berdasarkan RS Book 4.2.1
 \subsubsection{\textit{•User-based Neighborhood Model}}
-\textit{User-based} bekerja dengan mengidentifikasi pengguna yang akan diberikan rekomendasi dengan pengguna yang memiliki kesamaan. Aktivitas pengguna yang memiliki kesamaan ini akan menjadi dasar dalam memberikan rekomendasi kepada pengguna. Aktivitas bisa berupa memberikan peringkat kepada item. Berikut adalah tahapan yang perlu dilakukan pada \textit{User-based} : 
+\textit{User-based} bekerja dengan mengidentifikasi pengguna yang akan diberikan rekomendasi dengan pengguna lain yang memiliki kesamaan. Aktivitas pengguna yang memiliki kesamaan ini akan menjadi dasar dalam memberikan rekomendasi kepada pengguna lain. Aktivitas bisa berupa memberikan \textit{rating} kepada item. Berikut adalah tahapan yang perlu dilakukan pada \textit{User-based Neighborhood Model} : 
 
 \begin{enumerate}
-	\item Mencari nilai rata-rata \textit{rating} yang sudah diberikan oleh pengguna sebelumnya.
+	%dilakukkan pada saat preprosesing	
+	\item Mencari nilai rata-rata \textit{rating} yang sudah diberikan oleh pengguna lain.
 	
 	\item Menghitung kesamaan atau similaritas pengguna menggunakan \textit{Pearson Correlation Coefficient} 2.1 :
 	
@@ -117,16 +118,16 @@ textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \tex
 		\item $\mu_{j}$ = Rata-rata nilai yang diberikan pengguna j
 	\end{itemize}\leavevmode
 	
-	\item Mengurutkan nilai kesamaan atau similaritas dari yang terbesar ke terkecil. Memiliki rentan nilai -1, 0, dan +1 untuk pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati -1, berarti pengguna tersebut kurang memiliki kesamaan dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati 1, berarti pengguna tersebut memiliki kesamaan yang cukup baik dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati +1, berarti pengguna tersebut memiliki kesamaan yang tinggi dengan pengguna yang akan diberikan rekomendasi.
+	\item Memilih nilai kesamaan atau similaritas yang bernilai lebih besar dari 0. Nilai keasamaan atau similaritas memiliki rentan nilai -1, 0, dan +1 untuk pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati -1, berarti pengguna tersebut kurang memiliki kesamaan dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati 0, berarti pengguna tersebut memiliki kesamaan yang cukup baik dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati +1, berarti pengguna tersebut memiliki kesamaan yang tinggi dengan pengguna yang akan diberikan rekomendasi.
 	%kayanya bagian ini ga usah, soalnya nnti ambil K tetangga terdekat, liat IPK + jurusan, filteri IPK > 2, trs count jurusannya, rekomendasiin
-	\item Menghitung nilai prediksi dengan rumus umum prediksi 2.2 :
+	\item Menghitung nilai prediksi dengan rumus \textit{weighted sum} 2.2 :
 	
 	%\begin{equation}
 	%	r_{i,k} = \mu_{i} + \frac{\Sigma _{j \epsilon} P_{i} Sim(i,j)\cdot (r_{j,k} - \mu_{j})}{\Sigma _{j \epsilon} P_{i(k)} |Sim(i,j)|}
 	%\end{equation}\leavevmode \\
 
 	\begin{equation}
-		r_{i,k} = \frac{\Sigma (sim(i,j)*r_{j,k}) }{\Sigma sim(i,j)}
+		r_{i,k} = \frac{\Sigma (Sim(i,j)*r_{j,k}) }{\Sigma Sim(i,j)}
 	\end{equation}		
 		
 	Keterangan :
@@ -144,11 +145,9 @@ textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \tex
 		%\item $\mu_{i}$ = Nilai rata-rata pengguna i
 	\end{itemize}\leavevmode
 	
-	\item Menentukan skala nilai prediksi yang akan ditampilkan kepada pengguna yang akan diberikan rekomendasi. Sehingga rekomendasi yang berada dibawah skala yang sudah ditentukan dapat disaring dan tidak merusak prediksi yang dibuat. %[3]
+	\item Mengurutkan nilai prediksi dari yang terbesar ke terkecil. %[3]
 	 
 \end{enumerate}\leavevmode
-
-
 
 \subsection{Aplikasi dan Evalusi}
 \label{sec:aplikasi dan evaluasi}
@@ -178,13 +177,41 @@ Sebuah sistem rekomendasi banyak digunakan untuk memberikan prediksi berupa sara
 
 %Evaluasi diperlukan untuk sistem rekomendasi. Evaluasi \textit{offline} dilakukan dengan cara menjalankan beberapa algoritma pada data yang sama dan membandingkan kinerjanya. Evaluasi \textit{online} dilakukan saat sistem sudah diluncurkan, melibatkan pengguna nyata. \textit{Focused user study}, jika evaluasi online tidak layak atau terlalu beresiko, meminta beberapa pengguna untuk mencoba sistem.
 
+\section{\textit{Cluster}}
+\label{sec:cluster}
+%penjelasan cluster (dari buku hashrul)
+\textit{Clustering} adalah algoritma yang menganalisis objek data tanpa perlu label kelas. \textit{Clustering} bisa digunakan untuk menghasilkan label kelas untuk sebuah kelompok data. Tujuan dari algoritma \textit{cluster} adalah untuk meminimalkan jarak \textit{intra-cluster} sekaligus memaksimalkan jarak \textit{inter-cluster}. Kesamaan ditentukan dengan menggunakan ukuran jarak. Kelompok yang dihasilkan akan memiliki anggota yang memiliki kesamaan yang tinggi satu sama lain  didalam kelompok yang sama dan berbeda dengan kelompok lain.
+
+\subsection{K-Means}
+% penjelasan k means (dari buku RS)
+K-Means adalah algoritma \textit{clustering} yang termasuk kategori \textit{partisial}. Kategori partisial adalah membagi item kedalam \textit{non-overlapping cluster} sehingga setiap item hanya ada pada satu \textit{cluster}. \textit{Cluster} akan dibentuk sebanyak K dan untuk setiap \textit{cluster} memiliki \textit{centroid} awal. \textit{Centroid} untuk setiap \textit{cluster} adalah titik dimana jumlah jarak minimum dari semua item dalam \textit{cluster}. Berikut merupakan tahapan-tahapan dalam pembutan \textit{cluster} :
+\begin{enumerate}
+	\item Memilih secara acak K \textit{centroid}
+	
+	\item Menghitung jarak tiap objek ke titik \textit{centroid} menggunakan \textit{euclidean distance}
+	
+	\item Menghitung \textit{centroid} baru dari anggota yang berada didalam \textit{centroid}
+	
+	\item Lakukan tahap 1-3 hingga \textit{centroid} konvergen
+\end{enumerate} 
+
 \section{Program Studi Universitas Katolik Parahyangan}
 
 \subsection{Universitas Katolik Parahyangan}
-Perguruan tinggi adalah satuan pendidikan yang menyelenggarakan pendidikan tinggi yang dapat berbentuk akademi, politeknik, sekolah tinggi, institut. atau universitas. Pendidikan tinggi adalah kelanjutan pendidikan menengah yang
-diselenggarakan untuk menyiapkan peserta didik menjadi anggota masyarakat yang memiliki kemampuan akademik dan/atau profesional yang dapat menerapkan, mengembangkan dan/atau menciptakan ilmu pengetahuan. teknologi dan/atau kesenian. \\ %SK MENDIKNAS 232
+Perguruan tinggi adalah satuan pendidikan yang menyelenggarakan pendidikan tinggi yang dapat berbentuk akademi, politeknik, sekolah tinggi, institut. atau universitas. Pendidikan tinggi adalah kelanjutan pendidikan menengah yang diselenggarakan untuk menyiapkan peserta didik menjadi anggota masyarakat yang memiliki kemampuan akademik dan/atau profesional yang dapat menerapkan, mengembangkan dan/atau menciptakan ilmu pengetahuan. teknologi dan/atau kesenian. \\ %SK MENDIKNAS 232
 
 Universitas Katolik Parahyangan adalah sebuah univessitas atau Perguruan tinggi katolik pertama yang didirikan pada 17 Januari 1955. Saat ini terletak di Jalan Ciumbuleuit No.94, Bandung, Jawa Barat, Indonesia. Terdapat tujuh fakultas dengan total program studi yaitu tujuh belas dengan enam belas program studi sarjana dan satu program studi D3. %unpar.ac.id
+
+Terdapat beberapa jalur penerimaan mahasiswa baru yang dilakukan oleh Universitas Katolik Parahyangan. Jalur penerimaan diselenggarakan secara mandiri, berikut jalur penerimaan yang disediakan Universitas Katolik Parahyangan :
+
+\begin{enumerate}
+	\item Penelusuran Minat dan Kemampuan (PMKD) atau jalur prestasi\\
+		PMDK adalah satu jalur penerimaan mahasiswa baru yang dilaksakan dengan seleksi berdasarkan pada nilai raport SMA di kelas X (Sepuluh) dan XI (Sebelas), tanpa ujian tertulis. Tujuan dari PMDK untuk menjaring siswa-siswa yang berprestasi. PMDK dilakukan hanya satu kali dalam satu tahun penerimaan.
+		
+	\item Ujian Saringan Masuk (USM)\\
+		USM adalah satu jalur penerimaan mahasiswa baru yang dilaksanakan dengan mengerjakan soal yang disediakan oleh Universitas Katolik Parahyangan. Terdapat dua tempat pelaksanaan untuk USM, pertama dilaksakan di Universitas Katolik Parahyangan dan kedua dilaksakan di sekolah-sekolah (\textit{on-site test}.Tujuan dari USM untuk menjaring mahasiswa baru yang memiliki kemampuan akademik untuk mengikuti dan menyelesaikan pendidikan di Universitas Katolik Parahyangan sesuai dengan batas waktu (masa studi) yang ditetapkan.
+	
+\end{enumerate}
 
 \subsection{Program Studi}
 \label{sec:program studi} 
@@ -471,19 +498,6 @@ Berikut merupakan syarat untuk program studi yang ada di Universitas Katolik Par
 		& SMK & & & \\
 		
 		\hline
-	\end{tabular} 
-\end{table}
-
-
-\begin{table}[H] %atau h saja untuk "kira kira di sini"
-	\centering 
-	\caption{Tabel syarat program studi}
-	\label{tab:contoh1}
-	\begin{tabular}{| c | c | c | c | c |}
-		\hline
-		Program Studi & Syarat Jurusan & USM  & PMDK & Syarat Khusus\\		
-		
-		\hline
 		\multirow{2}{10em}{Teknik Industri} & IPA & Matematika & Bahasa Inggris & \\
 		& & Matematika & Bahasa Inggris & \\
 		
@@ -512,10 +526,10 @@ Berikut merupakan syarat untuk program studi yang ada di Universitas Katolik Par
 		\multirow{2}{10em}{Teknik Informatika} & IPA & Matematika & Matematika & \\
 		& & Bahasa Inggris & Bahasa Inggris & \\
 		
-		\hline		
+		\hline
 	\end{tabular} 
 \end{table}
-	
+
 \subsection{Karakteristik Program Studi}
 Berikut merupakan kriteria untuk calon mahasiswa sesuai dengan program studi :
 
@@ -578,27 +592,14 @@ Berikut merupakan kriteria untuk calon mahasiswa sesuai dengan program studi :
 		
 		\hline
 		\multirow{4}{10em}{Arsitektur} & Tertarik dengan desain dan rancangan bangunan \\
-		& Tertarik dengan matematika \\
 		& Tertarik dengan menggambar dan seni\\
 		& Tertarik dengan humaniora, sains, dan teknologi \\
 		
 		\hline
 		\multirow{4}{10em}{Ilmu Filsafat} & Tipe pemikir \\
 		& Berwawasan luas \\
-		& Rasional \\
-		& Kritis \\
-		
-		\hline
-	\end{tabular} 
-\end{table}
-
-\begin{table}[H] %atau h saja untuk "kira kira di sini"
-	\centering 
-	%\caption{Tabel kriteria}
-	\label{tab:contoh1}
-	\begin{tabular}{| c | c |}
-		\hline
-		Program Studi & Karakteristik \\		
+		& Berpikir Rasional \\
+		& Berpikir kritis \\
 		
 		\hline
 		\multirow{2}{10em}{Teknik Industri} &  Senang berhitung \\
@@ -633,18 +634,10 @@ Berikut merupakan kriteria untuk calon mahasiswa sesuai dengan program studi :
 		& Senang menganalisis \\
 		& Senang memecahkan masalah \\
 		& Senang berhitung \\
-
-		\hline
 		
+		\hline
 	\end{tabular} 
 \end{table}
-
-\section{\textit{Cluster}}
-\label{sec:cluster}
-
-%penjelasan cluster
-
-\subsection{K-Means}
 
 
 \section{Template Skripsi FTIS UNPAR}
