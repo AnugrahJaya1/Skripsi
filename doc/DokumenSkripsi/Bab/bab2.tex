@@ -88,7 +88,7 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : \\%R
 	Tantangan dalam membangun sistem rekomendasi menggunakan teknik \textit{Collaborative Filtering} adalah sedikitnya jumlah data pengguna sebelumnya yang sudah memberikan peringkat kepada suatu item. Dalam \textit{Collaborative Filltering} terdapat salah satu algoritma yaitu \textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering}.
 	
 \subsubsection{\textit{Neighborhood-based Collaborative Filtering}}
-textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering} adalah algoritma pertama yang dikembangan untuk teknik \textit{Collaborative Filtering}. Pada algoritma ini \textit{rating} \textit{user-item} disimpan dalam sistem secara langsung digunakan untuk memprediksi peringkat item baru, dapat dilakukan dengan \textit{user-based model}. %RS hanbook
+\textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering} adalah algoritma pertama yang dikembangan untuk teknik \textit{Collaborative Filtering}. Pada algoritma ini \textit{rating} \textit{user-item} disimpan dalam sistem secara langsung digunakan untuk memprediksi peringkat item baru, dapat dilakukan dengan \textit{user-based model}. %RS hanbook
 
 %berdasarkan RS Book 4.2.1
 \subsubsection{\textit{•User-based Neighborhood Model}}
@@ -195,9 +195,22 @@ K-Means adalah algoritma \textit{clustering} yang termasuk kategori \textit{part
 	\item Lakukan tahap 1-3 hingga \textit{centroid} konvergen
 \end{enumerate} 
 
-\section{Program Studi Universitas Katolik Parahyangan}
+\section{\textit{Library} PHP-ML}
+\label{sec:library php-ml}
+%Penjelasan php ml
+PHP-ML adalah sebuah \textit{library} yang khusus dibuat untuk \textit{Machine Learning} dengan menggunakan bahasa pemrograman PHP. Terdapat lebih dari 20 algoritma yang bisa digunakan. \textit{Library} ini bersifat \textit{open source} yang berlisensi MIT. Versi PHP minimal untuk menggunakan \textit{library} ini adalah PHP 7.1, pengingstallan dapat menggunakan Composer.
 
-\subsection{Universitas Katolik Parahyangan}
+% https://php-ml.readthedocs.io/en/latest/machine-learning/datasets/array-dataset/
+\subsection{Array Dataset} % perlu di italic atau engga
+\textit{Array Dataset} adalah bagian dari fitur \textit{Dataset} yang disediakan oleh PHP-ML. \textit{Array Dataset} adalah kelas yang berfungsi untuk menyimoan data sebagai tipe array dalam PHP. Menerapkan \textit{interface} Dataset yang banyak digunakan di kelas lain. Kelas ini memiliki dua parameter yaitu : \textit{samples} dan \textit{labels}. \textit{Samples} adalah array yang berisikan sample. \textit{Labels} adalah array yang berisikan \textit{label} setiap \textit{sample}.
+
+% https://php-ml.readthedocs.io/en/latest/machine-learning/cross-validation/random-split/
+\subsection{Random Split}
+\textit{Random Split} adalah bagian dari fitur \textit{Cross Validation} yang disediakan oleh PHP-ML. Kelas \textit{Random Split} adalah salah satu metode paling sederhana dari \textit{Cross Validation}. \textit{Samples} dibagi menjadi dua kelompok yaitu : \textit{train group} dan \textit{test group}. Kelas ini memiliki tiga parameter yaitu : \textit{dataset}, \textit{testSize}, dan \textit{seed}. \textit{Dataset} adalah objek yang mengimplementasikan \textit{interface} Dataset. \textit{TestSize} adalah bilangan \textit{float} yang menyatakan seberapa banyak anggota pada \textit{test group} dengan nilai dasar 0.3 jika parameter tidak diisi. \textit{Seed} untuk \textit{random generator}.
+
+\section{Universitas Katolik Parahyangan}
+
+%\subsection{Universitas Katolik Parahyangan}
 Perguruan tinggi adalah satuan pendidikan yang menyelenggarakan pendidikan tinggi yang dapat berbentuk akademi, politeknik, sekolah tinggi, institut. atau universitas. Pendidikan tinggi adalah kelanjutan pendidikan menengah yang diselenggarakan untuk menyiapkan peserta didik menjadi anggota masyarakat yang memiliki kemampuan akademik dan/atau profesional yang dapat menerapkan, mengembangkan dan/atau menciptakan ilmu pengetahuan. teknologi dan/atau kesenian. \\ %SK MENDIKNAS 232
 
 Universitas Katolik Parahyangan adalah sebuah univessitas atau Perguruan tinggi katolik pertama yang didirikan pada 17 Januari 1955. Saat ini terletak di Jalan Ciumbuleuit No.94, Bandung, Jawa Barat, Indonesia. Terdapat tujuh fakultas dengan total program studi yaitu tujuh belas dengan enam belas program studi sarjana dan satu program studi D3. %unpar.ac.id
