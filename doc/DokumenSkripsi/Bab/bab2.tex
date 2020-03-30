@@ -91,12 +91,13 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : \\%R
 \textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering} adalah algoritma pertama yang dikembangan untuk teknik \textit{Collaborative Filtering}. Pada algoritma ini \textit{rating} \textit{user-item} disimpan dalam sistem secara langsung digunakan untuk memprediksi peringkat item baru, dapat dilakukan dengan \textit{user-based model}. %RS hanbook
 
 %berdasarkan RS Book 4.2.1
-\subsubsection{\textit{•User-based Neighborhood Model}}
+\subsubsection{\textit{User-based Neighborhood Model}}
+\label{user-based}
 \textit{User-based} bekerja dengan mengidentifikasi pengguna yang akan diberikan rekomendasi dengan pengguna lain yang memiliki kesamaan. Aktivitas pengguna yang memiliki kesamaan ini akan menjadi dasar dalam memberikan rekomendasi kepada pengguna lain. Aktivitas bisa berupa memberikan \textit{rating} kepada item. Berikut adalah tahapan yang perlu dilakukan pada \textit{User-based Neighborhood Model} : 
 
 \begin{enumerate}
 	%dilakukkan pada saat preprosesing	
-	\item Mencari nilai rata-rata \textit{rating} yang sudah diberikan oleh pengguna lain.
+	\item Menghitung nilai rata-rata \textit{rating} yang sudah diberikan oleh pengguna lain.
 	
 	\item Menghitung kesamaan atau similaritas pengguna menggunakan \textit{Pearson Correlation Coefficient} 2.1 :
 	
