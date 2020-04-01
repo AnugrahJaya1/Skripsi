@@ -182,22 +182,270 @@ Berikut merupkan contoh langkah-langkah perhitungan :
         \label{tab:kovariasi}
     \end{table}
     
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+    		\hline
+    		No & Rumus & Matematika & Rumus & Bahasa Inggris\\
+    		\hline
+    		1 & $(2.9-3.15)^2$ & 0.0625 & $(3.3-3.2)^2$ & 0.01 \\
+    		\hline
+    		2 & $(3.4-3.15)^2$ & 0.0625 & $(3.35-3.2)^2$ & 0.0225 \\
+    		\hline
+    		3 & $(3.4-3.15)^2$ & 0.0625 & $(3.25-3.2)^2$ & 0.0025 \\
+    		\hline
+    		4 & $(2.9-3.15)^2$ & 0.0625 & $(2.9-3.2)^2$ & 0.09 \\
+    		\hline
+    		\multirow{2}{*}{Sigma} & 0.0625+0.0625+ & 0.25 & 0.01+0.0225+ & 0.125\\
+    		& 0.0625+0.0625 & & 0.0025+0.09 & \\
+    		\hline
+    		\multicolumn{3}{|c|}{Hasil} & $\sqrt{0.25+0.125}$ & 0.612372436 \\
+    		\hline
+        \end{tabular}
+        \caption{Standar Deviasi Siswa}
+    	\label{tab:sd_siswa}
+    \end{table}
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+    		\hline
+    		No & Rumus & Matematika & Rumus & Bahasa Inggris\\
+    		\hline
+    		1 & $(2.6-2.8)^2$ & 0.04 & $(2.95-2.9375)^2$ & 0.00015625 \\
+    		\hline
+    		2 & $(2.9-2.8)^2$ & 0.01 & $(3-2.9375)^2$ & 0.00390625 \\
+    		\hline
+    		3 & $(2.95-2.8)^2$ & 0.0225 & $(2.85-2.9375)^2$ & 0.00765625 \\
+    		\hline
+    		4 & $(2.75-2.8)^2$ & 0.0225 & $(2.95-2.9375)^2$ & 0.00015625
+     \\
+    		\hline
+    		\multirow{2}{*}{Sigma} & 0.04+0.01+ & 0.075 & 0.0.000156250.00390625+ & 0.011875\\
+    		& 0.0225+0.0225 & & 0.00765625+0.00015625 & \\
+    		\hline
+    		\multicolumn{3}{|c|}{Hasil} & $\sqrt{0.075+0.011875}$ & 0.294745653	 \\
+    		\hline
+        \end{tabular}
+        \caption{Standar Deviasi Mahasiswa}
+    	\label{tab:sd_mahasiswa}
+    \end{table}
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            No & Rumus & Kesamaan & IPK \\ 
+            \hline
+            1 & $\frac{0.1275}{0.612372436*0.294745653}$ & 0.706394228 & 3.11\\
+            \hline
+            2 & $\frac{0.0125}{0.612372436*0.2343242}$ & 0.08711185 & 2.9 \\
+            \hline
+            3 & $\frac{0.2}{0.612372436*0.543242}$ & 0.601202838 & 3 \\
+            \hline
+            4 & $\frac{0.125}{0.612372436*0.432343}$ & 0.472134729 & 3.2\\
+            \hline
+            5 & $\frac{0.05}{0.612372436*0.242345}$ & 0.336914969 & 3.4\\
+            \hline
+        \end{tabular}
+        \caption{Contoh Perhitungan kesamaan}
+        \label{tab:kesamaan}
+    \end{table}
+    
     \item Memilih nilai kesamaan atau similaritas yang bernilai lebih dari 0.
     
+    Berdasarkan langkah nomor 2, maka nilai kesamaan pada tabel \ref{tab:kesamaan} semuanya dapat digunakan untuk prediksi.
+    
     \item Menghitung nilai prediksi.
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            No & Kesamaan & Rumus & Kesamaan*IPK \\
+            \hline
+            1 & 0.706394228 & 0.706394228*3.11 & 2.196886049 \\
+            \hline
+            2 & 0.08711185 & 0.08711185*2.9 &  0.252624364 \\
+            \hline
+            3 & 0.601202838 & 0.601202838*3 & 1.803608514 \\
+            \hline
+            4 & 0.472134729 & 0.472134729*3.2 & 1.510831133 \\
+            \hline
+            5 & 0.336914969 & 0.336914969*3.4 & 1.145510893 \\
+            \hline
+            Sigma & 2.203758614 & - & 6.909460954 \\
+            \hline
+            \multicolumn{2}{|c|}{Hasil} & $\frac{6.909460954}{2.203758614}$ & 3.13530752\\
+            \hline
+        \end{tabular}
+        \caption{Contoh hasil Prediksi}
+        \label{tab:prediksi}
+    \end{table}
 \end{enumerate}
 
-\section{\textit{Framework}}
-
-\subsection{\textit{Framework} Laravel}
-
-\subsection{\textit{Framework} Bootstrap}
-
 \section{Analisis Kebutuhan Sistem}
-
-\subsection{Rancangan Basis Data}
-% erd, table, skema relasi
+\label{analisis kebutuhan sistem}
+Pada \textit{website} yang akan dibangun, memiliki kebutuhan-kebutuhan perangkat lunak seperti : \textit{Use Case} dan Rancangan Basis Data.
 
 % perlu atau engga ? kata bu mar ga terlalu perlu
 \subsection{Diagram \textit{Use-Case}}
+
+\subsection{Rancangan Basis Data}
+\label{rancangan basis data}
+% erd, table, skema relasi
+
+\subsubsection{Diagram ERD}
+\label{diagram erd}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 12cm, height = 10cm ]{doc/DokumenSkripsi/Gambar/gambar37.png}
+    \caption{Diagram ERD Sistem Rekomendasi}
+    \label{fig:diagram erd}
+\end{figure}
+
+Berikut merupakan entitas dan atribut gambar \ref{fig:diagram erd} yang akan digunakan pada \textit{website} yang akan dibangun :
+
+\begin{enumerate}
+    \item Jurusan\_SMA memiliki atribut id\_jurusan dan nama jurusan.
+    
+    \item Fakultas memiliki atribut id\_fakultas dan nama\_fakultas.
+    
+    \item Program\_Studi memiliki atribut id\_program\_studi dan nama\_program\_studi.
+    
+    \item Mahasiswa memiliki atribut id\_mahasiswa, NPM, dan IPK.
+    
+    \item Mata\_Pelajaran memiliki atribut id\_mata\_pelajaran dan nama\_mata\_pelajaran.
+    
+    \item Nilai memiliki atribut id\_nilai, 101, 102, 111, 112, dan AVG. 
+\end{enumerate}
+
+\subsubsection{Skema Relasi}
+
+\begin{enumerate}
+    \item Jurusan\_SMA
+    
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                No & Atribut & Keterangan \\
+                \hline
+                1 & id\_jurusan & PK \\
+                \hline
+                2 & nama\_jurusan & \\
+                \hline
+            \end{tabular}
+            \caption{Skema Relasi Jurusan SMA}
+            \label{tab:skema relasi jurusan sma}
+        \end{table}
+    
+    \item Fakultas
+    
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                No & Atribut & Keterangan \\
+                \hline
+                1 & id\_fakultas & PK \\
+                \hline
+                2 & nama\_fakultas & \\
+                \hline
+            \end{tabular}
+            \caption{Skema Relasi Fakultas}
+            \label{tab:skema relasi fakultas}
+        \end{table}
+        
+    \item Program\_Studi
+        
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                No & Atribut & Keterangan \\
+                \hline
+                1 & id\_program\_studi & PK \\
+                \hline
+                2 & nama\_program\_studi & \\
+                \hline
+                3 & id\_fakultas & FK dari Fakultas \\
+                \hline
+            \end{tabular}
+            \caption{Skema Relasi Program Studi}
+            \label{tab:skema relasi program studi}
+        \end{table}
+        
+    \item Mahasiswa
+        
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                No & Atribut & Keterangan \\
+                \hline
+                1 & id\_mahasiswa & PK \\
+                \hline
+                2 & NPM & \\
+                \hline
+                3 & IPK & \\
+                \hline
+                4 & id\_jurusan & FK dari Jurusan\\
+                \hline
+                5 & id\_program\_studi & FK dari Program Studi \\
+                \hline
+            \end{tabular}
+            \caption{Skema Relasi Mahasiswa}
+            \label{tab:skema relasi mahasiswa}
+        \end{table}
+        
+    \item Mata\_Pelajaran
+        
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                No & Atribut & Keterangan \\
+                \hline
+                1 & id\_mata\_pelajaran & PK \\
+                \hline
+                2 & nama\_mata\_pelajaran & \\
+                \hline
+            \end{tabular}
+            \caption{Skema Relasi Mata Pelajaran}
+            \label{tab:skema relasi mata pelajaran}
+        \end{table}
+        
+    \item Nilai
+    
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                No & Atribut & Keterangan \\
+                \hline
+                1 & id\_nilai & PK \\
+                \hline
+                2 & id\_mata\_pelajaran & PK dari Mata Pelajaran \\
+                \hline
+                3 & id\_mahasiswa & PK dari Mahasiswa \\
+                \hline
+                4 & 101 & Nilai kelas 10 semester 1 \\
+                \hline
+                5 & 102 & Nilai kelas 10 semester 2 \\
+                \hline
+                6 & 111 & Nilai kelas 11 semester 1 \\
+                \hline
+                7 & 112 & Nilai kelas 11 semester 2 \\
+                \hline
+                8 & AVG & Rata-rata nilai \\
+                \hline
+            \end{tabular}
+            \caption{Skema Relasi Nilai}
+            \label{tab:skema relasi nilai}
+        \end{table}
+\end{enumerate}
+
+
 
