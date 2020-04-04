@@ -4,7 +4,7 @@
 \section{Analisis Perangkat Lunak Sejenis}
 \label{sec:analisis pl}
 
-Salah satu \textit{website} yang dapat memberikan rekomendasi program studi adalah \url{https://rencanamu.id}. \textit{Website} tersebut dikembangkan menggunakan riset ilmiah, Rencanamu mengukur 7 dimensi profil siswa sebagai landasan dalam rekomendasi, perencanaan kuliah dan karier yang terintegrasi, berkesinambungan dan menyeluruh. Gambar \ref{gambar31} menunjukkan 7 dimensi profil siswa. % https://rencanamu.id/about-us
+Salah satu \textit{website} yang dapat memberikan rekomendasi program studi adalah \url{https://rencanamu.id}. Sistem tersebut dikembangkan menggunakan riset ilmiah, Rencanamu mengukur 7 dimensi profil siswa sebagai landasan dalam rekomendasi, perencanaan kuliah dan karier yang terintegrasi, berkesinambungan dan menyeluruh. Gambar \ref{gambar31} menunjukkan 7 dimensi profil siswa. % https://rencanamu.id/about-us
 
 \begin{figure}[H]
     \centering
@@ -13,12 +13,12 @@ Salah satu \textit{website} yang dapat memberikan rekomendasi program studi adal
     \label{gambar31}
 \end{figure}
 
-Pada \textit{website} ini, telah dilakukan beberapa analisis dan hasilnya sebagai berikut :
+Pada sistem ini, telah dilakukan beberapa analisis dan hasilnya sebagai berikut :
 
 \begin{enumerate}
     \item \textit{Website} \url{https://rencanamu.id} adalah sebuah \textit{platform} persiapan kuliah dan karier \textit{online} berbasis data didukung oleh teknologi \textit{People Science} untuk membantu siswa dalam merancang dan mempersiapkan masa depan mereka. 
     
-    \item Perlu melakukan registrasi atau \textit{login} kedalam \textit{website}.
+    \item Perlu melakukan registrasi atau \textit{login} kedalam sistem.
     
     \item Gambar \ref{gambar32} merupakan tampilan awal setelah registrasi atau \textit{login}.
     
@@ -63,7 +63,7 @@ Pada \textit{website} ini, telah dilakukan beberapa analisis dan hasilnya sebaga
     
 \end{enumerate}
 
-\textit{Website} \url{https://rencanamu.id} memiliki kesamaan dengan \textit{website} yang dibangun yaitu memberikan rekomendasi program studi untuk anak SMA. Perbedaannya pada \textit{website} \url{https://rencanamu.id} tidak menampilkan prediksi IPK dan harus mengisi beberapa modul untuk mendapatkan rekomendasi program studi. 
+\textit{Website} \url{https://rencanamu.id} memiliki kesamaan dengan sistem yang dibangun yaitu memberikan rekomendasi program studi untuk anak SMA. Perbedaannya pada \textit{website} \url{https://rencanamu.id} tidak menampilkan prediksi IPK dan harus mengisi beberapa modul untuk mendapatkan rekomendasi program studi. 
 
 \section{Pemilihan Algoritma Sistem Rekomendasi}
 Berdasarkan teori \ref{teknik rekomendasi} yang menjelaskan mengenai teknik-teknik yang dapat digunakan untuk membangun sistem rekomendasi, teknik \textit{collaborative filtering} adalah teknik yang dapat digunakan untuk memberikan rekomendasi berupa program studi kepada calon mahasiswa berdasarkan kesamaan dengan pengguna lain. Berikut merupakan beberapa hal mengapa memilih teknik \textit{collaborative filtering} :
@@ -84,7 +84,7 @@ Teknik \textit{collaborative filtering} memiliki beberapa kekurangan diantaranya
     
 \end{enumerate}
 
-Pada \textit{website} yang dibangun, akan memberikan rekomendasi berdasarkan nilai raport beberapa mata pelajaran siswa pada kelas 10 dan 11 yang digunakan untuk PMDK. Mata pelajaran yang digunakan adalah Matematika, Bahasa Indonesia, Bahasa Inggris, Fisika, Kimia, dan Pendidikan Kewarganegaraan. Rekomendasi program studi berdasarkan asal jurusan saat SMA, misalnya siswa IPA akan diberikan rekomendasi program studi IPA.
+Pada sistem yang dibangun, akan memberikan rekomendasi berdasarkan nilai raport beberapa mata pelajaran siswa pada kelas 10 dan 11 yang digunakan untuk PMDK. Mata pelajaran yang digunakan adalah Matematika, Bahasa Indonesia, Bahasa Inggris, Fisika, Kimia, dan Pendidikan Kewarganegaraan. Rekomendasi program studi berdasarkan asal jurusan saat SMA, misalnya siswa IPA akan diberikan rekomendasi program studi IPA.
 
 \section{\textit{Preprocessing} Data Mahasiswa}
 \label{sec:preprocessing}
@@ -106,11 +106,14 @@ Data mahasiswa yang digunakan adalah data mahasiswa Universitas Katolik Parahyan
     \item Menyimpan dataframe mahasiswa dan nilai menjadi .csv.
 \end{enumerate}
 
+Hasil \textit{file} .csv nantinya akan di\textit{import} pada basis data yang akan digunakan pada sistem.  
+
 \section{Contoh Perhitungan Pearson Correlation}
 Berdasarkan \ref{user-based} terdapat langkah-langkah perhitungan dari \textit{user-based}. Tabel \ref{tab:data mahasswa} merupakan contoh data mahasiswa.
 
 \begin{table}[H]
     \centering
+    \renewcommand{\arraystretch}{1.5}
     \begin{tabular}{|l|c|c|c|c|c|}
         \hline
         MP\slash Semester & 101 & 102 & 111 & 112 & AVG \\
@@ -135,6 +138,7 @@ Berikut merupkan contoh langkah-langkah perhitungan :
     
     \begin{table}[H]
     \centering
+    \renewcommand{\arraystretch}{1.5}
     \begin{tabular}{|l|c|c|c|c|c|c|}
         \hline
         MP\slash Semester & 101 & 102 & 111 & 112 & Rumus & AVG \\
@@ -156,6 +160,7 @@ Berikut merupkan contoh langkah-langkah perhitungan :
     
     \begin{table}[H]
         \centering
+        \renewcommand{\arraystretch}{1.5}
         \begin{tabular}{|c|c|c|c|c|}
             \hline
             No & Rumus & Matematika & Rumus & Bahasa Inggris \\
@@ -184,6 +189,7 @@ Berikut merupkan contoh langkah-langkah perhitungan :
     
     \begin{table}[H]
         \centering
+        \renewcommand{\arraystretch}{1.5}
         \begin{tabular}{|c|c|c|c|c|}
     		\hline
     		No & Rumus & Matematika & Rumus & Bahasa Inggris\\
@@ -208,6 +214,7 @@ Berikut merupkan contoh langkah-langkah perhitungan :
     
     \begin{table}[H]
         \centering
+        \renewcommand{\arraystretch}{1.5}
         \begin{tabular}{|c|c|c|c|c|}
     		\hline
     		No & Rumus & Matematika & Rumus & Bahasa Inggris\\
@@ -233,6 +240,7 @@ Berikut merupkan contoh langkah-langkah perhitungan :
     
     \begin{table}[H]
         \centering
+        \renewcommand{\arraystretch}{1.5}
         \begin{tabular}{|c|c|c|c|}
             \hline
             No & Rumus & Kesamaan & IPK \\ 
@@ -260,6 +268,7 @@ Berikut merupkan contoh langkah-langkah perhitungan :
     
     \begin{table}[H]
         \centering
+        \renewcommand{\arraystretch}{1.5}
         \begin{tabular}{|c|c|c|c|}
             \hline
             No & Kesamaan & Rumus & Kesamaan*IPK \\
@@ -286,10 +295,115 @@ Berikut merupkan contoh langkah-langkah perhitungan :
 
 \section{Analisis Kebutuhan Sistem}
 \label{analisis kebutuhan sistem}
-Pada \textit{website} yang akan dibangun, memiliki kebutuhan-kebutuhan perangkat lunak seperti : \textit{Use Case} dan Rancangan Basis Data.
+Pada sistem yang akan dibangun, memiliki kebutuhan-kebutuhan perangkat lunak seperti : \textit{Use Case} dan Rancangan Basis Data.
 
 % perlu atau engga ? kata bu mar ga terlalu perlu
-\subsection{Diagram \textit{Use-Case}}
+\subsection{Diagram \textit{Use Case}}
+Pada sistem yang akan dibangun terdapat satu aktor yaitu Siswa/i. Siswa/i ini adalah calon mahasiswa kelas XI yang merupakan target dari sistem yang akan dibangun. Terdapat 4 langkah yang harus dilakukan, yaitu :
+
+\begin{enumerate}
+    \item Pendefinisian Aktor
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|p{1cm}|p{4cm}|p{8cm}|}
+            \hline
+            No & Aktor & Deskripsi  \\
+            \hline
+            1 & Siswa/i &  Siswa/i adalah orang yang akan diberikan rekomendasi program studi yang ada di Universitas Parahyangan.\\
+            \hline
+        \end{tabular}
+        \caption{Pendefinisian Aktor}
+        \label{tab:pendefsian aktor}
+    \end{table}
+    
+    \item Pendefinisian \textit{Use Case}
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|p{1cm}|p{4cm}|p{8cm}|}
+            \hline
+            No & \textit{Use Case} & Deskripsi  \\
+            1 & Memilih Jurusan SMA & Merupakan proses untuk memilih jurusan saat SMA. \\
+            \hline
+            2 & Mengisi Nilai Rapor & Merupakan proses untuk mengisi nilai beberapa nilai mata pelajaran sesuai dengan jurusan saat SMA. \\ 
+            \hline
+        \end{tabular}
+        \caption{Pendefinisian \textit{Use Case}}
+        \label{tab:pendefinisian use case}
+    \end{table}
+    
+    \item Pembuatan \textit{Use Case} Skenario
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+            \hline
+            Aksi Aktor & Reaksi Sistem \\
+            \hline
+            \multicolumn{2}{|c|}{Skenario Normal}\\
+            \hline
+            1. Memilih jurusan saat SMA. & \\
+            \hline
+             & 2. Mengarahkan kepada form sesuai jurusan SMA. \\
+            \hline
+        \end{tabular}
+        \caption{Skenario Memilih Jurusan SMA}
+        \label{tab:skenario memilih jurusan sma}
+    \end{table}
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+            \hline
+            \multicolumn{2}{|c|}{Skenario Normal}\\
+            \hline
+            1. Mengisi nilai sesuai nilai rapor. & \\
+            \hline
+            & 2. Memeriksa valid tidaknya data yang dimasukkan. \\
+            \hline
+            & 3. Memeriksa range nilai.\\
+            \hline
+            4. Klik tombol submit. & \\
+            \hline
+            & 5. Mengarahkan kepada \textit{page} hasil rekomendasi.\\
+            \hline
+            \multicolumn{2}{|c|}{Skenario Alternatif}\\
+            \hline
+             1. Mengisi nilai sesuai nilai rapor. & \\
+            \hline
+            & 2. Memeriksa valid tidaknya data yang dimasukkan. \\
+            \hline
+            & 3. Memberikan pesan data tidak valid.\\
+            \hline
+            4. Mengisi nilai sesuai nilai rapor yang valid. & \\
+            \hline
+            & 5. Memeriksa \textit{range} nilai.\\
+            \hline
+            & 6. Memberikan pesan \textit{range} tidak sesuai.\\
+            \hline
+            7. Mengisi nilai sesuai \textit{range}. &\\
+            \hline
+            & 8. Memeriksa \textit{range} nilai.\\
+            \hline
+            9. Klik tombol submit. & \\
+            \hline
+            & 10. Mengarahkan kepada \textit{page} hasil rekomendasi.\\
+            \hline
+        \end{tabular}
+        \caption{Skenario Mengisi Nilai Rapor}
+        \label{tab:skenario mengisi nilai rapor}
+    \end{table}
+    
+    \item Menggambarkan Diagram \textit{Use Case}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 10cm, height = 10cm]{doc/DokumenSkripsi/Gambar/gambar38.png}
+        \caption{Diagram \textit{Use Case} Sistem Rekomendasi}
+        \label{fig:diagram use case}
+    \end{figure}
+\end{enumerate}
 
 \subsection{Rancangan Basis Data}
 \label{rancangan basis data}
@@ -305,7 +419,7 @@ Pada \textit{website} yang akan dibangun, memiliki kebutuhan-kebutuhan perangkat
     \label{fig:diagram erd}
 \end{figure}
 
-Berikut merupakan entitas dan atribut gambar \ref{fig:diagram erd} yang akan digunakan pada \textit{website} yang akan dibangun :
+Berikut merupakan entitas dan atribut gambar \ref{fig:diagram erd} yang akan digunakan pada sistem yang akan dibangun :
 
 \begin{enumerate}
     \item Jurusan\_SMA memiliki atribut id\_jurusan dan nama jurusan.
