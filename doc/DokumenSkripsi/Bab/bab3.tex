@@ -293,6 +293,81 @@ Berikut merupkan contoh langkah-langkah perhitungan :
     \end{table}
 \end{enumerate}
 
+\section{Contoh Perhitungan Metode Evaluasi Sistem Rekomendasi}
+\label{sec:contoh perhitungan evaluasi}
+
+Berdasarkan penjelasan mengenai sistem rekomendasi yang dibahas pada bab \ref{chap:teori} bagian \ref{sec:aplikasi dan evaluasi}. Salah satu bagian terpenting adalah evaluasi. Evalusi pada sistem rekomendasi dilakukkan untuk mendapatkan akurasi dari hasil prediksi yang diberikan. Akurasi merupakan salah satu aspek yang sering dijadikan acuan untuk rekomendasi yang digunakan. Dalam melakukan pengujian akurasi bisa menggunkan metode \textit{Mean Absolute Error} (MAE) dan \textit{Root Mean Square Error} (RMSE). Berikut merupakan contoh penerapan kedua metode yang akan disajikan dalam tabel \ref{tab:contoh mae} dan tabel \ref{tab:contoh rmse} :
+
+\begin{longtable}[H]{|c|c|c|c|c|c|c|c|}
+    %\centering
+    %\begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        \multirow{2}{2em}{No} & Item & Pengguna & Penilaian Asli & Prediksi Sistem  & $r_{u,i}-\hat{r}_{u,i}$ & $\mid r_{u,i}-\hat{r}_{u,i} \mid$ & $(r_{u,i}-\hat{r}_{u,i})^2$ \\ 
+        & & & $r_{u,i}$ & $\hat{r}_{u,i}$ & & &\\
+        \hline
+        1 & 110 & 1 & 3.4 & 3.5 & -0.1 & 0.1 & 0.01\\
+        \hline
+        2 & 120 & 30 & 3.3 & 3.1 & 0.2 & 0.2 & 0.04\\
+        \hline
+        3 & 130 & 56 & 3 & 2.8 & 0.2 & 0.2 & 0.04\\
+        \hline
+        4 & 200 & 65 & 2.9 & 3.1 & -0.2 & 0.2 & 0.04\\
+        \hline
+        5 & 310 & 76 & 3.1 & 2.8 & 0.3 & 0.3 & 0.09\\
+        \hline
+        6 & 320 & 87 & 3.2 & 3 & 0.2 & 0.2 & 0.04\\
+        \hline
+        7 & 330 & 99 & 2.8 & 3 & -0.2 & 0.2 & 0.04\\
+        \hline
+        8 & 410 & 102 & 3.4 & 3.5 & -0.1 & 0.1 & 0.01\\
+        \hline
+        9 & 420 & 167 & 3.1 & 3.5 & -0.4 & 0.4 & 0.16\\
+        \hline
+        10 & 510 & 189 & 2.8 & 3.1 & -0.3 & 0.3 & 0.09\\
+        \hline
+        11 & 610 & 298 & 3.1 & 2.9 & 0.2 & 0.2 & 0.04\\
+        \hline
+        12 & 620 & 344 & 3.4 & 2.9 & 0.5 & 0.5 & 0.25\\
+        \hline
+        13 & 630 & 365 & 3.1 & 3 & 0.1 & 0.1 & 0.01\\
+        \hline
+        14 & 710 & 465 & 2.9 & 3 & -0.1 & 0.1 & 0.01\\
+        \hline
+        15 & 720 & 477 & 3.4 & 3.5 & -0.1 & 0.1 & 0.01\\
+        \hline
+        16 & 730 & 480 & 3.4 & 3.6 & -0.2 & 0.2 & 0.04\\
+        \hline
+        \multicolumn{6}{|c|}{Jumlah} & 3.4 & 0.92 \\
+        \hline
+    %\end{tabular}
+    \caption{Tabel Data MAE dan RMSE}
+    \label{tab:tabel data mae dan rmse}
+\end{longtable}
+
+Berdasarkan data pada tabel \ref{tab:tabel data mae dan rmse} jika dihitung dengan persamaan MAE yaitu :
+
+\begin{equation}
+    MAE = \frac{1}{n} * \Sigma \mid r_{u,i}-\hat{r}_{u,i} \mid
+\end{equation}
+
+maka akan didapatkan hasil pengimplementasian dari rumus MAE sebagai berikut :
+
+\begin{equation}
+    MAE = \frac{1}{16} * 3.4 = 0.2125 
+\end{equation}
+
+Berdasarkan data pada tabel \ref{tab:tabel data mae dan rmse} jika dihitung dengan persamaan RMSE yaitu :
+
+\begin{equation}
+    RMSE = \sqrt{\frac{1}{n} * \Sigma (r_{u,i}-\hat{r}_{u,i})^2}
+\end{equation}
+
+maka akan didapatkan hasil pengimplementasian dari rumus RMSE sebagai berikut :
+
+\begin{equation}
+    RMSE = \sqrt{\frac{1}{16} * 0.91} = 0.0575
+\end{equation}
+
 \section{Analisis Kebutuhan Sistem}
 \label{analisis kebutuhan sistem}
 Pada sistem yang akan dibangun, memiliki kebutuhan-kebutuhan perangkat lunak seperti : \textit{Use Case} dan Rancangan Basis Data.
@@ -366,11 +441,11 @@ Pada sistem yang akan dibangun terdapat satu aktor yaitu Siswa/i. Siswa/i ini ad
             \hline
             4. Klik tombol submit. & \\
             \hline
-            & 5. Mengarahkan kepada \textit{page} hasil rekomendasi.\\
+            & 5. Mengarahkan kepada halaman hasil rekomendasi.\\
             \hline
             \multicolumn{2}{|c|}{Skenario Alternatif}\\
             \hline
-             1. Mengisi nilai sesuai nilai rapor. & \\
+             1. Mengisi nilai yang tidak valid. & \\
             \hline
             & 2. Memeriksa valid tidaknya data yang dimasukkan. \\
             \hline
@@ -433,132 +508,6 @@ Berikut merupakan entitas dan atribut gambar \ref{fig:diagram erd} yang akan dig
     \item Mata\_Pelajaran memiliki atribut id\_mata\_pelajaran dan nama\_mata\_pelajaran.
     
     \item Nilai memiliki atribut id\_nilai, 101, 102, 111, 112, dan AVG. 
-\end{enumerate}
-
-\subsubsection{Skema Relasi}
-
-\begin{enumerate}
-    \item Jurusan\_SMA
-    
-        \begin{table}[H]
-            \centering
-            \begin{tabular}{|c|c|c|}
-                \hline
-                No & Atribut & Keterangan \\
-                \hline
-                1 & id\_jurusan & PK \\
-                \hline
-                2 & nama\_jurusan & \\
-                \hline
-            \end{tabular}
-            \caption{Skema Relasi Jurusan SMA}
-            \label{tab:skema relasi jurusan sma}
-        \end{table}
-    
-    \item Fakultas
-    
-        \begin{table}[H]
-            \centering
-            \begin{tabular}{|c|c|c|}
-                \hline
-                No & Atribut & Keterangan \\
-                \hline
-                1 & id\_fakultas & PK \\
-                \hline
-                2 & nama\_fakultas & \\
-                \hline
-            \end{tabular}
-            \caption{Skema Relasi Fakultas}
-            \label{tab:skema relasi fakultas}
-        \end{table}
-        
-    \item Program\_Studi
-        
-        \begin{table}[H]
-            \centering
-            \begin{tabular}{|c|c|c|}
-                \hline
-                No & Atribut & Keterangan \\
-                \hline
-                1 & id\_program\_studi & PK \\
-                \hline
-                2 & nama\_program\_studi & \\
-                \hline
-                3 & id\_fakultas & FK dari Fakultas \\
-                \hline
-            \end{tabular}
-            \caption{Skema Relasi Program Studi}
-            \label{tab:skema relasi program studi}
-        \end{table}
-        
-    \item Mahasiswa
-        
-        \begin{table}[H]
-            \centering
-            \begin{tabular}{|c|c|c|}
-                \hline
-                No & Atribut & Keterangan \\
-                \hline
-                1 & id\_mahasiswa & PK \\
-                \hline
-                2 & NPM & \\
-                \hline
-                3 & IPK & \\
-                \hline
-                4 & id\_jurusan & FK dari Jurusan\\
-                \hline
-                5 & id\_program\_studi & FK dari Program Studi \\
-                \hline
-            \end{tabular}
-            \caption{Skema Relasi Mahasiswa}
-            \label{tab:skema relasi mahasiswa}
-        \end{table}
-        
-    \item Mata\_Pelajaran
-        
-        \begin{table}[H]
-            \centering
-            \begin{tabular}{|c|c|c|}
-                \hline
-                No & Atribut & Keterangan \\
-                \hline
-                1 & id\_mata\_pelajaran & PK \\
-                \hline
-                2 & nama\_mata\_pelajaran & \\
-                \hline
-            \end{tabular}
-            \caption{Skema Relasi Mata Pelajaran}
-            \label{tab:skema relasi mata pelajaran}
-        \end{table}
-        
-    \item Nilai
-    
-        \begin{table}[H]
-            \centering
-            \begin{tabular}{|c|c|c|}
-                \hline
-                No & Atribut & Keterangan \\
-                \hline
-                1 & id\_nilai & PK \\
-                \hline
-                2 & id\_mata\_pelajaran & PK dari Mata Pelajaran \\
-                \hline
-                3 & id\_mahasiswa & PK dari Mahasiswa \\
-                \hline
-                4 & 101 & Nilai kelas 10 semester 1 \\
-                \hline
-                5 & 102 & Nilai kelas 10 semester 2 \\
-                \hline
-                6 & 111 & Nilai kelas 11 semester 1 \\
-                \hline
-                7 & 112 & Nilai kelas 11 semester 2 \\
-                \hline
-                8 & AVG & Rata-rata nilai \\
-                \hline
-            \end{tabular}
-            \caption{Skema Relasi Nilai}
-            \label{tab:skema relasi nilai}
-        \end{table}
 \end{enumerate}
 
 
