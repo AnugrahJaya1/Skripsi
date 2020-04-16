@@ -149,13 +149,13 @@
 \newcommand{\judulINA}[1]{\vtextup{\vjudulINA}{#1}{} \hypersetup{pdftitle={#1}}}	
 %\newcommand{\judulINA}[1]{\vtextup{\vjudulINA}{#1}{}}	
 \newcommand{\judulENG}[1]{\vtextup{\vjudulENG}{#1}{}}	
-\newcommand{\abstrakINA}[1]{\vtext{\vabstrakINA}{#1}{\\\dtext{1}}}
-\newcommand{\abstrakENG}[1]{\vtext{\vabstrakENG}{#1}{\\\dtext{2}}} 
+\newcommand{\abstrakINA}[1]{\vtext{\vabstrakINA}{#1}{\\}}
+\newcommand{\abstrakENG}[1]{\vtext{\vabstrakENG}{#1}{\\}} 
 \newcommand{\kunciINA}[1]{\vtext{\vkunciINA}{#1}{}\hypersetup{pdfkeywords={#1}}}
 %\newcommand{\kunciINA}[1]{\vtext{\vkunciINA}{#1}{}}  
 \newcommand{\kunciENG}[1]{\vtext{\vkunciENG}{#1}{}} 
 \newcommand{\untuk}[1]{\vtext{\vuntuk}{#1}{}}
-\newcommand{\prakata}[1]{\vtext{\vprakata}{#1}{\\\dtext{3-4}}}
+\newcommand{\prakata}[1]{\vtext{\vprakata}{#1}{\\}}
 
 %data pembimbing dan penguji	
 \newcommand{\vnpemb}{2}
@@ -178,7 +178,7 @@
 \newcommand{\tabel}[1]{\newcommand{\vtabel}{#1}}
 \edef\vbab{1,2,3,4,5,6}
 \newcommand{\bab}[1]{\IfStrEq{#1}{all}{}{\IfStrEq{\vmode}{bimbingan}{\edef\vbab{#1}}{}}}
-\edef\vlamp{A,B,C,D,E,F,G,H,I}
+\edef\vlamp{A}
 \newcommand{\lampiran}[1]{\IfStrEq{\vmode}{bimbingan}{\IfStrEq{#1}{all}{}
 		{\IfStrEq{#1}{none}{\edef\vlamp{}}{\edef\vlamp{#1}}}}{}}
 	 
@@ -393,7 +393,7 @@
 	\label{ch:prakata}
 	\addcontentsline{toc}{chapter}{Kata Pengantar}
 	\vprakata \vspace{0.25cm}
-	\begin{flushright} Bandung,\ \vbulan\ \vtahun \\ \vspace{1cm} Penulis \end{flushright}
+	\begin{flushright} Bandung,\ \vbulan\ \vtahun \\ \vspace{1cm} Anugrah Jaya Sakti \end{flushright}
 	\cleardoublepage		
 }{}%vsidangakhir
 

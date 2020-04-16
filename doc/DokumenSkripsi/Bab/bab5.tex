@@ -25,7 +25,7 @@ Pada subab ini akan dipaparkan perangkat keras dan perangkat lunak yang digunaka
 \begin{enumerate}
     \item Web Server : Apache 2.4.41
     
-    \item Tools : XAMPP 3.2.4 dan Visual Studio Code
+    \item Tools : XAMPP 3.2.4 dan Visual Studio Code 1.44
     
     \item Bahasa Pemrograman : PHP 7.4.1
     
@@ -171,11 +171,11 @@ Pengujian ini dilakukan pada fitur pemilihan jurusan saat SMA oleh siswa/i yang 
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|p{3.5cm}|p{3.5cm}|p{3.5cm}|p{2cm}|}
+    \begin{tabular}{|c|p{3.5cm}|p{3.5cm}|p{3.5cm}|p{1.5cm}|}
         \hline
         No & Langkah Pengujian & Hasil yang diharapkan & Hasil Pengujian & Status \\
         \hline
-        1 & Memilih juruusan saat SMA & Sistem mengarahkan kepada form sesuai jurusan SMA & Sesuai\\
+        1 & Memilih juruusan saat SMA & Sistem mengarahkan kepada form sesuai jurusan SMA & Sistem mengarahkan kepada form sesuai jurusan SMA & Sesuai\\
         \hline
     \end{tabular}
     \caption{Tabel Pengujian Fungsional Pemilihan SMA}
@@ -189,14 +189,15 @@ Pengujian ini dilakukan pada fitur pengisian nilai mata pelajaran sesuai dengan 
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|p{3.5cm}|p{3.5cm}|p{3.5cm}|p{2cm}|}
+    \begin{tabular}{|c|p{3.5cm}|p{3.5cm}|p{3.5cm}|p{1.5cm}|}
         \hline
         No & Langkah Pengujian & Hasil yang diharapkan & Hasil Pengujian & Status \\
         \hline
-        1 & Mengisi nilai sesuai nilai rapor & Memeriksa valid tidaknya data yang dimasukkan dan memeriksa \textit{range} nilai & Sesuai \\
+        1 & Mengisi nilai sesuai nilai rapor & Memeriksa valid tidaknya data yang dimasukkan dan memeriksa \textit{range} nilai & Memeriksa valid tidaknya data yang dimasukkan dan memeriksa \textit{range} nilai & Sesuai \\
         \hline
-        2 & Klik tombol \textit{submit} & Mengerahkan kepada halaman hasil rekomendasi & Sesuai \\
-        3 & Mengisi nilai yang tidak valid & Memberikan pesan data tidak valid & Memberikan pesan tidak valid & Sesuai\\
+        2 & Klik tombol \textit{submit} & Mengerahkan kepada halaman hasil rekomendasi & Mengerahkan kepada halaman hasil rekomendasi & Sesuai \\
+        \hline
+        3 & Mengisi nilai yang tidak valid & Memberikan pesan data tidak valid & Memberikan pesan data tidak valid & Sesuai\\
         \hline
     \end{tabular}
     \caption{Tabel Pengujian Fungsional Pengisian Nilai}
@@ -207,13 +208,53 @@ Pengujian ini dilakukan pada fitur pengisian nilai mata pelajaran sesuai dengan 
 \section{Pengujian Eksperimental}
 \label{sec:pengujian eksperimental}
 
-Pada subab ini, akan dilakukkan pengujian sistem rekomendasi program studi Universitas Katolik Parahyangan. Pengujian dilakukan menggunakan \textit{Mean Absolute Error} (MAE), \textit{Root Mean Square Error} (RMSE), dan eksekusi waktu program. Data yang digunkan pada pengujian adalah seluruh data mahasiswa yang dibagi menjadi dua yaitu \textit{train set} sebesar 70\% dan \textit{test set} sebesar 40\%.
+Pada subab ini, akan dilakukkan pengujian sistem rekomendasi program studi Universitas Katolik Parahyangan. Pengujian dilakukan menggunakan \textit{Mean Absolute Error} (MAE), \textit{Root Mean Square Error} (RMSE), dan eksekusi waktu program. Data yang digunakan pada pengujian adalah seluruh data mahasiswa yang dibagi menjadi dua yaitu \textit{train set} sebesar 70\% dan \textit{test set} sebesar 30\%. Pengujian dilakukkan dengan dua metode, yaitu : 
 
-\subsection{\textit{Mean Absolute Error} (MAE)}
-\label{subsec:mae}
+\subsection{Metode Dasar}
+\label{subsec: metode dasar}
 
-\subsection{\textit{Root Mean Square Error} (RMSE)}
-\label{subsec:rmse}
+Metode dasar ini dilakukkan dengan cara menguji secara langsung \textit{test set} kedalam sistem dengan menggunakan \textit{train set}, gambar \ref{fig:pengujian ipa dasar} dan gambar \ref{fig:pengujian ips dasar} merupakan hasil perhitungan untuk \textit{Mean Absolute Error} (MAE), \textit{Root Mean Square Error} (RMSE), dan eksekusi waktu program.
 
-\subsection{Eksekusi Waktu Program}
-\label{subsec:eksekusi waktu program}
+\begin{enumerate}
+    \item IPA
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width = 14cm, height =2 cm]{doc/DokumenSkripsi/Gambar/gambar55.PNG}
+            \caption{Hasil Pengujian Jurusan IPA dengan Metode Dasar}
+            \label{fig:pengujian ipa dasar}
+        \end{figure}
+        
+    \item IPS
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width = 14cm, height =2 cm]{doc/DokumenSkripsi/Gambar/gambar56.PNG}
+            \caption{Hasil Pengujian Jurusan IPS dengan Metode Dasar}
+            \label{fig:pengujian ips dasar}
+        \end{figure}
+    
+\end{enumerate}
+
+\subsection{Metode KMeans}
+\label{subsec: metode kmeans}
+
+Metode KMeans dilakukkan dengan membuat kelompok dari \textit{train set} dan mengelompokkan \textit{test set} masuk kedalam kelompok mana, untuk mengurangi perhitungan kemiripan atau similaritas dengan pengguna yang memiliki kemiripan kecil. Pada pengujian ini dilakukkan dengan nilai k 2 sampai 10 dan dilakukkan pengulangan dalam membentuk kelompok sebanyak 30 kali. Gambar \ref{fig:pengujian ipa kmeans} dan gambar \ref{fig:pengujian ips kmeans} merupakan hasil perhitungan untuk \textit{Mean Absolute Error} (MAE), \textit{Root Mean Square Error} (RMSE), dan eksekusi waktu program.
+
+\begin{enumerate}
+    \item IPA
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width = 14cm, height =10 cm]{doc/DokumenSkripsi/Gambar/gambar57.PNG}
+            \caption{Hasil Pengujian Jurusan IPA dengan Metode KMeans}
+            \label{fig:pengujian ipa kmeans}
+        \end{figure}
+        
+    \item IPS
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width = 14cm, height =10 cm]{doc/DokumenSkripsi/Gambar/gambar58.PNG}
+            \caption{Hasil Pengujian Jurusan IPS dengan Metode KMeans}
+            \label{fig:pengujian ips kmeans}
+        \end{figure}
+\end{enumerate}
+
+Dari hasil pengujian baik menggunakan metode \ref{subsec: metode dasar} dan metode \ref{subsec: metode kmeans} dengan nilai MAE berada di 0.2 dan RMSE berada di 0.3, yang membedakan hanya pada waktu eksekusi program, dimana dengan menggunakan kmeans membutuhkan waktu lebih lama.

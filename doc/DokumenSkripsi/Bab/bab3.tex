@@ -8,7 +8,7 @@ Salah satu \textit{website} yang dapat memberikan rekomendasi program studi adal
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 10cm, height = 10cm]{doc/DokumenSkripsi/Gambar/gambar31.PNG}
+    \includegraphics[width = 12cm, height = 12cm]{doc/DokumenSkripsi/Gambar/gambar31.PNG}
     \caption{7 Dimensi Profil Siswa}
     \label{gambar31}
 \end{figure}
@@ -24,7 +24,7 @@ Pada sistem ini, telah dilakukan beberapa analisis dan hasilnya sebagai berikut 
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 8cm, height = 5 cm]{doc/DokumenSkripsi/Gambar/gambar32.PNG}
+        \includegraphics[width = 10cm, height = 6 cm]{doc/DokumenSkripsi/Gambar/gambar32.PNG}
         \caption{Tampilan setelah registrasi atau \textit{login}}
         \label{gambar32}
     \end{figure}
@@ -33,22 +33,22 @@ Pada sistem ini, telah dilakukan beberapa analisis dan hasilnya sebagai berikut 
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 6cm, height = 7cm ]{doc/DokumenSkripsi/Gambar/gambar33.PNG}
-        \caption{Caption}
+        \includegraphics[width = 7cm, height = 10cm ]{doc/DokumenSkripsi/Gambar/gambar33.PNG}
+        \caption{Modul Pengenalan}
         \label{gambar33}
     \end{figure}
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 6cm, height = 9cm ]{doc/DokumenSkripsi/Gambar/gambar34.PNG}
-        \caption{Caption}
+        \includegraphics[width = 7cm, height = 11cm ]{doc/DokumenSkripsi/Gambar/gambar34.PNG}
+        \caption{Modul Potensi Diri}
         \label{gambar34}
     \end{figure}
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 6cm, height = 8cm ]{doc/DokumenSkripsi/Gambar/gambar35.PNG}
-        \caption{Caption}
+        \includegraphics[width = 7cm, height = 11cm ]{doc/DokumenSkripsi/Gambar/gambar35.PNG}
+        \caption{Modul Ukur Kemampuan Diri}
         \label{gambar35}
     \end{figure}
     
@@ -56,7 +56,7 @@ Pada sistem ini, telah dilakukan beberapa analisis dan hasilnya sebagai berikut 
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 7cm, height = 8cm ]{doc/DokumenSkripsi/Gambar/gambar36.PNG}
+        \includegraphics[width = 7cm, height = 10cm ]{doc/DokumenSkripsi/Gambar/gambar36.PNG}
         \caption{Hasil Rekomendasi}
         \label{gambar36}
     \end{figure}
@@ -381,7 +381,7 @@ Pada sistem yang akan dibangun terdapat satu aktor yaitu Siswa/i. Siswa/i ini ad
     
     \begin{table}[H]
         \centering
-        \begin{tabular}{|p{1cm}|p{4cm}|p{8cm}|}
+        \begin{tabular}{|c|p{4cm}|p{8cm}|}
             \hline
             No & Aktor & Deskripsi  \\
             \hline
@@ -394,25 +394,25 @@ Pada sistem yang akan dibangun terdapat satu aktor yaitu Siswa/i. Siswa/i ini ad
     
     \item Pendefinisian \textit{Use Case}
     
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{|p{1cm}|p{4cm}|p{8cm}|}
+    \begin{longtable}[H]{|c|p{4cm}|p{8cm}|}
+        %\centering
+        %\begin{tabular}
             \hline
             No & \textit{Use Case} & Deskripsi  \\
             1 & Memilih Jurusan SMA & Merupakan proses untuk memilih jurusan saat SMA. \\
             \hline
             2 & Mengisi Nilai Rapor & Merupakan proses untuk mengisi nilai beberapa nilai mata pelajaran sesuai dengan jurusan saat SMA. \\ 
             \hline
-        \end{tabular}
+        %\end{tabular}
         \caption{Pendefinisian \textit{Use Case}}
         \label{tab:pendefinisian use case}
-    \end{table}
+    \end{longtable}
     
     \item Pembuatan \textit{Use Case} Skenario
     
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+    \begin{longtable}[H]{|p{6.5cm}|p{6.5cm}|}
+        %\centering
+        %\begin{tabular}
             \hline
             Aksi Aktor & Reaksi Sistem \\
             \hline
@@ -422,14 +422,14 @@ Pada sistem yang akan dibangun terdapat satu aktor yaitu Siswa/i. Siswa/i ini ad
             \hline
              & 2. Mengarahkan kepada form sesuai jurusan SMA. \\
             \hline
-        \end{tabular}
+        %\end{tabular}
         \caption{Skenario Memilih Jurusan SMA}
         \label{tab:skenario memilih jurusan sma}
-    \end{table}
+    \end{longtable}
     
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+    \begin{longtable}[H]{|p{6.5cm}|p{6.5cm}|}
+        %\centering
+        %\begin{tabular}
             \hline
             \multicolumn{2}{|c|}{Skenario Normal}\\
             \hline
@@ -465,16 +465,16 @@ Pada sistem yang akan dibangun terdapat satu aktor yaitu Siswa/i. Siswa/i ini ad
             \hline
             & 10. Mengarahkan kepada \textit{page} hasil rekomendasi.\\
             \hline
-        \end{tabular}
+        %\end{tabular}
         \caption{Skenario Mengisi Nilai Rapor}
         \label{tab:skenario mengisi nilai rapor}
-    \end{table}
+    \end{longtable}
     
     \item Menggambarkan Diagram \textit{Use Case}
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 10cm, height = 10cm]{doc/DokumenSkripsi/Gambar/gambar38.png}
+        \includegraphics[width = 14cm, height = 14cm]{doc/DokumenSkripsi/Gambar/gambar38.png}
         \caption{Diagram \textit{Use Case} Sistem Rekomendasi}
         \label{fig:diagram use case}
     \end{figure}
@@ -489,7 +489,7 @@ Pada sistem yang akan dibangun terdapat satu aktor yaitu Siswa/i. Siswa/i ini ad
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 12cm, height = 10cm ]{doc/DokumenSkripsi/Gambar/gambar37.png}
+    \includegraphics[width = 16cm, height = 14cm ]{doc/DokumenSkripsi/Gambar/gambar37.png}
     \caption{Diagram ERD Sistem Rekomendasi}
     \label{fig:diagram erd}
 \end{figure}
