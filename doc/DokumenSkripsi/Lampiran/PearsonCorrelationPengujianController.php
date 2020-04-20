@@ -4,33 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PearsonCorrelationController extends Controller
+class PearsonCorrelationPengujianController extends Controller
 {
-    
-    // menghitung kemiripan dengan perason
-    // $mahasiswa -> seluruh mahasiswa sesuai dengan jurusan SMA
-    // $siswa -> 
-    public function calculatePearson($mahasiswa, $siswa)
+    private $sdSiswa;
+
+    function __construct()
     {
-        $res = array();
-        foreach ($mahasiswa as $mhs) {
-            $covariance = $this->calculateCovariance($mhs, $siswa);
-            $sd = $this->calculateStandarDeviation($mhs, $siswa);
-            $sdMhs = $sd[0]; // standar deviasi untuk mahasiswa
-            $sdSiswa = $sd[1]; // standar deviasi untuk siswa
-
-            $idProdi = $mhs['id_program_studi'];
-            $IPK = $mhs['IPK'];
-
-            $sim = $covariance / ($sdMhs * $sdSiswa);
-            // atur threshold
-            if ($sim > 0) {
-                // inisialisai array agar tidak null
-                $res[$mhs['id_mahasiswa']] = array();
-                array_push($res[$mhs['id_mahasiswa']], $sim, $idProdi, $IPK);
-            }
-        }
-        return $res;
+        $this->sdSiswa = array();
     }
 
     // untuk menghitung kovariansi satu mahasiswa
@@ -44,9 +24,7 @@ class PearsonCorrelationController extends Controller
         // looping sebanyak nilai
         foreach ($nilaiSiswa as $nSiswa) {
             $idMP = $nSiswa['id_mata_pelajaran'];
-            // looping sebanyak nilai mahasiswa pada index
             foreach ($nilaiMhs as $nMhs) {
-                // hanya menghitung mata pelajaran yang beririsan
                 if ($idMP == $nMhs['id_mata_pelajaran']) {
                     for ($i = 0; $i < 4; $i++) {
                         //mahasiswa * siswa
@@ -74,9 +52,7 @@ class PearsonCorrelationController extends Controller
         // looping sebanyak nilai
         foreach ($nilaiSiswa as $nSiswa) {
             $idMP = $nSiswa['id_mata_pelajaran'];
-            // looping sebanyak nilai mahasiswa pada index
             foreach ($nilaiMhs as $nMhs) {
-                // hanya menghitung mata pelajaran yang beririsan
                 if ($idMP == $nMhs['id_mata_pelajaran']) {
                     for ($i = 0; $i < 4; $i++) {
                         $sdMhs += pow($nMhs[$i] - $nMhs['AVG'], 2);
@@ -89,6 +65,35 @@ class PearsonCorrelationController extends Controller
         }
         array_push($res, sqrt($sdMhs), sqrt($sdSiswa));
 
+        return $res;
+    }
+
+    // menghitung kemiripan dengan perason
+    // $mahasiswa -> seluruh mahasiswa sesuai dengan jurusan SMA
+    // $siswa -> 
+    public function calculatePearson($mahasiswa, $siswa)
+    {
+        $res = array();
+        foreach ($mahasiswa as $mhs) {
+            if ($mhs["id_program_studi"] == $siswa["id_program_studi"]) {
+                $covariance = $this->calculateCovariance($mhs, $siswa);
+                $sd = $this->calculateStandarDeviation($mhs, $siswa);
+                $sdMhs = $sd[0]; // standar deviasi untuk mahasiswa
+                $sdSiswa = $sd[1]; // standar deviasi untuk siswa
+
+                $id_prodi = $mhs['id_program_studi'];
+                $IPK = $mhs['IPK'];
+
+                $sim = $covariance / ($sdMhs * $sdSiswa);
+
+                // atur threshold
+                if ($sim > 0) {
+                    // inisialisai array agar tidak null
+                    $res[$mhs['id_mahasiswa']] = array();
+                    array_push($res[$mhs['id_mahasiswa']], $sim, $id_prodi, $IPK);
+                }
+            }
+        }
         return $res;
     }
 }

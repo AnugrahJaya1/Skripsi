@@ -70,8 +70,16 @@
 \usepackage{pgffor}% untuk foreach
 \usepackage{multirow} %untuk multirow table
 \usepackage{longtable} %untuk tabel melebihi 1 halaman
+
 \usepackage{algorithm} %untuk membuat pseudo code
-\usepackage{algorithmic} %untuk membuat pseudo code
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{amsmath} %untuk membuat pseudo code
+
+% untuk foreach
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+
 
 \newcommand{\vtemplateauthor}{lionov}
 \newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}%command untuk dummy text

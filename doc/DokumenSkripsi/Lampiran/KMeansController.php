@@ -20,6 +20,7 @@ class KMeansController extends Controller
         $this->inisialisasiCluster();
         $this->currCentroid = array();
 
+        // J0 = inisialisasi jarak total dari objek ke centroid-nya
         $this->J0 = 100;
 
         $this->pilihCentroid();
@@ -53,32 +54,17 @@ class KMeansController extends Controller
     // yang akan dijadikan centroid
     private function pilihCentroid()
     {
-        for ($i = 0; $i < $this->k; $i++) {
-            // random secara acak key(idx) mahasiswa
+        $i = 0;
+        while ($i < $this->k) {
             $key = rand(0, 1739);
-            // cek apakah ada key(idx) pada mahasiswa
             if (array_key_exists($key, $this->mahasiswa)) {
                 // cek apakah ada key(idx) pada currCentroid
                 if (!array_key_exists($key, $this->currCentroid)) {
                     array_push($this->currCentroid, $this->mahasiswa[$key]);
-                } else {
-                    $i--;
+                    $i++;
                 }
-            } else {
-                $i--;
             }
         }
-
-        // untuk testing
-        // array_push($this->currCentroid, $this->mahasiswa[1]);
-        // // print_r($this->dataMahasiswa[1]);
-        // // echo "<br>";
-        // // echo "<br>";
-
-        // array_push($this->currCentroid, $this->mahasiswa[5]);
-        // // print_r($this->dataMahasiswa[5]);
-        // // echo "<br>";
-        // // echo "<br>";
     }
 
     // fungsi untuk menghitung jarak untuk untuk 
@@ -106,9 +92,9 @@ class KMeansController extends Controller
                     foreach ($nilaiCen as $keyNilaiCen => $valueNilaiCen) {
                         // cek apakah pada mata pelajaran yang sama atau tidak
                         if (
-                            $valueNilaiMhs['id_mata_pelajaran'] == 1 && $valueNilaiCen['id_mata_pelajaran'] == 1
+                            ($valueNilaiMhs['id_mata_pelajaran'] == 1 && $valueNilaiCen['id_mata_pelajaran'] == 1)
                             ||
-                            $valueNilaiMhs['id_mata_pelajaran'] == 3 && $valueNilaiCen['id_mata_pelajaran'] == 3
+                            ($valueNilaiMhs['id_mata_pelajaran'] == 3 && $valueNilaiCen['id_mata_pelajaran'] == 3)
                         ) {
                             // hitung jarak dengan euclidian distance
                             $jarak = $this->euclidianceDistance($valueNilaiMhs, $valueNilaiCen);
@@ -166,9 +152,9 @@ class KMeansController extends Controller
                 foreach ($nilaiCen as $keyNilaiCen => $valueNilaiCen) {
                     // cek apakah pada mata pelajaran yang sama atau tidak
                     if (
-                        $valueNilaiSiswa['id_mata_pelajaran'] == 1 && $valueNilaiCen['id_mata_pelajaran'] == 1
+                        ($valueNilaiSiswa['id_mata_pelajaran'] == 1 && $valueNilaiCen['id_mata_pelajaran'] == 1)
                         ||
-                        $valueNilaiSiswa['id_mata_pelajaran'] == 3 && $valueNilaiCen['id_mata_pelajaran'] == 3
+                        ($valueNilaiSiswa['id_mata_pelajaran'] == 3 && $valueNilaiCen['id_mata_pelajaran'] == 3)
                     ) {
                         // hitung jarak dengan euclidian distance
                         $jarak = $this->euclidianceDistance($valueNilaiSiswa, $valueNilaiCen);
@@ -218,7 +204,6 @@ class KMeansController extends Controller
 
         // reset nilai curr centroid
         $this->resetCentroid();
-        // print_r($this->currCentroid);
 
         // looping sebanyak centroid
         foreach ($this->currCentroid as $keyCen => $valuCen) {
@@ -234,9 +219,9 @@ class KMeansController extends Controller
                         $nilaiAnggota = $valueAnggota['nilai'];
                         foreach ($nilaiAnggota as $keyNilaiAnggota => $valueNilaiAnggota) {
                             if (
-                                $valueNilaiCen['id_mata_pelajaran'] == 1 && $valueNilaiAnggota['id_mata_pelajaran'] == 1
+                                ($valueNilaiCen['id_mata_pelajaran'] == 1 && $valueNilaiAnggota['id_mata_pelajaran'] == 1
                                 ||
-                                $valueNilaiCen['id_mata_pelajaran'] == 3 && $valueNilaiAnggota['id_mata_pelajaran'] == 3
+                                $valueNilaiCen['id_mata_pelajaran'] == 3 && $valueNilaiAnggota['id_mata_pelajaran'] == 3)
                             ) {
                                 // update nilai 101, 102, 111, 112
                                 for ($i = 0; $i < 4; $i++) {
@@ -256,15 +241,11 @@ class KMeansController extends Controller
                 } else {
                     // random nilai baru
                     $this->randomNilaiBaru($keyCen, $keyNilaiCen);
-                    // print_r($this->currCentroid[$keyCen]);
-                    // echo "<br>";
-                    // echo "<br>";
                 }
             }
         }
 
         $this->hitungRata2();
-        // print_r($this->currCentroid);
     }
 
     private function resetCentroid()
@@ -335,28 +316,5 @@ class KMeansController extends Controller
     public function getCluster($idx)
     {
         return $this->cluster[$idx];
-    }
-
-    private function printHitungJarak($jarak)
-    {
-        foreach ($jarak as $keyJarak => $valueJarak) {
-            print_r($valueJarak);
-            echo "<br>";
-            echo "<br>";
-        }
-    }
-
-    private function printCluster()
-    {
-        foreach ($this->cluster as $keyCluster => $valueCluster) {
-            print("CLUSTER " . $keyCluster);
-            echo "<br>";
-            echo "<br>";
-            foreach ($valueCluster as $v) {
-                print_r($v);
-                echo "<br>";
-                echo "<br>";
-            }
-        }
     }
 }

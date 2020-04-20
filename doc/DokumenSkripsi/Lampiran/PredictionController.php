@@ -52,14 +52,14 @@ class PredictionController extends Controller
         return $res;
     }
 
-    private function insertData($res, $a, $b, $id_prodi)
+    private function insertData($res, $a, $b, $idProdi)
     {
         $pred = $a / $b;
-        $namaFakultas = $this->fakultas->getNamaFakultas($id_prodi);
-        $namaProdi = $this->programStudi->getNamaProgramStudi($id_prodi);
-        $res[$id_prodi] = array();
+        $namaFakultas = $this->fakultas->getNamaFakultas($idProdi);
+        $namaProdi = $this->programStudi->getNamaProgramStudi($idProdi);
+        $res[$idProdi] = array();
         // dibalik
-        array_push($res[$id_prodi], $pred, $namaFakultas, $namaProdi);
+        array_push($res[$idProdi], $pred, $namaFakultas, $namaProdi);
 
         return $res;
     }

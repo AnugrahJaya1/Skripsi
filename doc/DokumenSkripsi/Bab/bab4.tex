@@ -139,15 +139,633 @@ Tabel data yang akan digunakan untuk sistem rekomendasi program studi Universita
 
 Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Sistem menggunakan beberapa algoritma seperti K-Means untuk membuat kelompok mahasiswa yang memiliki karakteriksi yang sama dengan calon mahasiswa, Pearson Correlation Coefficient untuk menghitung kesamaan atau similaritas, dan User-base Collaborative Filtering untuk menghitung prediksi nilai IPK.
 
-\subsection{K-Means}
+\subsection{Mahasiswa Controller}
+\label{subsec:mahasiswa controller}
 
-\begin{algorithm}
-\caption{test}
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{indek}{$jurusanSMA$} 
+        \State $idJurusan \gets 1$ \Comment{IdJurusan IPA}
+        \If{jurusanSMA == 'IPS'}
+            \State $idJurusan \gets 2$
+        \EndIf
+        
+        \State $dataMahasiswa \gets DATAMAHASISWA(idJurusan)$
+        
+        \State \Return dataMahasiswa
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Index}
+  \label{alg:index mahasiswa controller}
 \end{algorithm}
 
-\subsection{Pearson Correlation Coefficient}
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{dataMahasiswa}{$idJurusan$} 
+        \State $query \gets SELECT * FROM mahasiswa INNER JOIN nilai ON mahasiswa.id\_mahasiswa=nilai.id\_mahasiswa WHERE id\_jurusan = idJurusan$
+        
+        \State \Return query
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Data Mahasiswa}
+  \label{alg:data mahasiswa controller}
+\end{algorithm}
 
-\subsection{User-based Collaborative Filtering}
+\subsection{Siswa Controller}
+\label{subsec:siswa controller}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{index}{$request$} 
+        \State $data \gets request.INPUT()$
+        \State $DATASISWA(data)$
+        
+        \State $mahasiswa \gets MAHASISWACONTROLLER()$
+        \State $mhs \gets mahasiswa.INDEX(siswa["btn"]).TOARRAY()$
+        
+        \State $kmeans \gets KMEANSCONTROLLER(k, mhs)$ \Comment{k adalah jumlah kelompok yang ingin dibentuk}
+        \State $cluster \gets kmeans.HITUNGJARAKSISWA(siswa)$
+        
+        \State $mhs \gets kmeans.GETCLUSTER(cluster)$
+        
+        \State $userBasedModel \gets USERBASEDMODELCONTROLLER(mhs, siswa)$
+        
+        \State $result \gets userBasedModel.GETRESULT()$
+        
+        \State \Return $view('/result', ['result' \gets result])$
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Index}
+  \label{alg:index siswa controller}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{dataSiswa}{$data$} 
+        \State $i \gets 1$
+        \State $result \gets ARRAY()$
+        \State $result['nilai'] \gets ARRAY()$
+        
+        \ForEach{$key => value \in data$}
+            \If{key == '\_token'}
+                \State $result[key] \gets value$
+            \Else
+                \If{i == 1}
+                    \State $k \gets SUBSTR(key, 0, 3)$
+                    \State $temp \gets ARRAY()$
+                    
+                    \State ARRAY\_PUSH(temp, ((int)value/20)-1) \Comment{Conver kedalam GPA}
+                    
+                    \State $i \gets i+1$
+                \Else
+                    \State ARRAY\_PUSH(temp, ((int)value/20)-1) \Comment{Conver kedalam GPA}
+                    
+                    \State $i \gets i+1$
+                    
+                    \If{i == 5}
+                        \State $avg \gets ARRAY\_SUM(temp)/COUNT(temp)$
+                        \State ARRAY\_PUSH(temp, avg)
+                        
+                        \State $temp \gets REPLACEKEY(temp, 5, 'id\_mata\_pelajaran')$
+                        
+                        \State ARRAY\_PUSH(result['nilai',temp)
+                        
+                        \State $i \gets 1$
+                    \EndIf
+                \EndIf
+            \EndIf
+        \EndFor
+        
+        \If{!EMPTY(data['btnIPA'])}
+            \State $result['btn'] \gets 'IPA'$
+        \ElsIf{!EMPTY(data['btnIPS'])}
+            \State $result['btn'] \gets 'IPS'$
+        \EndIf
+        
+        \State \Return result
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Data Siswa}
+  \label{alg:data siswa controller}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{ReplaceKey}{$temp, oldKey, newKey$} 
+        \State $temp[newKey] \gets temp[oldKey]$
+        \State UNSET(temp[oldKey])
+        
+        \State \Return temp
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Replace Key}
+  \label{alg:Replace Key siswa controller}
+\end{algorithm}
+
+\subsection{K-Means Controller}
+\label{subsec:kmeans}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{Contructor}{$k, dataMahasiswa$} 
+        \State $k \gets k$
+        \State $mahasiswa \gets dataMahasiswa$
+        \State $INISIALISASICLUSTER()$
+        \State $currCentroid \gets ARRAY()$ \Comment{centroid saat ini}
+        
+        \State $J0 \gets 100$ \Comment{J0 = inisialisasi jarak total dari objek ke centroid-nya}
+        
+        \State $PILIHCENTROID()$
+        
+        \State $HITUNGJARAKMHS()$
+        
+        \State $status \gets TRUE$
+        \State $ idx \gets 0$
+        \While{status}
+            \State HITUNGCENTROIDBARU()
+            \State $idx \gets idx + 1$
+            \State $status \gets CEKBATAS()$
+            \State $HITUNGJARAKMHS()$
+        \EndWhile
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Contructor KMeans}
+  \label{alg:contructor kmeans}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{inisialisasiCluster}{} 
+        \State $cluster \gets ARRAY()$
+        \For{i = 1 into k}
+            \State $cluster[i] \gets ARRAY()$
+        \EndFor
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Inisialisasi Cluster}
+  \label{alg:inisialisasi cluster}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{pilihCentroid}{} 
+        \State $i \gets 0$
+        \While{i < k}
+            \State $key \gets RAND(0,1739)$ \Comment{Random sebanyak jumlah mahasiswa}
+            
+            \If{check key in mahasiswa == TRUE}
+                \If{check key in mahasiswa == FALSE}
+                    \State ARRAY\_PUSH(currCentroid, mahasiswa[key])
+                    \State $i \gets i+1$
+                \EndIf
+            \EndIf
+        \EndWhile
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Pilih Centroid}
+  \label{alg:pilih centroid}
+\end{algorithm}
+
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{hitungJarakMhs}{} 
+        \State $J1 \gets 0$
+        \ForEach{$valueMhs \in mahasiswa$}
+            \State $temoCluster \gets ARRAY()$ \Comment{Penampung cluster sementara}
+            \State $nilaiMhs \gets valueMhs['nilai']$
+            
+            \ForEach{$valueNilaiMhs \in nilaiMhs$}
+                \State $arrayJarak \gets ARRAY()$
+                
+                \ForEach{$valueNilaiCen \in currCentroid$}
+                    \If{$(valueNilaiMhs['id_mata_pelajaran'] == 1 AND valueNilaiCen['id_mata_pelajaran'] == 1) OR (valueNilaiMhs['id_mata_pelajaran'] == 3 AND valueNilaiCen['id_mata_pelajaran'] == 3)$}
+                        \State $jarak \gets EUCLIDIANCEDISTANCE(valueNilaiMhs, valueNilaiCen)$
+                    \ElsIf{$valueNilaiMhs['id_mata_pelajaran'] < valueNilaiCen['id_mata_pelajaran']$}
+                        \State break
+                    \EndIf
+                \EndFor
+                \State ARRAY\_PUSH(arrJarak, jarak)
+            \EndFor
+            \If{$tempCluster is empty$}
+                \State ARRAY\_PUSH(tempCluster, arrJarak)
+            \Else
+                \For{i = 1 into k}
+                    \State $tempCluster[0][i] \gets tempCluster[0][i]+ arrJarak[i]$
+                    \State $tempCluster[0][i] \gets SQRT(tempCluster[0][i])$
+                \EndFor
+            \EndIf
+            \State $c \gets current mahasiswa cluster$
+            \State $J1 \gets J1 + tempCluster[0][c]$
+            \State ARRAY\_PUSH(tempCluster[0], c, valueMhs['id\_mahasiswa'])
+            
+            \State $tempCluster[0]['id\_mahasiswa'] \gets tempCluster[0][k+1]$
+            \State UNSET(tempCluster[0][k+1])
+            
+            \State ARRAY\_PUSH(cluster[c],valueMhs)
+        \EndFor
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Hitung Jarak Mhs}
+  \label{alg:hitungJarakMhs}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{hitungJarakSiswa}{siswa} 
+        \State $nilaiSiswa \gets siswa['nilai']$
+        \State $tempCluster \gets ARRAY()$
+        
+        \ForEach{$valueNilaiSiswa \in nilaiSiswa$}
+            \State $arrJarak \gets ARRAY()$
+            
+            \ForEach{$valueCen \in currCentroid$}
+                \State $jarak \gets 0$
+                \State $nilaiCen \gets valueCen['nilai']$
+                
+                \ForEach{$valueNilaiCen \in nilaiCen$}
+                    \If{$(valueNilaiMhs['id_mata_pelajaran'] == 1 AND valueNilaiCen['id_mata_pelajaran'] == 1) OR (valueNilaiMhs['id_mata_pelajaran'] == 3 AND valueNilaiCen['id_mata_pelajaran'] == 3)$}
+                    \State $jarak \gets EUCLIDIANCEDISTANCE(valueNilaiSiswa, valueNilaiCen)$
+                    \ElsIf{$valueNilaiMhs['id_mata_pelajaran'] < valueNilaiCen['id_mata_pelajaran']$}
+                        \State break
+                    \EndIf
+                \EndFor
+                \State ARRAY\_PUSH(arrJarak,jarak)
+            \EndFor
+            \If{$tempCluster is empty$}
+                \State ARRAY\_PUSH(tempCluster, arrJarak)
+            \Else
+                \For{i = 1 into k}
+                    \State $tempCluster[0][i] \gets tempCluster[0][i]+ arrJarak[i]$
+                    \State $tempCluster[0][i] \gets SQRT(tempCluster[0][i])$
+                \EndFor
+            \EndIf
+        \EndFor
+        
+        \State $res \gets current siswa cluster$
+        
+        \State \Return res
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Hitung Jarak Siswa}
+  \label{alg:hitungJarakSiswa}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{euclidianceDistance}{mhs, centroid} 
+        \State $result \gets 0$
+        
+        \For{i = 1 into 4}
+            \State $result \gets result + POW(mhs[i]-centroid[i],2)$
+        \EndFor
+        \State $result \gets result + POW(mhs['AVG']-centroid['AVG'],2)$
+        
+        \State \Return result
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Euclidiance Distance}
+  \label{alg:euclidianceDistance}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{hitungCentroidBaru}{} 
+        \State $prevCentroid \gets currCentroid$
+        \State RESETCENTROID()
+        
+        \ForEach{$keyCen=>valueCen \in currCentroid$}
+            \State $nilaiCen \gets valueCen['nilai']$
+            
+            \ForEach{$keyNilaiCen=>valueNilaiCen \in nilaiCen$}
+                \State $anggota \gets cluster[keyCen]$
+                \If{numbers of anggota != 0}
+                    \ForEach{$keyAnggota=>valueAnggota \in anggota$}
+                        \State $nilaiAnggota = valueAnggota['nilai']$
+                        
+                        \ForEach{$keyNilaiAnggota=>valueNilaiAnggota \in nilaiAnggota$}
+                            \If{$(valueNilaiMhs['id_mata_pelajaran'] == 1 AND valueNilaiCen['id_mata_pelajaran'] == 1) OR (valueNilaiMhs['id_mata_pelajaran'] == 3 AND valueNilaiCen['id_mata_pelajaran'] == 3)$}
+                                \For{i = 1 into 4}
+                                    \State $nilaiLama \gets currCentroid[keyCen]['nilai][keyNilaiCen][i]$
+                                    \State $nilaiBaru \gets anggora[keyAnggota]['nilai'][keyNilaiAnggota][i]$
+                                    
+                                    \State UPDATENILAI(keyCen, keyNilaiCen, nilaiLama, nilaiBaru, i)
+                                \EndFor
+                                \State $nilaiLama \gets currCentroid[keyCen]['nilai][keyNilaiCen]['AVG']$
+                                \State $nilaiBaru \gets anggora[keyAnggota]['nilai'][keyNilaiAnggota]['AVG']$
+                                \State UPDATENILAI(keyCen, keyNilaiCen, nilaiLama, nilaiBaru, 'AVG')
+                            \EndIf
+                        \EndFor
+                    \EndFor
+                    \Else
+                        \State RANDOMNILAIBARU(keyCen, KeyNilaiCen)
+                \EndIf
+            \EndFor
+        \EndFor
+        \State HITUNGRATA2()
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Hitung Centroid Baru}
+  \label{alg:hitungCentroidBaru}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{resetCentroid}{} 
+        \ForEach{$keyCen => valueCen \in currCentroid$}
+            \State $nilaiCen \gets valueCen['nilai']$
+            
+            \ForEach{$keyNilai \in nilaiCen$}
+                \For{i = 1 into 4}
+                    \State $currCentroid[keyCen]['nilai'][keyNilaiCen][i] \gets 0$
+                \EndFor
+                \State $currCentroid[keyCen]['nilai'][keyNilaiCen]['AVG'] \gets 0$
+            \EndFor
+        \EndFor
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Reset Centroid}
+  \label{alg:resetCentroid}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{updateNilai}{keyCen, keyNilaiCen, nilaiLama, nilaiBaru, i} 
+      \State $nilai \gets nilaiLama+nilaiBaru$
+      \State $currCentroid[keyCen]['nilai'][keyNilaiCen][i] \gets nilai$
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Update Nilai}
+  \label{alg:updateNilai}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{hitungRata2}{} 
+        \ForEach{$keyCen => valueCen \in currCentroid$}
+            \State $nilaiCen \gets valueCen['nilai']$
+            \State $anggota \gets cluster[keyCen]$
+            \State $count \gets numbers of anggota$
+            \If{counter != 0}
+                \ForEach{$keyNilaiCen \in nilaiCen$}
+                    \For{i = 1 into 4}
+                        \State $currCentroid[keyCen]['nilai'][keyNilaiCen][i] \gets currCentroid[keyCen]['nilai'][keyNilaiCen][i]/count$
+                    \EndFor
+                    $currCentroid[keyCen]['nilai'][keyNilaiCen]['AVG'] \gets currCentroid[keyCen]['nilai'][keyNilaiCen]['AVG']/count$
+                \EndFor
+            \EndIf
+        \EndFor
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Hitung Rata2}
+  \label{alg:hitungRata2}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{randomNilaiBaru}{keyCen, keyNilaiCen} 
+        \For{i = 1 into 4}
+            \State $currCentroid[keyCen]['nilai'][keyNilaiCen][i] \gets RAND(1,3) + RAND(1,10)/10$
+        \EndFor
+         \State $currCentroid[keyCen]['nilai'][keyNilaiCen]['AVG'] \gets RAND(1,3) + RAND(1,10)/10$
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Random NilaiBaru}
+  \label{alg:randomNilaiBaru}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{cekBatas}{} 
+        \State $batas \gets ABS(J0 - J1)$
+        
+        \If{batas < 0.1}
+            \State \Return FALSE
+        \EndIf
+        
+        \State \Return TRUE
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Cek Batas}
+  \label{alg:cekBatas}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{getCluster}{idx} 
+        \State \Return cluster[idx]
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Get Cluster}
+  \label{alg:getCluster}
+\end{algorithm}
+
+\subsection{User-based Collaborative Filtering Controller}
+\label{subsec:user-based}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{Contructor}{$mahasiswa, siswa, mode = 0$} 
+        \State $prediction \gets PREDICTIONCONTROLLER()$
+        \If {mode == 0}
+            \State $pearsonCorrelation \gets PEARSONCORRELATIONCONTROLLER()$
+            \State $pearson \gets CALCULATESIMILARITY (mahasiswa, siswa)$
+            \State $result \gets CALCULATEPREDICT(pearson)$
+        \ElsIf {mode == 1}
+            \State $pearsonCorrelation \gets PEARSONCORRELATIONPENGUJIANCONTROLLER()$
+        \EndIf
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{User-based Collaborative Filtering}
+  \label{alg:contructor user-based}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{calculateSimilarity}{$mahasiswa, siswa$} 
+        \State \Return $pearsonCorrelation \gets CALCULATEPEARSON(mahaiswa, siswa)$
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{User-based Collaborative Filtering}
+  \label{alg:calculateSimilarity user-based}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{calculatePredict}{$pearson$} 
+        \State \Return $prediction \gets CALCULATEPREDICT(pearson)$
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{User-based Collaborative Filtering}
+  \label{alg:calculatePredict user-based}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{getResult}{} 
+        \State \Return result
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{User-based Collaborative Filtering}
+  \label{alg:getResult user-based}
+\end{algorithm}
+
+\subsection{Pearson Correlation Coefficient Controller}
+\label{subsec:pearson}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{calculatePearson}{$mahasiswa, siswa$} 
+        \State $res \gets ARRAY()$
+        \ForEach{$mahasiswa \in  mhs $}
+            \State $covariance \gets CALCULATECOVARIANCE(mhs, siswa)$
+            \State $sd \gets CALCULATESTANDARDEVIATION(mhs,siswa)$
+            \State $sdMhs \gets sd[0]$
+            \State $sdSiswa \gets sd[1]$
+            
+            \State $idProdi \gets mhs['id_program\_studi']$
+            \State $IPK \gets mhs['IPK']$
+            
+            \State $sim \gets CONVARIANCE / (sdMhs * sdSiswa)$
+            
+            \If{$sim > 0$}
+                \State $res[mhs['id\_mahasiswa']] \gets ARRAY()$
+                \State $ARRAY\_PUSH(res[mhs['id\_mahasiswa']], sim, idProdi, IPK)$
+            \EndIf
+        \EndFor
+    
+        \State \Return res
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Pearson Correlation Coefficient}
+  \label{alg:calculatePearson pearson}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{calculateCovariance}{$mhs, siswa$} 
+        \State $res \gets 0$
+        \State $nilaiMhs \gets mhs['nilai']$
+        \State $nilaiSiswa \gets siswa['nilai']$
+        
+        \ForEach{$nilaiSiswa \in  nSiswa $}
+            \State $idMP \gets nSiswa['id\_mata\_pelajaran']$
+            \ForEach{$nilaiMhs \in  nMhs $}
+                \If{idMP == nMhs['id\_mata\_pelajaran']}
+                    \For{i = 1 to 4}
+                        \State $res \gets res +  (nMhs[i]-nMhs['AVG'])*(nSiswa[i]-nSiswa['AVG'])$
+                    \EndFor
+                \ElsIf{idMP < nMhs['id\_mata\_pelajaran']}
+                    \State break
+                \EndIf
+            \EndFor
+        \EndFor
+        \State \Return res
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Pearson Correlation Coefficient}
+  \label{alg:calculateCovariance pearson}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{calculateStandarDeviation}{$mhs, siswa$} 
+        \State $res \gets 0$
+        
+        \State $sdMhs \gets 0$
+        \State $sdSiswa \gets 0$
+        
+        \State $nilaiMhs \gets mhs['nilai']$
+        \State $nilaiSiswa \gets siswa['nilai']$
+        
+        \ForEach{$nilaiSiswa \in nSiswa$}
+            \State $idMP \gets nSiswa['id\_mata\_pelajaran']$
+            \ForEach{$nilaiMhs \in  nMhs $}
+                \If{idMP == nMhs['id\_mata\_pelajaran']}
+                    \For{i = 1 to 4}
+                        \State $sdMhs \gets sdMhs + POW(nMhs[i]-nMhs['AVG'],2)$
+                        \State $sdSiswa \gets sdSiswa + POW(nSiswa[i]-nSiswa['AVG'],2)$
+                    \EndFor
+                \ElsIf{idMP < nMhs['id\_mata\_pelajaran']}
+                    \State break
+                \EndIf
+            \EndFor
+        \EndFor
+        \State $ARRAY\_PUSH(res, SQRT(sdMhs), SQRT(sdSiswa))$
+        
+        \State \Return res
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Pearson Correlation Coefficient}
+  \label{alg:calculateStandarDeviation pearson}
+\end{algorithm}
+
+
+\subsubsection{Precidtion Controller}
+\label{subsec:prediction}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{Contructor}{} 
+        \State $programStudi \gets PROGRAMSTUDICONTROLLER()$
+        \State $fakultas \gets FAKULTASCONTROLLER()$
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Prediction}
+  \label{alg:contructor prediction}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{calculatePredict}{$pearson$} 
+        \State $res \gets ARRAY()$
+        
+        \State $a \gets 0$ \Comment{a = Sigma(sim*IPK)}
+        \State $b \gets 0$ \Comment{b = Sigma(sim)}
+        
+        \ForEach{$pearson \in  id\_mhs => value $}
+            \State $a \gets a + value[0]*value[2]$
+            \State $b \gets b + value[0]$
+            
+            \State $next \gets NEXT(pearson)$
+            
+            \If{$next != NULL$}
+                \If{$value[1] != next[1]$}  
+                    \State $res \gets INSERTDATA(res, a, b, value[1])$
+                    
+                    \State $a \gets 0$
+                    \State $b \gets 0$
+                \EndIf
+            \ElsIf{$next != NULL$}
+                \State $res \gets INSERTDATA(res, a, b, value[1])$
+            \EndIf
+        \EndFor
+        
+        \State $score \gets ARRAY_COLUMN(res,0)$ \Comment{Penampung nilai prediksi IPK}
+        \State $ARRAY\_MULTISORT(score, SORT\_DESC, res)$ \Comment{Sort berdasarkan nilai prediksi terbesar}
+        
+        \State \Return res
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Prediction}
+  \label{alg:calculatePredict prediction}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{insertData}{$res, a, b, idProdi$} 
+        \State $pred \gets a/b$
+        \State $namaFakultas \gets fakultas.GETNAMAFAKULTAS(idProdi)$
+        \State $namaProdi \gets programStudi.GETNAMAPROGRAMSTUDI(idProdi)$
+        \State $res[idProdi] \gets ARRAY()$
+        \State $ARRAY\_PUSH(res[idProdi], pred, namaFakultas, namaProdi)$
+        \State \Return res
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Prediction}
+  \label{alg:insertData prediction}
+\end{algorithm}
+
 
 \section{Perancangan Antar Muka}
 \label{sec:perancangan antar muka}
