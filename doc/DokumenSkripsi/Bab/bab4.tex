@@ -162,7 +162,7 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
 \begin{algorithm}[H]
   \begin{algorithmic}[1]
     \Procedure{dataMahasiswa}{$idJurusan$} 
-        \State $query \gets SELECT * FROM mahasiswa INNER JOIN nilai ON mahasiswa.id\_mahasiswa=nilai.id\_mahasiswa WHERE id\_jurusan = idJurusan$
+        \State $query \gets$ SELECT * FROM mahasiswa INNER JOIN nilai ON mahasiswa.id\_mahasiswa=nilai.id\_mahasiswa WHERE id\_jurusan = idJurusan
         
         \State \Return query
     \EndProcedure
@@ -267,7 +267,7 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
 
 \begin{algorithm}[H]
   \begin{algorithmic}[1]
-    \Procedure{Contructor}{$k, dataMahasiswa$} 
+    \Procedure{Contruct}{$k, dataMahasiswa$} 
         \State $k \gets k$
         \State $mahasiswa \gets dataMahasiswa$
         \State $INISIALISASICLUSTER()$
@@ -289,8 +289,8 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
         \EndWhile
     \EndProcedure
   \end{algorithmic} 
-  \caption{Contructor KMeans}
-  \label{alg:contructor kmeans}
+  \caption{Contruct KMeans}
+  \label{alg:Contruct kmeans}
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -565,7 +565,7 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
 
 \begin{algorithm}[H]
   \begin{algorithmic}[1]
-    \Procedure{Contructor}{$mahasiswa, siswa, mode = 0$} 
+    \Procedure{Contruct}{$mahasiswa, siswa, mode = 0$} 
         \State $prediction \gets PREDICTIONCONTROLLER()$
         \If {mode == 0}
             \State $pearsonCorrelation \gets PEARSONCORRELATIONCONTROLLER()$
@@ -577,7 +577,7 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
     \EndProcedure
   \end{algorithmic} 
   \caption{User-based Collaborative Filtering}
-  \label{alg:contructor user-based}
+  \label{alg:Contruct user-based}
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -610,14 +610,14 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
   \label{alg:getResult user-based}
 \end{algorithm}
 
-\subsection{Pearson Correlation Coefficient Controller}
+\subsection{Pearson Correlation Controller}
 \label{subsec:pearson}
 
 \begin{algorithm}[H]
   \begin{algorithmic}[1]
     \Procedure{calculatePearson}{$mahasiswa, siswa$} 
         \State $res \gets ARRAY()$
-        \ForEach{$mahasiswa \in  mhs $}
+        \ForEach{$mhs \in mahasiswa$}
             \State $covariance \gets CALCULATECOVARIANCE(mhs, siswa)$
             \State $sd \gets CALCULATESTANDARDEVIATION(mhs,siswa)$
             \State $sdMhs \gets sd[0]$
@@ -637,8 +637,8 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
         \State \Return res
     \EndProcedure
   \end{algorithmic} 
-  \caption{Pearson Correlation Coefficient}
-  \label{alg:calculatePearson pearson}
+  \caption{Calculate Pearson}
+  \label{alg:calculatePearson}
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -648,9 +648,9 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
         \State $nilaiMhs \gets mhs['nilai']$
         \State $nilaiSiswa \gets siswa['nilai']$
         
-        \ForEach{$nilaiSiswa \in  nSiswa $}
+        \ForEach{$nSiswa \in nilaiSiswa$}
             \State $idMP \gets nSiswa['id\_mata\_pelajaran']$
-            \ForEach{$nilaiMhs \in  nMhs $}
+            \ForEach{$nMhs \in nilaiMhs$}
                 \If{idMP == nMhs['id\_mata\_pelajaran']}
                     \For{i = 1 to 4}
                         \State $res \gets res +  (nMhs[i]-nMhs['AVG'])*(nSiswa[i]-nSiswa['AVG'])$
@@ -663,8 +663,8 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
         \State \Return res
     \EndProcedure
   \end{algorithmic} 
-  \caption{Pearson Correlation Coefficient}
-  \label{alg:calculateCovariance pearson}
+  \caption{Calculate Covariance}
+  \label{alg:calculateCovariance}
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -678,9 +678,9 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
         \State $nilaiMhs \gets mhs['nilai']$
         \State $nilaiSiswa \gets siswa['nilai']$
         
-        \ForEach{$nilaiSiswa \in nSiswa$}
+        \ForEach{$nSiswa \in nilaiSiswa$}
             \State $idMP \gets nSiswa['id\_mata\_pelajaran']$
-            \ForEach{$nilaiMhs \in  nMhs $}
+            \ForEach{$nMhs \in nilaiMhs$}
                 \If{idMP == nMhs['id\_mata\_pelajaran']}
                     \For{i = 1 to 4}
                         \State $sdMhs \gets sdMhs + POW(nMhs[i]-nMhs['AVG'],2)$
@@ -696,23 +696,22 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
         \State \Return res
     \EndProcedure
   \end{algorithmic} 
-  \caption{Pearson Correlation Coefficient}
+  \caption{Calculate Standar Deviation}
   \label{alg:calculateStandarDeviation pearson}
 \end{algorithm}
-
 
 \subsubsection{Precidtion Controller}
 \label{subsec:prediction}
 
 \begin{algorithm}[H]
   \begin{algorithmic}[1]
-    \Procedure{Contructor}{} 
+    \Procedure{Contruct}{} 
         \State $programStudi \gets PROGRAMSTUDICONTROLLER()$
         \State $fakultas \gets FAKULTASCONTROLLER()$
     \EndProcedure
   \end{algorithmic} 
-  \caption{Prediction}
-  \label{alg:contructor prediction}
+  \caption{Contruct}
+  \label{alg:Contruct prediction}
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -723,7 +722,7 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
         \State $a \gets 0$ \Comment{a = Sigma(sim*IPK)}
         \State $b \gets 0$ \Comment{b = Sigma(sim)}
         
-        \ForEach{$pearson \in  id\_mhs => value $}
+        \ForEach{$id\_mhs => value \in pearson$}
             \State $a \gets a + value[0]*value[2]$
             \State $b \gets b + value[0]$
             
@@ -747,8 +746,8 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
         \State \Return res
     \EndProcedure
   \end{algorithmic} 
-  \caption{Prediction}
-  \label{alg:calculatePredict prediction}
+  \caption{Calculate Predict}
+  \label{alg:calculatePredict}
 \end{algorithm}
 
 \begin{algorithm}[H]
@@ -762,10 +761,252 @@ Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Si
         \State \Return res
     \EndProcedure
   \end{algorithmic} 
-  \caption{Prediction}
+  \caption{Insert Data}
   \label{alg:insertData prediction}
 \end{algorithm}
 
+\subsection{Fakultas Controller}
+\label{subsec:fakultas controller}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{getNamaFakultas}{id\_program\_studi}
+        \State $id\_fakultas \gets FLOOR(id\_program\_studi)$
+        \State $nama\_fakultas \gets$ SELECT nama\_fakultas FROM fakultas WHERE id\_fakultas = id\_program\_studi
+        
+        \State \Return nama\_fakultas
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Get Nama Fakultas}
+  \label{alg:getNamaFakultas}
+\end{algorithm}
+
+\subsection{Program Studi Controller}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{getNamaProgramStudi}{id\_program\_studi} 
+        \State $nama\_prodi \gets$ SELECT nama\_program\_studi FROM program\_studi WHERE id\_program\_studi = id\_program\_studi
+        
+        \State \Return nama\_prodi
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{getNamaProgramStudi}
+  \label{alg:getNamaProgramStudi}
+\end{algorithm}
+
+\subsection{Pengujian Controller}
+\label{subsec:pengujian controller}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{Contruct}{request} 
+       \State $btn \gets request.INPUT()$
+       \State $idJurusan \gets SUBSTR(btn['btn'], 0, 3)$
+       \State $metode = SUBSTR(btn['btn'], 4, STRLEN(btn['btn']))$
+       
+       \State $mhs \gets MAHASISWACONTROLLER()$
+       \State $data \gets mhs.INDEX(idJurusan).TOARRAY()$
+       
+       \State $arrLabel \gets ARRAY()$ \Comment{Penampung label data}
+       
+       \ForEach{$m \in data$}
+            \State ARRAY\_PUSH(arrLabel, m['id\_program\_studi']
+       \EndFor
+       
+       \State $dataSet \gets ARRAYDATASET(data, arrLabel)$
+       \State $dataset \gets RANDOMSPLIT(dataset, n)$ \Comment{n = numbers of size (0.1 - 0.9)}
+       
+       \State $train \gets dataset.GETTRAINSAMPLES$
+       \State $test \gets dataset.GETTESTSAMPLES$
+       
+       \State $accuracy \gets ACCURACYCONTROLLER()$
+       
+       \State $userBasedModel \gets USERBASEDMODELCONTROLLER(NULL, NULL, 1)$
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Contruct}
+  \label{alg:contruct pengujian}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{index}{} 
+       \If{metode == 'Basic'}
+            \State \Return PENGUJIANBASIC()
+       \Else
+            \State \Return PENGUJIANKMEANS(bts, n)
+       \EndIf
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Index}
+  \label{alg:index}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{pengujianBasic}{} 
+       \State $result \gets ARRAY()$
+       
+       \State $error1 \gets ARRAY()$
+       \State $error2 \gets ARRAY()$
+       
+       \ForEach{$t \in test$}
+            \State $start \gets count time$
+            
+            \If{t['NPM'] NOT IN result}
+                \State $temp \gets ARRAY()$
+                
+                \State $pearson \gets userBasedModel.CALCULATESIMILARITY(train, t)$
+                
+                \State $predict \gets userBasedModel.CALCULATEPREDICT(pearson)$
+                
+                \If{predict != NULL}
+                    \State $diff1 \gets ABS(t['IPK'] - predict[0][0])$
+                    \State ARRAY\_PUSH(error1, diff1)
+                    
+                    \State $diff2 \gets POW(t['IPK'] - predict[0][0],2)$
+                    \State ARRAY\_PUSH(error2, diff2)
+                    
+                    \State ARRAY\_PUSH(temp, t['NPM'], predict[0][2],t['IPK'], predict[0][0], diff1, diff2)
+                    
+                    \State ARRAY\_PUSH(result, temp)
+                \EndIf
+            \EndIf
+       \EndFor
+       
+       \State $mae \gets accuracy.CALCULATEMAE(error1)$
+       \State $rmse \gets accuracy.CALCULATERMSE(error2)$
+       \State $end \gets count time$
+       \State $times \gets end - start$
+       
+       \State \Return view('/pengujian',['status'=>TRUE, 'result'=>result, 'mae'=>mae, 'rmse'=>rmse, 'times'=>times, 'metode'=>metode])
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Pengujian Basic}
+  \label{alg:pengujianBasic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{pengujianKmeans}{bts, n} 
+       \State $result \gets ARRAY()$
+       \State $maeArr \gets ARRAY()$
+       \State $rmseArr \gets ARRAY()$
+       \State $timesArr \gets ARRAY()$
+       
+       \For{k = 2 into bts}
+            \State $start \gets count time$
+            \State $tempMae \gets 0$
+            \State $tempRmse \gets 0$
+            
+            \For{i = 1 into n}
+                \State $kmeans \gets KMEANSCOONTROLLER(k, train)$
+                
+                \State $error1 \gets ARRAY()$
+                \State $error2 \gets ARRAY()$
+                
+                \ForEach{$t \in test$}
+                    \If{t['NPM'] NOT IN result}
+                        \State $temp \gets ARRAY()$
+                        
+                        \State $cluster \gets kmeans.HITUNGJARAKSISWA(t)$
+                        
+                        \State $dataTrain \gets kmeans.GETCLUSTER(cluster)$
+                        
+                        \State $pearson \gets userBasedModel.CALCULATESIMILARITY(dataTrain, t)$
+                        \State $predict \gets userBasedModel.CALCULATEPREDICT(pearson)$
+                        
+                        \If{predict != NULL}
+                            \State $diff1 \gets ABS(t['IPK'] - predict[0][0])$
+                            \State ARRAY\_PUSH(error1, diff1)
+                            
+                            \State $diff2 \gets POW(t['IPK'] - predict[0][0],2)$
+                            \State ARRAY\_PUSH(error2, diff2)
+                            
+                            \State ARRAY\_PUSH(temp, t['NPM'], predict[0][2],t['IPK'], predict[0][0], diff1, diff2)
+                            
+                            \State ARRAY\_PUSH(result, temp)
+                        \EndIf
+                    \EndIf
+                \EndFor
+                    \State $mae \gets accuracy.CALCULATEMAE(error1)$
+                    \State $rmse \gets accuracy.CALCULATERMSE(error2)$
+                    
+                    \State $tempMae \gets tempMae + mae$
+                    \State $tempRmse \gets tempRmse + rmse$
+            \EndFor
+            \State $end \gets count time$
+            \State $times \gets end - start$
+            \State $ARRAY\_PUSH(maeArr, tempMae/n)$
+            \State $ARRAY\_PUSH(rmseArr, tempRmse/n)$
+            \State $ARRAY\_PUSH(timesArr, times)$
+       \EndFor
+       
+       \State \Return view('/pengujian',['status'=>TRUE, 'result'=>result, 'maeArr'=>maeArr, 'rmseArr'=>rmseArr, 'times'=>times, 'metode'=>metode])
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Pengujian Kmeans}
+  \label{alg:pengujianKmeans}
+\end{algorithm}
+
+\subsection{Pearson Correlation Pengujian Controller}
+\label{subsec:pearson pengujian}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{calculatePearson}{$mahasiswa, siswa$} 
+        \State $res \gets ARRAY()$
+        \ForEach{$mhs \in mahasiswa$}
+            \If{mhs['id\_program\_studi'] == siswa['id\_program\_studi']}
+                \State $covariance \gets CALCULATECOVARIANCE(mhs, siswa)$
+                \State $sd \gets CALCULATESTANDARDEVIATION(mhs,siswa)$
+                \State $sdMhs \gets sd[0]$
+                \State $sdSiswa \gets sd[1]$
+                
+                \State $idProdi \gets mhs['id_program\_studi']$
+                \State $IPK \gets mhs['IPK']$
+                
+                \State $sim \gets CONVARIANCE / (sdMhs * sdSiswa)$
+                
+                \If{$sim > 0$}
+                    \State $res[mhs['id\_mahasiswa']] \gets ARRAY()$
+                    \State $ARRAY\_PUSH(res[mhs['id\_mahasiswa']], sim, idProdi, IPK)$
+                \EndIf
+            \EndIf
+        \EndFor
+    
+        \State \Return res
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Calculate Pearson Pengujian}
+  \label{alg:calculatePearsonPengujian}
+\end{algorithm}
+
+Pada fungsi \textit{calculateCovariance} \textit{pseudocode} sama seperti pada \ref{alg:calculateCovariance} dan \textit{calculateStandarDeviation} \textit{pseudocode} sama seperti pada \ref{alg:calculateStandarDeviation pearson}.
+
+\subsection{Accuracy Controller}
+\label{subsec:accuracy}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{calculateMAE}{arr} 
+       \State \Return ARRAY\_SUM(arr)/COUNT(arr)
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Calculate MAE}
+  \label{alg:calculateMAE}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \begin{algorithmic}[1]
+    \Procedure{calculateRMSE}{arr} 
+       \State \Return SQRT(ARRAY\_SUM(arr)/COUNT(arr))
+    \EndProcedure
+  \end{algorithmic} 
+  \caption{Calculate RMSE}
+  \label{alg:calculateRMSE}
+\end{algorithm}
 
 \section{Perancangan Antar Muka}
 \label{sec:perancangan antar muka}

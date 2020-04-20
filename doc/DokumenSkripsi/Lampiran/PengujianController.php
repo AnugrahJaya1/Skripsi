@@ -24,12 +24,11 @@ class PengujianController extends Controller
     function __construct(Request $request)
     {
         $btn = $request->input();
-        $id_jurusan = substr($btn['btn'], 0, 3);
+        $idJurusan = substr($btn['btn'], 0, 3);
         $this->metode = substr($btn['btn'], 4, strlen($btn['btn']));
-        // print($metode);
 
         $mhs = new MahasiswaController();
-        $data = $mhs->index($id_jurusan)->toArray();
+        $data = $mhs->index($idJurusan)->toArray();
 
         // untuk label setiap data
         $arrLabel = array();
@@ -99,13 +98,10 @@ class PengujianController extends Controller
                         // menjadi anggota satu cluster dengan siswa
                         $dataTrain = $kmeans->getCluster($cluster);
 
-                        // $dataTrain = $this->train;
-
                         $pearon = $this->userBasedModel->calculateSimilarity($dataTrain, $t);
 
                         $predict = $this->userBasedModel->calculatePredict($pearon);
 
-                        // print_r($predict);
                         if ($predict != null) {
                             // Hitung selisih untuk mean absolute error
                             $diff1 = abs($t["IPK"] - number_format($predict[0][0], 2));
@@ -166,13 +162,10 @@ class PengujianController extends Controller
             if (!array_key_exists($t["NPM"], $result)) {
                 $temp = array();
 
-                $dataTrain = $this->train;
-
-                $pearon = $this->userBasedModel->calculateSimilarity($dataTrain, $t);
+                $pearon = $this->userBasedModel->calculateSimilarity($this->train, $t);
 
                 $predict = $this->userBasedModel->calculatePredict($pearon);
 
-                // print_r($predict);
                 if ($predict != null) {
                     // Hitung selisih untuk mean absolute error
                     $diff1 = abs($t["IPK"] - number_format($predict[0][0], 2));

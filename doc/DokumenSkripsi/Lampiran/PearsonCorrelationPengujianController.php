@@ -81,7 +81,7 @@ class PearsonCorrelationPengujianController extends Controller
                 $sdMhs = $sd[0]; // standar deviasi untuk mahasiswa
                 $sdSiswa = $sd[1]; // standar deviasi untuk siswa
 
-                $id_prodi = $mhs['id_program_studi'];
+                $idProdi = $mhs['id_program_studi'];
                 $IPK = $mhs['IPK'];
 
                 $sim = $covariance / ($sdMhs * $sdSiswa);
@@ -90,7 +90,7 @@ class PearsonCorrelationPengujianController extends Controller
                 if ($sim > 0) {
                     // inisialisai array agar tidak null
                     $res[$mhs['id_mahasiswa']] = array();
-                    array_push($res[$mhs['id_mahasiswa']], $sim, $id_prodi, $IPK);
+                    array_push($res[$mhs['id_mahasiswa']], $sim, $idProdi, $IPK);
                 }
             }
         }
