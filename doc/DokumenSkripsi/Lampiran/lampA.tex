@@ -14,38 +14,104 @@
 % Perhatian: Abaikan warning tentang textasteriskcentered!!
 %
 
-% kode untuk preprocessing
-\lstinputlisting[language=Python, caption=Preprocessing.py]{./Lampiran/filter_ipa_ftis.py}
+% lampiran kode preprocessing
 
-% kode untuk mahasiswa
-\lstinputlisting[language=PHP, caption=MahasiswaController.php]{./Lampiran/MahasiswaController.php}
+    % kode untuk preprocessing
+    \lstinputlisting[language=Python, caption=filter\_data.py]{./Lampiran/Controller/filter_data.py}
 
-% Kode untuk siswa controller
-\lstinputlisting[language=PHP, caption=SiswaController.php]{./Lampiran/SiswaController.php}
+% lampiran kode Controller
+    
+    % kode untuk mahasiswa
+    \lstinputlisting[language=PHP, caption=MahasiswaController.php]{./Lampiran/Controller/MahasiswaController.php}
+    
+    % Kode untuk siswa controller
+    \lstinputlisting[language=PHP, caption=SiswaController.php]{./Lampiran/Controller/SiswaController.php}
+    
+    % kode untuk kmeans controller
+    \lstinputlisting[language=PHP, caption=KMeansController.php]{./Lampiran/Controller/KMeansController.php}
+    
+    % kode untuk user-based
+    \lstinputlisting[language=PHP, caption=UserBasedModelController.php]{./Lampiran/Controller/UserBasedModelController.php} 
+    
+    % kode untuk pearson
+    \lstinputlisting[language=PHP, caption=PearsonCorrelationController.php]{./Lampiran/Controller/PearsonCorrelationController.php} 
+    
+    % kode untuk prediksi
+    \lstinputlisting[language=PHP, caption=PredictionController.php]{./Lampiran/Controller/PredictionController.php} 
+    
+    % kode untuk fakultas
+    \lstinputlisting[language=PHP, caption=FakultasController.php]{./Lampiran/Controller/FakultasController.php} 
+    
+    % kode untuk program studi
+    \lstinputlisting[language=PHP, caption=ProgramStudiController.php]{./Lampiran/Controller/ProgramStudiController.php} 
+    
+    % kode untuk pengujian 
+    \lstinputlisting[language=PHP, caption=PengujianController.php]{./Lampiran/Controller/PengujianController.php}
+    
+    % kode untuk pearson pengujian
+    \lstinputlisting[language=PHP, caption=PearsonCorrelationPengujianController.php]{./Lampiran/Controller/PearsonCorrelationPengujianController.php} 
+    
+    % kode untuk accuracy
+    \lstinputlisting[language=PHP, caption=AccuracyController.php]{./Lampiran/Controller/AccuracyController.php}
+    
+% lampiran kode model
 
-% kode untuk kmeans controller
-\lstinputlisting[language=PHP, caption=KMeansController.php]{./Lampiran/KMeansController.php}
+    \lstinputlisting[language=PHP, caption=Fakultas.php]{./Lampiran/Model/Fakultas.php}
+    
+    \lstinputlisting[language=PHP, caption=Jurusan\_SMA.php]{./Lampiran/Model/Jurusan_SMA.php}
+    
+    \lstinputlisting[language=PHP, caption=Mahasiswa.php]{./Lampiran/Model/Mahasiswa.php}
+    
+    \lstinputlisting[language=PHP, caption=Mata\_Pelajaran.php]{./Lampiran/Model/Mata_Pelajaran.php}
+    
+    \lstinputlisting[language=PHP, caption=Nilai.php]{./Lampiran/Model/Nilai.php}
+    
+    \lstinputlisting[language=PHP, caption=Program\_Studi.php]{./Lampiran/Model/Program_Studi.php}
 
-% kode untuk user-based
-\lstinputlisting[language=PHP, caption=UserBasedModelController.php]{./Lampiran/UserBasedModelController.php} 
+% lampiran kode view
 
-% kode untuk pearson
-\lstinputlisting[language=PHP, caption=PearsonCorrelationController.php]{./Lampiran/PearsonCorrelationController.php} 
+    \lstinputlisting[language=PHP, caption=header.blade.php]{./Lampiran/View/header.blade.php}
+    
+    \lstinputlisting[language=PHP, caption=index.blade.php]{./Lampiran/View/index.blade.php}
+    
+    \lstinputlisting[language=PHP, caption=ipa.blade.php]{./Lampiran/View/ipa.blade.php}
+    
+    \lstinputlisting[language=PHP, caption=ips.blade.php]{./Lampiran/View/ips.blade.php}
+    
+    \lstinputlisting[language=PHP, caption=result.blade.php]{./Lampiran/View/result.blade.php}
+    
+    \lstinputlisting[language=PHP, caption=pengujian.blade.php]{./Lampiran/View/pengujian.blade.php}
+    
+% lampiran database
+    
+    % lampiran migration
+    
+        \lstinputlisting[language=PHP, caption=2020\_02\_07\_141228\_create\_jurusan\_sma\_table.php]{./Lampiran/Database/2020_02_07_141228_create_jurusan_sma_table.php}
+        
+        \lstinputlisting[language=PHP, caption=2020\_02\_07\_141432\_create\_mata\_pelajaran\_table.php]{./Lampiran/Database/2020_02_07_141432_create_mata_pelajaran_table.php}
+        
+        \lstinputlisting[language=PHP, caption=2020\_02\_07\_142008\_create\_fakultas\_table.php]{./Lampiran/Database/2020_02_07_142008_create_fakultas_table.php}
+        
+        \lstinputlisting[language=PHP, caption=2020\_02\_07\_143407\_create\_program\_studi\_table.php]{./Lampiran/Database/2020_02_07_143407_create_program_studi_table.php}
+        
+        \lstinputlisting[language=PHP, caption=2020\_02\_07\_145514\_create\_mahasiswa\_table.php]{./Lampiran/Database/2020_02_07_145514_create_mahasiswa_table.php}
+        
+        \lstinputlisting[language=PHP, caption=2020\_02\_07\_145515\_create\_nilai\_table.php]{./Lampiran/Database/2020_02_07_145515_create_nilai_table.php}
+    
+    % lampiran seeds
 
-% kode untuk prediksi
-\lstinputlisting[language=PHP, caption=PredictionController.php]{./Lampiran/PredictionController.php} 
+        \lstinputlisting[language=PHP, caption=DatabaseSeeder.php]{./Lampiran/Database/DatabaseSeeder.php}
+        
+        \lstinputlisting[language=PHP, caption=Fakultas.php]{./Lampiran/Database/Fakultas.php}
+        
+        \lstinputlisting[language=PHP, caption=Jurusan\_SMA.php]{./Lampiran/Database/Jurusan_SMA.php}
+        
+        \lstinputlisting[language=PHP, caption=Jurusan\_SMA.php]{./Lampiran/Database/Jurusan_SMA.php}
+        
+        \lstinputlisting[language=PHP, caption=Jurusan\_SMA.php]{./Lampiran/Database/Jurusan_SMA.php}
+        
+        
+    
+    %\lstinputlisting[language=PHP, caption=.php]{./Lampiran/View/.php}
 
-% kode untuk fakultas
-\lstinputlisting[language=PHP, caption=FakultasController.php]{./Lampiran/FakultasController.php} 
 
-% kode untuk program studi
-\lstinputlisting[language=PHP, caption=ProgramStudiController.php]{./Lampiran/ProgramStudiController.php} 
-
-% kode untuk pengujian 
-\lstinputlisting[language=PHP, caption=PengujianController.php]{./Lampiran/PengujianController.php}
-
-% kode untuk pearson pengujian
-\lstinputlisting[language=PHP, caption=PearsonCorrelationPengujianController.php]{./Lampiran/PearsonCorrelationPengujianController.php} 
-
-% kode untuk accuracy
-\lstinputlisting[language=PHP, caption=AccuracyController.php]{./Lampiran/AccuracyController.php}
