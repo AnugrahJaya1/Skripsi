@@ -87,7 +87,7 @@
             </tr>
         </table>
         <div class="bottom split text-right">
-            <input type="submit" value="Submit" name="btnIPA" class="btn bg-success">
+            <input type="submit" value="Submit" name="btnIPS" class="btn bg-success">
         </div>
     <form>
 </div>

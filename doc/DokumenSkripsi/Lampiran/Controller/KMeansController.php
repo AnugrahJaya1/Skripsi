@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class KMeansController extends Controller
 {
-    public $currCentroid;
+    private $currCentroid;
     private $prevCentroid;
     private $k;
     public $cluster;
@@ -297,7 +297,7 @@ class KMeansController extends Controller
         $this->currCentroid[$keyCen]['nilai'][$keyNilaiCen]['AVG'] = rand(1, 3) + rand(1, 10) / 10;
     }
 
-    public function cekBatas()
+    private function cekBatas()
     {
         $batas = abs($this->J0 - $this->J1);
 

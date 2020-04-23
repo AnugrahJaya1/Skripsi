@@ -65,27 +65,6 @@ Pada sistem ini, telah dilakukan beberapa analisis dan hasilnya sebagai berikut 
 
 \textit{Website} \url{https://rencanamu.id} memiliki kesamaan dengan sistem yang dibangun yaitu memberikan rekomendasi program studi untuk anak SMA. Perbedaannya pada \textit{website} \url{https://rencanamu.id} tidak menampilkan prediksi IPK dan harus mengisi beberapa modul untuk mendapatkan rekomendasi program studi. 
 
-\section{Pemilihan Algoritma Sistem Rekomendasi}
-Berdasarkan teori \ref{teknik rekomendasi} yang menjelaskan mengenai teknik-teknik yang dapat digunakan untuk membangun sistem rekomendasi, teknik \textit{collaborative filtering} adalah teknik yang dapat digunakan untuk memberikan rekomendasi berupa program studi kepada calon mahasiswa berdasarkan kesamaan dengan pengguna lain. Berikut merupakan beberapa hal mengapa memilih teknik \textit{collaborative filtering} :
-
-\begin{enumerate}
-    \item \textit{Collaborative filtering} menghasilkan rekomendasi item yang spesifik untuk pengguna berdasarkan peringkat tanpa memerlukan informasi tambahan mengenai item ataupun pengguna.
-    
-\end{enumerate}
-
-Teknik \textit{collaborative filtering} memiliki beberapa kekurangan diantaranya : 
-
-\begin{enumerate}
-    \item Rekomendasi yang diberikan mengambil data yang cukup banyak dari basis data sehingga membutuhkan memori yang besar.
-    
-    \item Tidak bisa memberikan rekomendasi untuk item yang tidak pernah diberikan \textit{rating} oleh pengguna.
-    
-    \item Pengguna harus memberikan \textit{rating} untuk beberapa atribut agar bisa diberikan rekomendasi.
-    
-\end{enumerate}
-
-Pada sistem yang dibangun, akan memberikan rekomendasi berdasarkan nilai raport beberapa mata pelajaran siswa pada kelas 10 dan 11 yang digunakan untuk PMDK. Mata pelajaran yang digunakan adalah Matematika, Bahasa Indonesia, Bahasa Inggris, Fisika, Kimia, dan Pendidikan Kewarganegaraan. Rekomendasi program studi berdasarkan asal jurusan saat SMA, misalnya siswa IPA akan diberikan rekomendasi program studi IPA.
-
 \section{\textit{Preprocessing} Data Mahasiswa}
 \label{sec:preprocessing}
 Data mahasiswa yang digunakan adalah data mahasiswa Universitas Katolik Parahyangan dengan jalur penerimaan Penelurusan dan Kemampuan atau PMDK pada tahun 2013-2018. Pada data yang digunakan terdapat beberapa atribut yang tidak dapat digunakan seperti No.PMB,  kota asal sekolah, dan provinsi asal sekolah. Atribut yang tidak dapat digunakan akan dihapus dan data akan dipisahkan menjadi dua \textit{file} mahasiswa dan nilai untuk setiap program studi yang ada. \textit{prepocessing} dilakukkan menggunakan Python. Berikut langkah-langkah dalam \textit{preprocessing} :
@@ -107,6 +86,28 @@ Data mahasiswa yang digunakan adalah data mahasiswa Universitas Katolik Parahyan
 \end{enumerate}
 
 Hasil \textit{file} .csv nantinya akan di\textit{import} pada basis data yang akan digunakan pada sistem.  
+
+\section{Pemilihan Algoritma Sistem Rekomendasi}
+Berdasarkan teori \ref{teknik rekomendasi} yang menjelaskan mengenai teknik-teknik yang dapat digunakan untuk membangun sistem rekomendasi, teknik \textit{collaborative filtering} adalah teknik yang dapat digunakan untuk memberikan rekomendasi berupa program studi kepada calon mahasiswa berdasarkan kesamaan dengan pengguna lain. Berikut merupakan beberapa hal mengapa memilih teknik \textit{collaborative filtering} :
+
+\begin{enumerate}
+    \item \textit{Collaborative filtering} menghasilkan rekomendasi item yang spesifik untuk pengguna berdasarkan peringkat tanpa memerlukan informasi tambahan mengenai item ataupun pengguna.
+    
+\end{enumerate}
+
+Teknik \textit{collaborative filtering} memiliki beberapa kekurangan diantaranya : 
+
+\begin{enumerate}
+    \item Rekomendasi yang diberikan mengambil data yang cukup banyak dari basis data sehingga membutuhkan memori yang besar.
+    
+    \item Tidak bisa memberikan rekomendasi untuk item yang tidak pernah diberikan \textit{rating} oleh pengguna.
+    
+    \item Pengguna harus memberikan \textit{rating} untuk beberapa atribut agar bisa diberikan rekomendasi.
+    
+\end{enumerate}
+
+Pada sistem yang dibangun, akan memberikan rekomendasi berdasarkan nilai raport beberapa mata pelajaran siswa pada kelas 10 dan 11 yang digunakan untuk PMDK. Mata pelajaran yang digunakan adalah Matematika, Bahasa Indonesia, Bahasa Inggris, Fisika, Kimia, dan Pendidikan Kewarganegaraan. Rekomendasi program studi berdasarkan asal jurusan saat SMA, misalnya siswa IPA akan diberikan rekomendasi program studi IPA.
+
 
 \section{Contoh Perhitungan Pearson Correlation}
 Berdasarkan \ref{user-based} terdapat langkah-langkah perhitungan dari \textit{user-based}. Tabel \ref{tab:data mahasswa} merupakan contoh data mahasiswa.

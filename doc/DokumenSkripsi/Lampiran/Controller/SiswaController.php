@@ -10,7 +10,7 @@ use App\Http\Controllers\KMeansController;
 
 class SiswaController extends Controller
 {
-    private $mata_pelajaran = array(
+    private $mataPelajaran = array(
         "mtk" => 1,
         "ind" => 2,
         "ing" => 3,
@@ -83,7 +83,7 @@ class SiswaController extends Controller
                         // replace index ke-4 dengan AVG
                         $temp = $this->replaceKey($temp, 4, "AVG");
 
-                        array_push($temp, $this->mata_pelajaran[$k]);
+                        array_push($temp, $this->mataPelajaran[$k]);
 
                         $temp = $this->replaceKey($temp, 5, "id_mata_pelajaran");
 

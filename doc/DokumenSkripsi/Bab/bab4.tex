@@ -134,6 +134,49 @@ Tabel data yang akan digunakan untuk sistem rekomendasi program studi Universita
         \end{table}
 \end{enumerate}
 
+\section{Perancangan Antar Muka}
+\label{sec:perancangan antar muka}
+
+Pada subab ini akan berisikan perancangan antar muka untuk sistem rekomendasi, berikut merupakan hasil perancangan :
+
+\begin{enumerate}
+    \item Halaman index saat siswa/i mengakses sistem
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar41.png}
+        \caption{Halaman Index Sistem}
+        \label{fig:gambar41}
+    \end{figure}
+    
+    \item Halaman pengisian nilai siswa/i IPA
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar42.png}
+        \caption{Halaman Pengisian Nilai IPA}
+        \label{fig:gambar42}
+    \end{figure}
+    
+    \item Halaman pengisian nilai siswa/i IPS
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar43.png}
+        \caption{Halaman Pengisian Nilai IPS}
+        \label{fig:gambar43}
+    \end{figure}
+    
+    \item Halaman hasil rekomendasi
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar44.png}
+        \caption{Halaman Hasil Rekomendasi}
+        \label{fig:gambar44}
+    \end{figure}
+\end{enumerate}
+
 \section{Perancangan Algoritma}
 \label{sec:perancangan algoritma}
 
@@ -874,7 +917,7 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{user bas
         \end{algorithm}
 \end{enumerate}
 
-\subsubsection{Precidtion Controller}
+\subsection{Precidtion Controller}
 \label{subsec:prediction}
 
 \textit{Prediction controller} berfungsi untuk menghitung prediksi dari hasil perhitungan kesamaan atau similaritas menggunkan \textit{pearson correlation}. Terdapat dua atribut dalam \textit{prediction controller}, yaitu :
@@ -968,11 +1011,11 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{predicti
     
         \begin{algorithm}[H]
             \begin{algorithmic}[1]
-                \Procedure{getNamaFakultas}{id\_program\_studi}
-                    \State $id\_fakultas \gets FLOOR(id\_program\_studi)$
-                    \State $nama\_fakultas \gets$ SELECT nama\_fakultas FROM fakultas WHERE id\_fakultas = id\_program\_studi
+                \Procedure{getNamaFakultas}{idProgramStudi}
+                    \State $idFakultas \gets FLOOR(idProgramStudi)$
+                    \State $namaFakultas \gets$ SELECT nama\_fakultas FROM fakultas WHERE idFakultas = idProgramStudi
                     
-                    \State \Return nama\_fakultas
+                    \State \Return namaFakultas
                 \EndProcedure
             \end{algorithmic} 
             \caption{Get Nama Fakultas}
@@ -991,10 +1034,10 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{predicti
         
         \begin{algorithm}[H]
             \begin{algorithmic}[1]
-                \Procedure{getNamaProgramStudi}{id\_program\_studi} 
-                    \State $nama\_prodi \gets$ SELECT nama\_program\_studi FROM program\_studi WHERE id\_program\_studi = id\_program\_studi
+                \Procedure{getNamaProgramStudi}{idProgramStudi} 
+                    \State $namaProdi \gets$ SELECT nama\_program\_studi FROM program\_studi WHERE id\_program\_studi = idProgramStudi
                     
-                    \State \Return nama\_prodi
+                    \State \Return namaProdi
                 \EndProcedure
             \end{algorithmic} 
             \caption{getNamaProgramStudi}
@@ -1268,45 +1311,12 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{pengujia
         \end{algorithm}
 \end{enumerate}
 
-\section{Perancangan Antar Muka}
-\label{sec:perancangan antar muka}
+\section{Perancangan \textit{Class Diagram}}
+\label{sec:perancangan class diagram}
 
-Pada subab ini akan berisikan perancangan antar muka untuk sistem rekomendasi, berikut merupakan hasil perancangan :
-
-\begin{enumerate}
-    \item Halaman index saat siswa/i mengakses sistem
-    
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar41.png}
-        \caption{Halaman Index Sistem}
-        \label{fig:gambar41}
-    \end{figure}
-    
-    \item Halaman pengisian nilai siswa/i IPA
-    
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar42.png}
-        \caption{Halaman Pengisian Nilai IPA}
-        \label{fig:gambar42}
-    \end{figure}
-    
-    \item Halaman pengisian nilai siswa/i IPS
-    
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar43.png}
-        \caption{Halaman Pengisian Nilai IPS}
-        \label{fig:gambar43}
-    \end{figure}
-    
-    \item Halaman hasil rekomendasi
-    
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar44.png}
-        \caption{Halaman Hasil Rekomendasi}
-        \label{fig:gambar44}
-    \end{figure}
-\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 20cm, height = 15cm, angle = 90]{doc/DokumenSkripsi/Gambar/gambar45.png}
+    \caption{\textit{Class Diagram} Sistem Rekomendasi}
+    \label{fig:class diagram sistem rekomendasi}
+\end{figure}

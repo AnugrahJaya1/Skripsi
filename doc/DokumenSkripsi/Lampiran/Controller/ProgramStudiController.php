@@ -8,10 +8,10 @@ use App\Program_Studi;
 
 class ProgramStudiController extends Controller
 {
-    public function getNamaProgramStudi($id_program_studi)
+    public function getNamaProgramStudi($idProgramStudi)
     {
-        $prodi = Program_Studi::find($id_program_studi);
-        $nama_prodi = $prodi->nama_program_studi;
-        return $nama_prodi;
+        $prodi = Program_Studi::find($idProgramStudi);
+        $namaProdi = $prodi->nama_program_studi;
+        return $namaProdi;
     }
 }

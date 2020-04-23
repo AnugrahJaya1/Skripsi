@@ -14,9 +14,6 @@ class UserBasedModelController extends Controller
     // mode 1 untuk pengujian 
     public function __construct($mahasiswa, $siswa, $mode = 0)
     {
-        // $this->mahasiswa = $mhs;
-        // $this->siswa = $siswa;
-
         // inisialisasi prediction controller
         $this->prediction = new PredictionController();
 

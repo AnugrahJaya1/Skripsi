@@ -24,7 +24,7 @@ class Nilai extends Model
         return $this->belongsTo('App\Nilai','id_mahasiswa','id_mahasiswa');
     }
 
-    public function mata_pelajaran(){
+    public function mataPelajaran(){
         return $this->belongsTo('App\Mata_Pelajaran','id_mata_pelajaran','id_mata_pelajaran');
     }
 }

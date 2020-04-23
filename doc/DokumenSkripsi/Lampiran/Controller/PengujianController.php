@@ -14,11 +14,11 @@ use Phpml\Dataset\ArrayDataset;
 class PengujianController extends Controller
 {
 
-    protected $train, $test;
+    private $train, $test;
     private $userBasedModel;
-    protected $error1, $error2;
-    protected $accuracy;
-    protected $metode;
+    private $error1, $error2;
+    private $accuracy;
+    private $metode;
 
     function __construct(Request $request)
     {
@@ -55,7 +55,7 @@ class PengujianController extends Controller
             return $this->pengujianBasic();
         } else {
             // k, looping dataset sebannyak n
-            return $this->pengujianKmeans(10, 30);
+            return $this->pengujianKmeans(10, 1);
         }
     }
 
