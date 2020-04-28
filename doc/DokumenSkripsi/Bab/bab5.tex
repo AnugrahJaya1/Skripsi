@@ -45,40 +45,39 @@ Dibawah ini merupakan implementasi tabel basis data yang digunakan pada sistem r
     \item Tabel Jurusan SMA\\
     Tabel jurusan SMA digunakan untuk menyimpan seluruh data jurusan SMA yang digunakan pada sistem rekomendasi.
     
-    \begin{lstlisting}[language=SQL, caption=Implementasi tabel jurusan SMA]
+\begin{lstlisting}[language=SQL, caption=Implementasi tabel jurusan SMA]
 CREATE TABLE `jurusan_sma` ( 
     `id_jurusan` int(10) UNSIGNED NOT NULL,
     `nama_jurusan` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    \end{lstlisting}
+\end{lstlisting}
     
     \item Tabel Fakultas\\
     Tabel fakultas digunakan untuk menyimpan seluruh fakultas yang ada di Universitas Katolik Parahyangan.
     
-    \begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
+\begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
 CREATE TABLE `fakultas` (
     `id_fakultas` int(10) UNSIGNED NOT NULL,
     `nama_fakultas` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;    
-    \end{lstlisting}
+\end{lstlisting}
 
     \item Program Studi\\
     Tabel program studi digunakan untuk menyimpan seluruh program studi yang ada di Universitas Katolik Parahyangan.
     
-    \begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
+\begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
 CREATE TABLE `program_studi` (
     `id_program_studi` int(10) UNSIGNED NOT NULL,
     `nama_program_studi` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
     `id_fakultas` int(10) UNSIGNED NOT NULL,
     `id_jurusan` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    
-    \end{lstlisting}
+\end{lstlisting}
     
     \item Mahasiswa\\
     Tabel mahasiswa digunakan untuk menyimpan nilai seluruh mahasiswa yang sudah lulus dari Universitas Katolik Parahyangan.
     
-    \begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
+\begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
 CREATE TABLE `mahasiswa` (
     `id_mahasiswa` int(10) UNSIGNED NOT NULL,
     `NPM` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -86,23 +85,22 @@ CREATE TABLE `mahasiswa` (
     `id_jurusan` int(10) UNSIGNED NOT NULL,
     `id_program_studi` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;    
-    \end{lstlisting}
+\end{lstlisting}
     
     \item Mata Pelajaran\\
     Tabel mata pelajaran digunakan untuk menyimpan mata pelajaran yang digunakan pada PMDK di Universitas Katolik Parahyangan.
     
-    \begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
+\begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
 CREATE TABLE `mata_pelajaran` (
     `id_mata_pelajaran` int(10) UNSIGNED NOT NULL,
     `nama_mata_pelajaran` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-    \end{lstlisting}
+\end{lstlisting}
     
     \item Nilai\\
     Tabel nilai digunakan untuk menyimpan nilai mahasiswa pada kelas X dan XI untuk semester 1 dan 2 pada saat SMA.
     
-    \begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
+\begin{lstlisting}[language=SQL, caption=Implementasi tabel ]
 CREATE TABLE `nilai` (
     `id_nilai` int(10) UNSIGNED NOT NULL,
     `id_mata_pelajaran` int(10) UNSIGNED NOT NULL,
@@ -113,7 +111,7 @@ CREATE TABLE `nilai` (
     `112` double(5,2) NOT NULL,
     `AVG` double(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    \end{lstlisting}
+\end{lstlisting}
     
 \end{enumerate}
 
@@ -127,7 +125,7 @@ Pada subab ini akan ditampilkan antar muka yang digunakan pada sistem rekomendas
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar51.png}
+        \includegraphics[width = 12cm, height =8 cm]{Gambar/gambar51.png}
         \caption{Halaman Index Sistem}
         \label{fig:gambar51}
     \end{figure}
@@ -136,7 +134,7 @@ Pada subab ini akan ditampilkan antar muka yang digunakan pada sistem rekomendas
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar52.png}
+        \includegraphics[width = 12cm, height =8 cm]{Gambar/gambar52.png}
         \caption{Halaman Index Pengisian Nilai IPA}
         \label{fig:gambar52}
     \end{figure}
@@ -145,7 +143,7 @@ Pada subab ini akan ditampilkan antar muka yang digunakan pada sistem rekomendas
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar53.png}
+        \includegraphics[width = 12cm, height =8 cm]{Gambar/gambar53.png}
         \caption{Halaman Index Pengisian Nilai IPS}
         \label{fig:gambar53}
     \end{figure}
@@ -153,7 +151,7 @@ Pada subab ini akan ditampilkan antar muka yang digunakan pada sistem rekomendas
     \item Halaman hasil rekomendasi
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar54.png}
+        \includegraphics[width = 12cm, height =8 cm]{Gambar/gambar54.png}
         \caption{Halaman Hasil Rekomendasi}
         \label{fig:gambar54}
     \end{figure}
@@ -213,48 +211,258 @@ Pada subab ini, akan dilakukkan pengujian sistem rekomendasi program studi Unive
 \subsection{Metode Dasar}
 \label{subsec: metode dasar}
 
-Metode dasar ini dilakukkan dengan cara menguji secara langsung \textit{test set} kedalam sistem dengan menggunakan \textit{train set}, gambar \ref{fig:pengujian ipa dasar} dan gambar \ref{fig:pengujian ips dasar} merupakan hasil perhitungan untuk \textit{Mean Absolute Error} (MAE), \textit{Root Mean Square Error} (RMSE), dan eksekusi waktu program.
+Metode dasar ini dilakukkan dengan cara menguji secara langsung \textit{test set} kedalam sistem dengan menggunakan \textit{train set}. Berikut merupakan hasil pengujian dengan metode dasar :
 
 \begin{enumerate}
     \item IPA
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width = 14cm, height =2 cm]{doc/DokumenSkripsi/Gambar/gambar55.PNG}
+        
+        \begin{longtable}[H]{|c|c|c|c|}
+            \hline
+            No & MAE & RMSE & Time\\
+            \hline
+            1 & 0.2754545455 & 0.3495110995 & 0.002562046051\\
+            \hline
+            2 & 0.2718614719 & 0.330867939 & 0.002246141434\\
+            \hline
+            3 & 0.2943290043 & 0.3680562022 & 0.00180888176\\
+            \hline 
+            4 & 0.2781659389 & 0.3533915527 & 0.002074956894\\
+            \hline 
+            5 & 0.2694805195 & 0.3351777974 & 0.00253200531\\
+            \hline 
+            6 & 0.2818181818 & 0.3456570379 & 0.00125002861\\
+            \hline 
+            7 & 0.2858008658 & 0.363914504 & 0.001752138138\\
+            \hline 
+            8 & 0.2703896104 & 0.3409561295 & 0.003805160522\\
+            \hline 
+            9 & 0.2937662338 & 0.3675235953 & 0.00479888916\\
+            \hline 
+            10 & 0.2926839827 & 0.3660287643 & 0.002127885818\\
+            \hline
+            
             \caption{Hasil Pengujian Jurusan IPA dengan Metode Dasar}
-            \label{fig:pengujian ipa dasar}
-        \end{figure}
+            \label{tab:pengujian ipa dasar}
+        \end{longtable}
         
     \item IPS
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width = 14cm, height =2 cm]{doc/DokumenSkripsi/Gambar/gambar56.PNG}
+        \begin{longtable}[H]{|c|c|c|c|}
+            \hline
+            No & MAE & RMSE & Time\\
+            \hline
+            1 & 0.2944 & 0.3655757104 & 0.003097057343\\
+            \hline
+            2 & 0.29092 & 0.3719166573 & 0.002082824707\\
+            \hline
+            3 & 0.28344 & 0.3553927405 & 0.00294303894\\
+            \hline
+            4 & 0.286064257 & 0.3595384145 & 0.001393079758\\
+            \hline
+            5 & 0.3212851406 & 0.3974486908 & 0.001703023911\\
+            \hline
+            6 & 0.29276 & 0.3556430795 & 0.002462148666\\
+            \hline
+            7 & 0.28544 & 0.3532149487 & 0.001994848251\\
+            \hline
+            8 & 0.2704 & 0.3468486702 & 0.001998186111\\
+            \hline
+            9 & 0.27304 & 0.3416021077 & 0.00242805481\\
+            \hline
+            10 & 0.28952 & 0.3625961941 & 0.001628875732\\
+            \hline
+            
             \caption{Hasil Pengujian Jurusan IPS dengan Metode Dasar}
-            \label{fig:pengujian ips dasar}
-        \end{figure}
-    
+            \label{tab:pengujian ips dasar}
+        \end{longtable}
+        
 \end{enumerate}
 
 \subsection{Metode KMeans}
 \label{subsec: metode kmeans}
 
-Metode KMeans dilakukkan dengan membuat kelompok dari \textit{train set} dan mengelompokkan \textit{test set} masuk kedalam kelompok mana, untuk mengurangi perhitungan kemiripan atau similaritas dengan pengguna yang memiliki kemiripan kecil. Pada pengujian ini dilakukkan dengan nilai k 2 sampai 10 dan dilakukkan pengulangan dalam membentuk kelompok sebanyak 30 kali. Gambar \ref{fig:pengujian ipa kmeans} dan gambar \ref{fig:pengujian ips kmeans} merupakan hasil perhitungan untuk \textit{Mean Absolute Error} (MAE), \textit{Root Mean Square Error} (RMSE), dan eksekusi waktu program.
+Metode KMeans dilakukkan dengan membuat kelompok dari \textit{train set} dan menentukan \textit{test set} masuk kedalam kelompok mana, untuk mengurangi perhitungan kemiripan atau similaritas dengan pengguna yang memiliki kemiripan kecil atau tidak memiliki kemiripan sama sekali. Pada pengujian ini dilakukan dengan nilai maksimum 10, 20, 30, dan 40 dengan pengulangan dalam pembentukan kelompok sebanyak 30 kali. Berikut merupakan hasil pengujian yang dilakukan dengan menggunkan k-means dengan mimilih nilai minimum dari k = 2 sampai k = n (n = 10, 20, 30, dan 40) :
+
+%Pada pengujian ini dilakukkan dengan nilai k 2 sampai 10 dan dilakukkan pengulangan dalam pembentuk kelompok sebanyak 30 kali. Gambar \ref{fig:pengujian ipa kmeans} dan gambar \ref{fig:pengujian ips kmeans} merupakan hasil perhitungan untuk \textit{Mean Absolute Error} (MAE), \textit{Root Mean Square Error} (RMSE), dan eksekusi waktu program.
 
 \begin{enumerate}
     \item IPA
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width = 14cm, height =10 cm]{doc/DokumenSkripsi/Gambar/gambar57.PNG}
-            \caption{Hasil Pengujian Jurusan IPA dengan Metode KMeans}
-            \label{fig:pengujian ipa kmeans}
-        \end{figure}
+        \begin{enumerate}
+            \item k = 10 \\
+                \begin{longtable}[H]{|c|c|c|c|c|c|c|}
+                    \hline
+                    No & k & MAE & k & RMSE & k & Time \\
+                    \hline
+                    1 & 10 & 0.227403435  & 10 & 0.299831433 & 9 & 39.32930207\\
+                    \hline
+                    2 & 10 & 0.2319802782  & 10 & 0.3163842676 & 8 & 44.21230698\\
+                    \hline
+                    3 & 9 & 0.2378234118 & 9 & 0.3031256224 & 8 & 97.19740295\\
+                    \hline
+                    4 & 10 & 0.2258213385 & 10 & 0.3049147694 & 10 & 84.33423114\\
+                    \hline
+                    5 & 10 & 0.2424204718 & 10 & 0.3144518957 & 6 & 98.56704521\\
+                    \hline
+                    6 & 10 & 0.2313912291 & 10 & 0.3061390768 & 7 & 92.61572003\\
+                    \hline
+                    7 & 10 & 0.2218367518 & 8 & 0.2863855107 & 7 & 91.99784708\\
+                    \hline
+                    8 & 10 & 0.2385816174 & 10 & 0.317593614 & 9 & 90.1020081\\
+                    \hline
+                    9 & 9 & 0.235875589 & 9 & 0.3079230922 & 10 & 43.22178102\\
+                    \hline
+                    10 & 10 & 0.2311139896 & 7 & 0.3090021998 & 10 & 42.38479996\\
+                    \hline
+                    
+                    \caption{Hasil Pengujian KMeans Jurusan IPA dengan nilai k 10}
+                    \label{tab:ipa k = 10}
+                \end{longtable}
+            
+            Berdasarkan tabel \ref{tab:ipa k = 10} MAE memiliki nilai rata-rata 0.2324248112 dan RMSE memiliki nilai rata-rata 0.3065751482. Nilai k yang sering muncul pada pengujian ini untuk nilai minimum MAE dan RMSE adalah 10.
+            
+            \item k = 20 \\
+                \begin{longtable}[H]{|c|c|c|c|c|c|c|}
+                    \hline
+                    No & k & MAE & k & RMSE & k & Time \\
+                    \hline
+                    
+                    
+                     \caption{Hasil Pengujian KMeans Jurusan IPA dengan nilai k 20}
+                    \label{tab:ipa k = 20}
+                \end{longtable}
+                
+                Berdasarkan tabel \ref{tab:ipa k = 20} MAE memiliki nilai rata-rata dan RMSE memiliki nilai rata-rata. Nilai k yang sering muncul pada pengujian ini untuk nilai minimum MAE dan RMSE adalah .
+                
+            \item k = 30 \\
+                \begin{longtable}[H]{|c|c|c|c|c|c|c|}
+                    \hline
+                    No & k & MAE & k & RMSE & k & Time \\
+                    \hline
+                    
+                    
+                     \caption{Hasil Pengujian KMeans Jurusan IPA dengan nilai k 30}
+                    \label{tab:ipa k = 30}
+                \end{longtable}
+                
+                Berdasarkan tabel \ref{tab:ipa k = 30} MAE memiliki nilai rata-rata dan RMSE memiliki nilai rata-rata. Nilai k yang sering muncul pada pengujian ini untuk nilai minimum MAE dan RMSE adalah .
+                
+            \item k = 40 \\
+                \begin{longtable}[H]{|c|c|c|c|c|c|c|}
+                    \hline
+                    No & k & MAE & k & RMSE & k & Time \\
+                    \hline
+                    
+                    
+                     \caption{Hasil Pengujian KMeans Jurusan IPA dengan nilai k 40}
+                    \label{tab:ipa k = 40}
+                \end{longtable}
+                
+                Berdasarkan tabel \ref{tab:ipa k = 40} MAE memiliki nilai rata-rata dan RMSE memiliki nilai rata-rata. Nilai k yang sering muncul pada pengujian ini untuk nilai minimum MAE dan RMSE adalah .
+                
+        \end{enumerate}
+        
+        
         
     \item IPS
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width = 14cm, height =10 cm]{doc/DokumenSkripsi/Gambar/gambar58.PNG}
-            \caption{Hasil Pengujian Jurusan IPS dengan Metode KMeans}
-            \label{fig:pengujian ips kmeans}
-        \end{figure}
+        \begin{enumerate}
+            \item k = 10 \\
+                \begin{longtable}[H]{|c|c|c|c|c|c|c|}
+                    \hline
+                    No & k & MAE & k & RMSE & k & Time \\
+                    \hline
+                    1 & 10 & 0.2471143679 & 10 & 0.3158455625 & 10 & 54.29916787\\
+                    \hline
+                    2 & 10 & 0.2620947798 & 7 & 0.3363475028 & 10 & 52.25956702\\
+                    \hline
+                    3 & 10 & 0.244470971 & 9 & 0.3165210982 & 10 & 49.05109715\\
+                    \hline
+                    4 & 10 & 0.2518617969 & 10 & 0.3158170943 & 9 & 46.56690907\\
+                    \hline
+                    5 & 10 & 0.2553253166 & 10 & 0.3150100854 & 6 & 48.13360286\\
+                    \hline
+                    6 & 10 & 0.2849076998 & 10 & 0.3541113867 & 10 & 109.8035731\\
+                    \hline
+                    7 & 10 & 0.2757233651 & 10 & 0.3471834944 & 5 & 133.003581\\ 
+                    \hline
+                    8 & 10 & 0.2850747681 & 9 & 0.3568411162 & 10 & 102.0692439\\
+                    \hline
+                    9 & 10 & 0.2529911624 & 10 & 0.3205667096 & 7 & 110.884131\\
+                    \hline
+                    10 & 9 & 0.258458903 & 8 & 0.3287219636 & 7 & 111.2748449\\
+                    \hline
+                    10 & 10 & 0.2618023131 & 10 & 0.3306966014 & 10 & 81.73457179\\
+                    \hline
+                    
+                     \caption{Hasil Pengujian KMeans Jurusan IPS dengan nilai k 10}
+                    \label{tab:ips k = 10}
+                \end{longtable}
+                
+                Berdasarkan tabel \ref{tab:ips k = 10} MAE memiliki nilai rata-rata 0.2618023131 dan RMSE memiliki nilai rata-rata 0.3306966014. Nilai k yang sering muncul pada pengujian ini untuk nilai minimum MAE dan RMSE adalah 10.
+                
+                
+            \item k = 20 \\
+                \begin{longtable}[H]{|c|c|c|c|c|c|c|}
+                    \hline
+                    No & k & MAE & k & RMSE & k & Time \\
+                    \hline
+                    
+                    
+                     \caption{Hasil Pengujian KMeans Jurusan IPS dengan nilai k 20}
+                    \label{tab:ips k = 20}
+                \end{longtable}
+                
+                Berdasarkan tabel \ref{tab:ips k = 20} MAE memiliki nilai rata-rata dan RMSE memiliki nilai rata-rata. Nilai k yang sering muncul pada pengujian ini untuk nilai minimum MAE dan RMSE adalah .
+                
+                
+            \item k = 30 \\
+                \begin{longtable}[H]{|c|c|c|c|c|c|c|}
+                    \hline
+                    No & k & MAE & k & RMSE & k & Time \\
+                    \hline
+                    
+                    
+                     \caption{Hasil Pengujian KMeans Jurusan IPS dengan nilai k 30}
+                    \label{tab:ips k = 30}
+                \end{longtable}
+                
+                Berdasarkan tabel \ref{tab:ips k = 30} MAE memiliki nilai rata-rata dan RMSE memiliki nilai rata-rata. Nilai k yang sering muncul pada pengujian ini untuk nilai minimum MAE dan RMSE adalah .
+                
+                
+            \item k = 40 \\
+                \begin{longtable}[H]{|c|c|c|c|c|c|c|}
+                    \hline
+                    No & k & MAE & k & RMSE & k & Time \\
+                    \hline
+                    
+                    
+                     \caption{Hasil Pengujian KMeans Jurusan IPS dengan nilai k 40}
+                    \label{tab:ips k = 40}
+                \end{longtable}
+                
+                Berdasarkan tabel \ref{tab:ips k = 40} MAE memiliki nilai rata-rata dan RMSE memiliki nilai rata-rata. Nilai k yang sering muncul pada pengujian ini untuk nilai minimum MAE dan RMSE adalah .
+        \end{enumerate}
 \end{enumerate}
 
-Dari hasil pengujian baik menggunakan metode \ref{subsec: metode dasar} dan metode \ref{subsec: metode kmeans} dengan nilai MAE berada di 0.2 dan RMSE berada di 0.3, yang membedakan hanya pada waktu eksekusi program, dimana dengan menggunakan kmeans membutuhkan waktu lebih lama.
+%Dari hasil pengujian baik menggunakan metode \ref{subsec: metode dasar} dan metode \ref{subsec: metode kmeans} dengan jurusan IPA pada gambar \ref{fig:pengujian ipa kmeans} nilai MAE dan RMSE terkecil terdapat pada k = 10 dan eksekusi waktu program terdapat pada k = 9 dengan selisih 1.05433297 \textit{mic sec} dan jurusan IPS dengan nilai MAE, RMSE, dan eksekusi waktu program terdapat pada k = 10.
+
+\subsection{Kesimpulan Hasil Pengujian}
+\label{subsec:kesimpulan hasil pengujian}
+
+\begin{enumerate}
+    \item Metode Dasar 
+        \begin{enumerate}
+            \item IPA \\
+                Berdasarkan tabel \ref{tab:pengujian ipa dasar} pengujian ipa dasar nilai MAE memiliki nilai rata-rata 0.2813750354 dan RMSE memiliki nilai rata-rata 0.3521084622.
+            
+            \item IPS \\
+                Berdasarkan tabel \ref{tab:pengujian ips dasar} pengujian ips dasar nilai MAE memiliki nilai rata-rata 0.2887269398 dan RMSE memiliki nilai rata-rata 	0.3609777214.
+                
+        \end{enumerate}
+    
+    \item Metode K-Means
+        \begin{enumerate}
+            \item IPA
+            
+            \item IPS
+        \end{enumerate}
+        
+\end{enumerate}

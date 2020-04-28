@@ -1,5 +1,5 @@
 %% skripsi.tex
-%% Copyright 2011-2017 Lionov W.
+%% Copyright 2011-2019 Lionov W.
 %%
 %% This file is part of the 'Template Skripsi/Tugas Akhir FTIS UNPAR'
 %%
@@ -68,6 +68,7 @@
 \usepackage{xstring}%manipulasi string, strchar, ifstreq
 \usepackage[table]{xcolor}%untuk kode program
 \usepackage{pgffor}% untuk foreach
+
 \usepackage{multirow} %untuk multirow table
 \usepackage{longtable} %untuk tabel melebihi 1 halaman
 
@@ -79,7 +80,6 @@
 % untuk foreach
 \algnewcommand\algorithmicforeach{\textbf{for each}}
 \algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
-
 
 \newcommand{\vtemplateauthor}{lionov}
 \newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}%command untuk dummy text
@@ -157,7 +157,7 @@
 \newcommand{\judulINA}[1]{\vtextup{\vjudulINA}{#1}{} \hypersetup{pdftitle={#1}}}	
 %\newcommand{\judulINA}[1]{\vtextup{\vjudulINA}{#1}{}}	
 \newcommand{\judulENG}[1]{\vtextup{\vjudulENG}{#1}{}}	
-\newcommand{\abstrakINA}[1]{\vtext{\vabstrakINA}{#1}{\\}}
+\newcommand{\abstrakINA}[1]{\vtext{\vabstrakINA}{#1}{\\}} 
 \newcommand{\abstrakENG}[1]{\vtext{\vabstrakENG}{#1}{\\}} 
 \newcommand{\kunciINA}[1]{\vtext{\vkunciINA}{#1}{}\hypersetup{pdfkeywords={#1}}}
 %\newcommand{\kunciINA}[1]{\vtext{\vkunciINA}{#1}{}}  
@@ -184,9 +184,9 @@
 \newcommand{\linespacing}[1]{\newcommand{\vspacing}{#1}} 
 \newcommand{\gambar}[1]{\newcommand{\vgambar}{#1}}
 \newcommand{\tabel}[1]{\newcommand{\vtabel}{#1}}
-\edef\vbab{1,2,3,4,5,6}
+\edef\vbab{1,2,3,4,5,6,7,8,9}
 \newcommand{\bab}[1]{\IfStrEq{#1}{all}{}{\IfStrEq{\vmode}{bimbingan}{\edef\vbab{#1}}{}}}
-\edef\vlamp{A}
+\edef\vlamp{A,B,C,D,E,F,G,H,I}
 \newcommand{\lampiran}[1]{\IfStrEq{\vmode}{bimbingan}{\IfStrEq{#1}{all}{}
 		{\IfStrEq{#1}{none}{\edef\vlamp{}}{\edef\vlamp{#1}}}}{}}
 	 
@@ -236,7 +236,7 @@
 	\mode{final} 
 	\linenumber{yes}\linespacing{double} 
 	\gambar{yes}\tabel{no} 
-	\bab{1,2,3,4,5,6}\lampiran{A} 
+	\bab{1,2}\lampiran{A} 
 	\namanpm{Lionov}{1997730020}\tanggal{1}{8}{2002}
 	\pembimbing{\BSB}{}\penguji{\TAB}{\LNV}
 	\judulINA{Judul Bahasa Indonesia}
@@ -263,7 +263,7 @@
  
 	%cover INA 
 	\begin{center}
-		{\Large \textbf{
+		{\Large \textbf{%
 		\vstaINA\\\vspace{1.5cm}
 		\vjudulINA\\\vspace{2.5cm}
 		\includegraphics{Logo-UNPAR}\\\vspace{1cm}
@@ -282,7 +282,7 @@
 	
 	%cover ENG
 	\begin{center}
-		{\Large \textbf{
+		{\Large \textbf{%
 		\vstaENG\\\vspace{1.5cm}
 		\vjudulENG\\\vspace{2.5cm}
 		\includegraphics{Logo-UNPAR}\\\vspace{1cm}
@@ -401,7 +401,7 @@
 	\label{ch:prakata}
 	\addcontentsline{toc}{chapter}{Kata Pengantar}
 	\vprakata \vspace{0.25cm}
-	\begin{flushright} Bandung,\ \vbulan\ \vtahun \\ \vspace{1cm} Anugrah Jaya Sakti \end{flushright}
+	\begin{flushright} Bandung,\ \vbulan\ \vtahun \\ \vspace{1cm} Penulis \end{flushright}
 	\cleardoublepage		
 }{}%vsidangakhir
 

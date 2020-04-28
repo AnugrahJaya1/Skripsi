@@ -32,7 +32,7 @@ class SiswaController extends Controller
         // data mahasiswa
         $mhs = $mahasiswa->index($siswa["btn"])->toArray();
         // inisialisasi kmeans
-        $kmeans = new KMeansController(2, $mhs);
+        $kmeans = new KMeansController(10, $mhs);
 
         // hitung jarak siswa dengan centroid 
         // mengembalikan siswa masuk dalam cluster mana

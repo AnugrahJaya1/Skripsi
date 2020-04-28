@@ -55,7 +55,7 @@ class PengujianController extends Controller
             return $this->pengujianBasic();
         } else {
             // k, looping dataset sebannyak n
-            return $this->pengujianKmeans(10, 1);
+            return $this->pengujianKmeans(30, 30);
         }
     }
 
@@ -65,9 +65,7 @@ class PengujianController extends Controller
     {
         $result = array();
 
-        $maeArr = array();
-        $rmseArr = array();
-        $timesArr = array();
+        $resultPred = array();
 
         // looping dari 2-10 (untuk nilai k)
         for ($k = 2; $k <= $bts; $k++) {
@@ -84,7 +82,7 @@ class PengujianController extends Controller
                 // test = siswa
                 foreach ($this->test as $t) {
                     // biar tidak ada duplikat
-                    if (!array_key_exists($t["NPM"], $result)) {
+                    if (!array_key_exists($t["NPM"], $resultPred)) {
                         $temp = array();
 
                         // hitung jarak siswa dengan centroid 
@@ -121,7 +119,7 @@ class PengujianController extends Controller
                                 $diff2
                             );
                             // Memasukkan array temp pada array result
-                            array_push($result, $temp);
+                            array_push($resultPred, $temp);
                         }
                     }
                 }
@@ -134,15 +132,20 @@ class PengujianController extends Controller
             }
             $end = microtime(true);
             $times = $end - $start;
-            array_push($maeArr, $tempMae / $n);
-            array_push($rmseArr, $tempRmse / $n);
-            array_push($timesArr, $times);
-        }
 
+            $result[$k] = array();
+
+            // masukin semua ke penampung
+            array_push($result[$k], $tempMae / $n, $tempRmse / $n, $times);
+        }
+        $minMae = min(array_column($result,0));
+        $minRmse = min(array_column($result,1));
+        $minTime = min(array_column($result, 2));
+    
         return view('/pengujian', [
-            'status' => TRUE, 'result' => $result,
-            'maeArr' => $maeArr, 'rmseArr' => $rmseArr,
-            'timesArr' => $timesArr, 'metode' => $this->metode
+            'status' => TRUE, 'resultPred' => $resultPred,
+            'metode' => $this->metode, 'result' => $result,
+            'minMae' => $minMae, 'minRmse' => $minRmse, 'minTime' => $minTime
         ]);
     }
 

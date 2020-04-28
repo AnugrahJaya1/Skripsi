@@ -144,7 +144,7 @@ Pada subab ini akan berisikan perancangan antar muka untuk sistem rekomendasi, b
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar41.png}
+        \includegraphics[width = 12cm, height =8 cm]{Gambar/gambar41.png}
         \caption{Halaman Index Sistem}
         \label{fig:gambar41}
     \end{figure}
@@ -153,7 +153,7 @@ Pada subab ini akan berisikan perancangan antar muka untuk sistem rekomendasi, b
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar42.png}
+        \includegraphics[width = 12cm, height =8 cm]{Gambar/gambar42.png}
         \caption{Halaman Pengisian Nilai IPA}
         \label{fig:gambar42}
     \end{figure}
@@ -162,7 +162,7 @@ Pada subab ini akan berisikan perancangan antar muka untuk sistem rekomendasi, b
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar43.png}
+        \includegraphics[width = 12cm, height =8 cm]{Gambar/gambar43.png}
         \caption{Halaman Pengisian Nilai IPS}
         \label{fig:gambar43}
     \end{figure}
@@ -171,7 +171,7 @@ Pada subab ini akan berisikan perancangan antar muka untuk sistem rekomendasi, b
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 12cm, height =8 cm]{doc/DokumenSkripsi/Gambar/gambar44.png}
+        \includegraphics[width = 12cm, height =8 cm]{Gambar/gambar44.png}
         \caption{Halaman Hasil Rekomendasi}
         \label{fig:gambar44}
     \end{figure}
@@ -1175,9 +1175,7 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{pengujia
             \begin{algorithmic}[1]
                 \Procedure{pengujianKmeans}{bts, n} 
                    \State $result \gets ARRAY()$
-                   \State $maeArr \gets ARRAY()$
-                   \State $rmseArr \gets ARRAY()$
-                   \State $timesArr \gets ARRAY()$
+                   \State $resultPred \gets ARRAY()$
                    
                    \For{k = 2 into bts}
                         \State $start \gets count time$
@@ -1191,7 +1189,7 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{pengujia
                             \State $error2 \gets ARRAY()$
                             
                             \ForEach{$t \in test$}
-                                \If{t['NPM'] NOT IN result}
+                                \If{t['NPM'] NOT IN resultPred}
                                     \State $temp \gets ARRAY()$
                                     
                                     \State $cluster \gets kmeans.HITUNGJARAKSISWA(t)$
@@ -1210,7 +1208,7 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{pengujia
                                         
                                         \State ARRAY\_PUSH(temp, t['NPM'], predict[0][2],t['IPK'], predict[0][0], diff1, diff2)
                                         
-                                        \State ARRAY\_PUSH(result, temp)
+                                        \State ARRAY\_PUSH(resultPred, temp)
                                     \EndIf
                                 \EndIf
                             \EndFor
@@ -1222,12 +1220,20 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{pengujia
                         \EndFor
                         \State $end \gets count time$
                         \State $times \gets end - start$
-                        \State $ARRAY\_PUSH(maeArr, tempMae/n)$
-                        \State $ARRAY\_PUSH(rmseArr, tempRmse/n)$
-                        \State $ARRAY\_PUSH(timesArr, times)$
+                        
+                        \State $result[k] \gets ARRAY()$
+                        
+                        \State $ARRAY_PUSH(result[k], tempMae/n, tempRmse/n, times)$
+                        
                    \EndFor
                    
-                   \State \Return view('/pengujian',['status'=>TRUE, 'result'=>result, 'maeArr'=>maeArr, 'rmseArr'=>rmseArr, 'times'=>times, 'metode'=>metode])
+                   \State $minMae \gets MIN(ARRAY_COLUMN(result,0))$
+                   \State $minRmse \gets MIN(ARRAY_COLUMN(result,1))$
+                   \State $minTime \gets MIN(ARRAY_COLUMN(result,2))$
+                   
+                   \State \Return $view('/pengujian', [
+                        'status' \gets TRUE, 'resultPred' \gets resultPred, 'metode' \gets metode, 'result' \gets result, 'minMae' \gets minMae, 'minRmse' => minRmse, 'minTime' \gets minTime
+                    ])$
                 \EndProcedure
             \end{algorithmic} 
             \caption{Pengujian Kmeans}
@@ -1316,7 +1322,7 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{pengujia
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 20cm, height = 15cm, angle = 90]{doc/DokumenSkripsi/Gambar/gambar45.png}
+    \includegraphics[width = 20cm, height = 15cm, angle = 90]{Gambar/gambar45.png}
     \caption{\textit{Class Diagram} Sistem Rekomendasi}
     \label{fig:class diagram sistem rekomendasi}
 \end{figure}
