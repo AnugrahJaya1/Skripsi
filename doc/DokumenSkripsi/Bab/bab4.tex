@@ -180,7 +180,7 @@ Pada subab ini akan berisikan perancangan antar muka untuk sistem rekomendasi, b
 \section{Perancangan Algoritma}
 \label{sec:perancangan algoritma}
 
-Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Sistem menggunakan beberapa algoritma seperti K-Means untuk membuat kelompok mahasiswa yang memiliki karakteriksi yang sama dengan calon mahasiswa, Pearson Correlation Coefficient untuk menghitung kesamaan atau similaritas, dan User-base Collaborative Filtering untuk menghitung prediksi nilai IPK.
+Pada subab ini akan berisikan perancangan algoritma yang digukan pada sistem. Sistem menggunakan beberapa algoritma seperti K-Means untuk membuat kelompok mahasiswa yang memiliki karakteriksi yang sama dengan calon mahasiswa, Pearson Correlation Coefficient untuk menghitung kemiripan, dan User-base Collaborative Filtering untuk menghitung prediksi nilai IPK.
 
 \subsection{Preprocessing Data}
 \label{subsec:perancangan preprocessing data}
@@ -489,7 +489,7 @@ Berikut merupkan \textit{pseudocode} fungsi yang terdapat pada \textit{k-means c
                             
                             \ForEach{$valueNilaiCen \in currCentroid$}
                                 \If{$(valueNilaiMhs['id_mata_pelajaran'] == 1 AND valueNilaiCen['id_mata_pelajaran'] == 1) OR (valueNilaiMhs['id_mata_pelajaran'] == 3 AND valueNilaiCen['id_mata_pelajaran'] == 3)$}
-                                    \State $jarak \gets EUCLIDIANCEDISTANCE(valueNilaiMhs, valueNilaiCen)$
+                                    \State $jarak \gets EUCLIDEANCEDISTANCE(valueNilaiMhs, valueNilaiCen)$
                                 \ElsIf{$valueNilaiMhs['id_mata_pelajaran'] < valueNilaiCen['id_mata_pelajaran']$}
                                     \State break
                                 \EndIf
@@ -539,7 +539,7 @@ Berikut merupkan \textit{pseudocode} fungsi yang terdapat pada \textit{k-means c
                             
                             \ForEach{$valueNilaiCen \in nilaiCen$}
                                 \If{$(valueNilaiMhs['id_mata_pelajaran'] == 1 AND valueNilaiCen['id_mata_pelajaran'] == 1) OR (valueNilaiMhs['id_mata_pelajaran'] == 3 AND valueNilaiCen['id_mata_pelajaran'] == 3)$}
-                                \State $jarak \gets EUCLIDIANCEDISTANCE(valueNilaiSiswa, valueNilaiCen)$
+                                \State $jarak \gets EUCLIDEANCEDISTANCE(valueNilaiSiswa, valueNilaiCen)$
                                 \ElsIf{$valueNilaiMhs['id_mata_pelajaran'] < valueNilaiCen['id_mata_pelajaran']$}
                                     \State break
                                 \EndIf
@@ -565,12 +565,12 @@ Berikut merupkan \textit{pseudocode} fungsi yang terdapat pada \textit{k-means c
             \label{alg:hitungJarakSiswa}
         \end{algorithm}
     
-    \item Fungsi \textit{euclidiance distance} \\
-        Fungsi untuk menghitung jarak mahasiswa atau siswa dengan \textit{centroid} menggunakan metode \textit{euclidiance distance}.\\
+    \item Fungsi \textit{euclideance distance} \\
+        Fungsi untuk menghitung jarak mahasiswa atau siswa dengan \textit{centroid} menggunakan metode \textit{euclideance distance}.\\
         
         \begin{algorithm}[H]
             \begin{algorithmic}[1]
-                \Procedure{euclidianceDistance}{mhs, centroid} 
+                \Procedure{euclideanceDistance}{mhs, centroid} 
                     \State $result \gets 0$
                     
                     \For{i = 1 into 4}
@@ -581,8 +581,8 @@ Berikut merupkan \textit{pseudocode} fungsi yang terdapat pada \textit{k-means c
                     \State \Return result
                 \EndProcedure
             \end{algorithmic} 
-            \caption{Euclidiance Distance}
-            \label{alg:euclidianceDistance}
+            \caption{Euclideance Distance}
+            \label{alg:euclideanceDistance}
         \end{algorithm}
     
     \item Fungsi hitung \textit{centroid} baru \\
@@ -920,7 +920,7 @@ Berikut merupakan \textit{pseudocode} fungsi yang terdapat pada \textit{user bas
 \subsection{Precidtion Controller}
 \label{subsec:prediction}
 
-\textit{Prediction controller} berfungsi untuk menghitung prediksi dari hasil perhitungan kesamaan atau similaritas menggunkan \textit{pearson correlation}. Terdapat dua atribut dalam \textit{prediction controller}, yaitu :
+\textit{Prediction controller} berfungsi untuk menghitung prediksi dari hasil perhitungan kemiripan menggunkan \textit{pearson correlation}. Terdapat dua atribut dalam \textit{prediction controller}, yaitu :
 
 \begin{enumerate}
     \item \textit{programStudi}, untuk menyimpan \textit{ProgramStudiController}.

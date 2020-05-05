@@ -41,7 +41,7 @@
                 </td>
             </tr>
             <tr>
-                <th>Indonesia</th>
+                <th>Bahasa Indonesia</th>
                 <td>
                     <input type="number" name="ind101" min="0" max="100" step="any" required><br>
                 </td>
@@ -56,7 +56,7 @@
                 </td>
             </tr>
             <tr>
-                <th>Inggris</th>
+                <th>Bahasa Inggris</th>
                 <td>
                     <input type="number" name="ing101" min="0" max="100" step="any" required><br>
                 </td>

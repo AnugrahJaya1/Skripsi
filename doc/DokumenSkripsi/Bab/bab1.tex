@@ -3,21 +3,33 @@
 \label{chap:pendahuluan}
    
 \section{Latar Belakang}
-\label{sec:laar belakang}
-Salah satu tahapan pendidikan setelah lulus dari bangku sekolah menengah atas atau SMA adalah dengan melanjutkan studi ke perguruan tinggi baik perguruan tinggi negeri ataupun swasta. Salah satu hal yang perlu diperhatikan saat akan melanjutkan studi di perguruan tinggi adalah program studi apa yang akan dipilih. Program studi adalah kesatuan rencana belajar sebagai pedoman penyelenggaraan pendidikan akademik dan/atau profesional yang diselenggarakan atas dasar suatu kurikulum serta ditujukan agar mahasiswa dapat menguasai pengetahuan, keterampilan, dan sikap sesuai dengan sasaran kurikulum. %[SK MENDIKNAS]
+\label{sec:latar belakang}
+Salah satu tahapan pendidikan setelah lulus dari bangku sekolah menengah atas atau SMA adalah melanjutkan studi ke perguruan tinggi baik perguruan tinggi negeri ataupun swasta. Salah satu hal yang perlu diperhatikan saat akan melanjutkan studi di perguruan tinggi adalah program studi apa yang akan dipilih. Program studi adalah kesatuan rencana belajar sebagai pedoman penyelenggaraan pendidikan akademik dan/atau profesional yang diselenggarakan atas dasar suatu kurikulum serta ditujukan agar mahasiswa dapat menguasai pengetahuan, keterampilan, dan sikap sesuai dengan sasaran kurikulum \footnote{Keputusan Mentri Pendidikan Nasional Nomor 232/U/2000 Pasal 1 Ayat 5}. %[SK MENDIKNAS]
 
-%jelasin akibat salah memilih jurusan
-Kesalahan dalam memilih program studi memiliki dampak yang signifikan bagi kehidupan mahasiswa dimasa mendatang. Dampak bisa berupa masalah psikologi, mahasiswa akan merasa terpaksa saat belajar karena mempelajari sesuatu hal yang tidak sesuai minat. Selain masalah psikologi dampak lain yang bisa terjadi berupa masalah pada bidang akademik, prestasi seorang mahasiswa tidak akan maksimal, nilai mata kuliah kurang baik, dan mahasiswa yang salah dalam memilih jurusan memiliki kemungkinan yang lebih tinggi mengalami \textit{Drop Out}.
 
-Ketidak cocokan program studi dengan mahasiswa di Indonesia masih cukup tinggi. Berdasarkan buku Statistik Pendidikan Tinggi pada tahun 2017, terdapat 1.437.425 mahasiswa baru, 6.924.511 mahasiswa terdaftar, dan 1.046.141 mahasiswa lulus. Dengan kata lain ada 391.284 atau 27.22\% mahasiswa yang tidak lulus. Jumlah mahasiswa \textit{Drop Out} pada tahun 2017 adalah 195.176 dengan presentasi pada Perguruan Tinggi Negeri (PTN) sebesar 96\% dan pada Perguruan Tinggi Swasta (PTS) sebesar 4\%. Presentasi jumlah mahasiswa lulus tepat waktu merupakan salah satu faktor yang menentukan kualitas universitas (PP No. 66 Tahun 2010) selain itu, menurut Sudjito (2014): kecocokan program studi merupakan salah satu penentu keberhasilan studi dari seorang mahasiswa. %1389-3912-1-PB untuk mengnati PP No. 66 tahun 2010
+Berdasarkan \cite{sistem:informasi:kaputama}, Terdapat beberapa kendala dan permasalahan yang akan dihadapi oleh mahasiswa untuk mencapai hasil yang memuaskan, yaitu : tidak mampu mengikuti perkuliahan, tidak optimis mengikuti perkuliahan, tidak tertarik dengan mata kuliah program studi setelah meilih program studi, dan salah memilih program studi. Hal tersebut dapat mengakibatkan mahasiswa tidak dapat mencapai IPK tinggi dan dapat mengakibatkan \textit{Droup Out}. Terdapat tiga dampak salah memilih program studi di perguruan tinggi, yaitu :
 
-Maka dari itu diperlukan sebuah sistem rekomendasi yang dapat memberikan rekomendasi item berupa program studi yang sesuai dengan minat siswa SMA. Sistem rekomendasi adalah alat dan teknik perangkat lunak yang menyediakan saran untuk item yang akan digunakan oleh pengguna. Sistem rekomendasi berfokus pada item tertentu dan ditujukan untuk individu atau personal. Beberapa teknik yang biasa digunakan pada sistem rekomendasi, yaitu : \textit{Content-based}, \textit{Collaborative Filtering}, \textit{Demographic}, \textit{Knowledge-based}, \textit{Community-based}, \textit{Hybrid recommender systems}. Teknik yang akan digunakan pada sistem rekomendasi yang akan dibangun adalah \textit{Collaborative Filtering}.
+\begin{enumerate}
+    \item \textit{Problem} Psikologi \\
+        Mempelajari sesuatu yang tidak sesuai minat, bakat dan kemampuan, merupakan pekerjaan yang sangat tidak menyenangkan, apalagi kalau itu bukan kemauan / pilihan anak, tetapi desakan orang tua, akan sulit dicerna otak karena sudah ada blocking emosi. Memilih jurusan kuliah sesuai dengan saran teman atau trend, padahal tidak sesuai dengan minat diri juga punya dampak psikologis.
+    
+    \item \textit{Problem} akademis \\
+        Problem akademis mengakibatkan prestasi yang tidak optimum, banyak mengulang mata kuliah yang berdampak bertambahnya waktu dan biaya, kesulitan memahami materi, kesulitan memecahkan persoalan, ketidakmampuan untuk mandiri dalam belajar, dan buntutnya adalah rendahnya nilai indeks prestasi.
+        
+    \item \textit{Problem} relasional \\
+        Salah memilih jurusan kuliah membuat anak tidak nyaman dan tidak percaya diri. Ia merasa tidak mampu menguasai materi perkuliahan sehingga ketika hasilnya tidak memuaskan, merasa minder karena merasa dirinya bodoh, dan menjaga jarak dengan teman lain, semakin pendiam, menarik diri dari pergaulan, lebih senang mengurung diri.
+\end{enumerate}
 
-\textit{Collaborative Filtering} merupakan teknik yang merekomendasikan item yang sesuai dengan kebutuhan pengguna berdasarkan \textit{rating} tanpa memerlukan informasi mengenai item ataupun pengguna, contoh informasi yang dimaksud adalah deskripsi mengenai item atau pengguna. Secara sederhana \textit{Collaborative Filtering} menghitung kesamaan atau similaritas antara pengguna aktif dengan beberapa pengguna yang memiliki selera atau minat yang serupa. Untuk menghitung similaritas digunakan metode \textit{Pearson Correlation Coefficient}. \textit{Pearson Correlation Coefficient} bekerja dengan cara menghitung korelasi antara dua variabel dari masing-masing pengguna yang sedang dibandingkan. Semakin tinggi nilai korelasi yang dihasilkan maka mengidentifikasikan kedua pengguna memiliki similaritas yang cukup tinggi. 
+Berdasarkan \cite{statistik:pendidikan:tinggi:2017}, pada tahun 2017 terdapat 1.437.425 mahasiswa baru, 6.924.511 mahasiswa terdaftar, dan 1.046.141 mahasiswa lulus. Dengan kata lain ada 391.284 atau 27.22\% mahasiswa yang tidak lulus. Jumlah mahasiswa \textit{Drop Out} pada tahun 2017 adalah 195.176 dengan presentasi pada Perguruan Tinggi Negeri (PTN) sebesar 96\% dan pada Perguruan Tinggi Swasta (PTS) sebesar 4\%. Ada banyak faktor yang mempengaruhi angka ketidak lulusan ini. Salah satunya, menurut Sudjito (2014): kecocokan program studi merupakan salah satu penentu keberhasilan studi dari seorang mahasiswa. Karena itu, salah satu cara mengurangi angka ketidaklulusan adalah dengan mengurangi angka ketidakcocokan atau kesalahan pemilihan jurusan di perguruan tinggi.
+
+% cari referensinya (sudjito)
+
+Untuk dapat mengurangi kesalahan dalam memilih jurusan, ada banyak cara yang bisa dilakukan. Cara-cara tersebut antara lain adalah dengan membuat sebuah sistem yang dapat memberikan rekomendasi jurusan yang tepat kepada calon mahasiswa. Sistem seperti ini dikenal dengan sistem rekomendasi. Berdasarkan \cite{buku:sistem:rekomendasi}, Sistem rekomendasi adalah alat dan teknik perangkat lunak yang menyediakan saran untuk item yang akan digunakan oleh pengguna. Saran terkait dengan berbagai proses pengambilan keputusan, seperti barang apa yang akan dibeli, musik apa yang akan didengarkan, atau berita online apa yang akan dibaca. Sistem rekomendasi berfokus pada item tertentu dan ditujukan untuk individu atau personal. Beberapa teknik yang biasa digunakan pada sistem rekomendasi, yaitu : \textit{Content-based}, \textit{Collaborative Filtering}, \textit{Demographic}, \textit{Knowledge-based}, \textit{Community-based}, \textit{Hybrid recommender systems}. Pada skripsi ini, teknik yang akan digunakan adalah \textit{Collaborative Filtering}.
+
+
+\textit{Collaborative Filtering} \cite{buku:sistem:rekomendasi} merupakan teknik yang merekomendasikan item yang sesuai dengan kebutuhan pengguna berdasarkan \textit{rating} tanpa memerlukan informasi mengenai item ataupun pengguna, contoh informasi yang dimaksud adalah deskripsi mengenai item atau pengguna. Secara sederhana. \textit{Collaborative Filtering} menghitung kemiripan antara pengguna aktif dengan beberapa pengguna lain yang memiliki selera atau minat yang serupa. Untuk menghitung kemiripan digunakan metode \textit{Pearson Correlation Coefficient}. \textit{Pearson Correlation Coefficient} bekerja dengan cara menghitung korelasi antara dua atiribut dari masing-masing pengguna yang sedang dibandingkan. Atribut adalah sifat atau karakteristik dari tiap entitas maupun tiap relationship \footnote{Mulia Rahmayu, RANCANG BANGUN SISTEM INFORMASI NILAI UJIAN SISWA SMP NEGERI 3 BUMIAYU BERBASIS WEB, 2015, 3}. Semakin tinggi nilai korelasi yang dihasilkan maka mengidentifikasikan kedua pengguna memiliki similaritas yang cukup tinggi. 
  
-Pada skripsi ini akan dibangun sebuah perangkat lunak sistem rekomendasi yang dapat memberikan rekomendasi item berupa program studi yang sesuai dengan minat siswa SMA. Sistem rekomendasi ini akan mengguna algoritma \textit{Collaborative Filtering} dengan model \textit{Neighborhood} dengan pendekatan \textit{User-based}. \textit{User-based} memprediksi berdasarkan kesamaan \textit{rating} pengguna dengan item. 
-
-\textit{Rating} yang dalam kasus ini adalah indeks prestasi kumulatif (IPK) . Berdasarkan Pasal 23 ayat 5 Peraturan Menteri Pendidikan dan Kebudayaan Republik Indonesia Nomor Tahun 2014 tentang Standar Nasional Pendidikan Tinggi yang berbunyi Hasil penilaian capaian pembelajaran lulusan pada akhir program studi dinyatakan dengan indeks prestasi kumulatif (IPK).
+Pada skripsi ini akan dibangun sebuah perangkat lunak sistem rekomendasi yang dapat memberikan rekomendasi item berupa program studi yang sesuai dengan minat siswa SMA. Terdapat dua teknik utama pada \textit{collaborative filtering} \cite{buku:sistem:rekomendasi}, yaitu : metode \textit{neighborhood} dan \textit{latent factor}. Metode \textit{neighborhood} fokus kepada relasi antara item atau pengguna, Terdapat dua pendekatan yaitu : \textit{user-based} dan \textit{item-based}. Metode \textit{latent factor} merupakan fakorisasi matriks (SVD), terdiri dari pendekatan alternatif dengan mengubah item dan pengguna ke ruang faktor laten yang sama. Sistem rekomendasi ini akan menggunakan algoritma \textit{Collaborative Filtering} dengan model \textit{Neighborhood} dengan pendekatan \textit{User-based}. \textit{User-based} memprediksi berdasarkan kesamaan \textit{rating} pengguna dengan item. \textit{Rating} yang dalam kasus ini adalah indeks prestasi kumulatif (IPK) . Hasil penilaian capaian pembelajaran lulusan pada akhir program studi dinyatakan dengan indeks prestasi kumulatif (IPK) \footnote{Peraturan Menteri Pendidikan dan Kebudayaan Republik Indonesia Nomor Tahun 2014 tentang Standar Nasional Pendidikan Tinggi Pasal 23 ayat 5}.
 % sumber permen_tahun2014_nomor049
 
 \section{Rumusan Masalah}
@@ -27,7 +39,9 @@ Berikut adalah rumusan masalah dari penulisan skripsi :
 
 \begin{enumerate}
 	\item Bagaimana cara menilai kecocokan seorang calon mahasiswa terhadap suatu program studi ?
+	
 	\item Bagaimana membangun perangkat lunak untuk memberikan rekomendasi program studi di perguruan tinggi yang cocok untuk calon mahasiswa ?
+	
 	\item Bagaimana kualitas hasil rekomendasi dari perangkat lunak yang dibangun ?
 \end{enumerate}
 
@@ -38,7 +52,9 @@ Tujuan dari penuisan skripsi ini adalah sebagai berikut :
 
 \begin{enumerate}
 	\item Mempelajari cara menilai kecocokan seorang mahasiswa terhadap suatu program studi.
+	
 	\item Membangun perangkat lunak untuk memberikan rekomendasi program studi di perguruan tinggi yang cocok dengan calon mahasiswa.
+	
 	\item Menguji hasil rekomendasi dari perangkat lunak yang sudah dibangun.
 \end{enumerate}
 
@@ -46,25 +62,38 @@ Tujuan dari penuisan skripsi ini adalah sebagai berikut :
 
 \section{Batasan Masalah}
 \label{sec:batasan masalah}
-%Untuk mempermudah pembuatan template ini, tentu ada hal-hal yang harus dibatasi, misalnya saja bahwa template ini bukan berupa style \LaTeX{} pada umumnya (dengan alasannya karena belum mampu jika diminta membuat seperti itu)
+
 Mengingat banyaknya perguruan tinggi dan program studi yang ada di Indonesia, maka perlu adanya batasan masalah yang jelas mengenai apa yang dibuat dan diselesaikan dalam penulisan skripsi ini. Berikut merupakan batasan-batasan masalah pada skirpsi ini : 
 
 	\begin{enumerate}
-		\item 15 Program studi Universitas Katolik Parahyangan (UNPAR).
-		\item Data mahasiswa UNPAR yang masuk melalui jalur Penelusuran Minat dan Kemampuan (PMDK) pada tahun 2013-2018 yang sudah lulus.
+		\item Program studi yang dijadikan rekomendasi adalah 15 program studi di Universitas Katolik Parahyangan (UNPAR) Bandung.
+		
+		\item Data yang akan digunakan adalah data mahasiswa UNPAR yang masuk memalaui jalur Penelusuran Minat dan Kemampuan (PMDK) pada tahun 2013-2018 yang sudah lulus.
+		
 		\item Hanya menggunakan nilai mata pelajaran Matematika, Bahasa Indonesia, Bahasa Inggris, Pendidikan Kewarganegaraan, Fisika, dan Kimia sebagai atribut.
+		
+		\item Sistem rekomendasi yang dibangun tidak memiliki fitur untuk admin.
 	\end{enumerate}
 
 \section{Metodologi}
 \label{sec:metodologi}
 \begin{enumerate}
 	\item Melakukan studi literatur mengenai sistem rekomendasi.
+	
 	\item Mempelajari mengenai berbagai program studi dan karakteristiknya.
-	\item Mempelajari metode yang dapat digunkan untuk menghitung tingkat kecocokan calaon mahasiswa dengan program studi.
+	
+	\item Mempelajari metode yang dapat digunkan untuk menghitung tingkat kecocokan calon mahasiswa dengan program studi.
+	
+	\item Mempelajari \textit{framework} yang dapat membantu pembangunan perangkat lunak. Dalam skripsi ini, akan digunakan Laravel dan Bootstrap. Karena itu, kedua \textit{framework} ini akan dipelajari.
+
 	\item Menganalisis hal-hal yang mempengaruhi kecocokan program studi dengan calon mahasiswa.
-	\item Mempelajari framework Laravel dan Bootstrap.
+	
+	\item Melakukan perancangan basis data, antar muka, algoritma, dan \textit{class diagram}.
+	
 	\item Membangun perangkat lunak sesuai dengan analisis dan perancangan yang dilakukan.
+	
 	\item Melakukan pengujian kualitas hasil rekomendasi perangkat lunak yang dibangun.
+	
 	\item Menulis dokumen skripsi.
 \end{enumerate}
 
@@ -73,7 +102,7 @@ Mengingat banyaknya perguruan tinggi dan program studi yang ada di Indonesia, ma
 \begin{enumerate}
 	\item Bab 1 menjelaskan mengenai latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi penelitian, dan sistematika pembahasan untuk sistem rekomendasi program studi di perguruan tinggi untuk anak SMA.
 	
-	\item Bab 2 menjelaskan mengenai sistem rekomendasi dengan menggunakan \textit{Collaborative Filtering}, teknik perhitungan kesamaan atau similaritas dengan \textit{Pearson Correlation Coefficient}, teknik \textit{clustering} menggunakan K-Means, penjelasan \textit{Framework Laravel}, dan Program Studi yang berada di Universitas Katolik Parahyangan. 
+	\item Bab 2 menjelaskan mengenai sistem rekomendasi dengan menggunakan \textit{Collaborative Filtering}, teknik perhitungan kemiripan dengan \textit{Pearson Correlation Coefficient}, teknik \textit{clustering} menggunakan K-Means, penjelasan \textit{Framework Laravel}, dan Program Studi yang berada di Universitas Katolik Parahyangan. 
 	
 	\item Bab 3 menjelaskan analsisi yang dilakukkan terhadap sistem sudah ada, \textit{preprocessing} data, algoritma yang akan digunakan, contoh perhitungan, dan kebutuhan sistem yang akan dibangun.
 	

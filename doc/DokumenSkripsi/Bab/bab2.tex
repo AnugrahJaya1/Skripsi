@@ -1,26 +1,23 @@
 %versi 2 (8-10-2016)
 \chapter{Landasan Teori}
-\label{chap:teori}
+\label{chap:landasan teori}
+
+Pada bab ini akan dijelaskan mengenai dasar teori yang digunakan sebagai acuan dalam mengembangkan perangkat lunak yang akan dibangun. Bab ini antara lain akan menjelaskan tentang sistem rekomendasi, \textit{cluster}, \textit{Library} PHP, dan Universitas Katolik Parahyangan.
+
 \section{Sistem Rekomendasi}
 \label{sec:sistem rekomendasi}
 
-Sistem rekomendasi adalah alat dan teknik perangkat lunak yang menyediakan saran untuk item yang akan digunakan oleh pengguna. Saran terkait dengan berbagai proses pengambilan keputusan, seperti barang apa yang akan dibeli, musik apa yang akan didengarkan, atau berita online apa yang akan dibaca. % RS hanbook
-
-Sistem rekomendasi biasanya berfokus pada item tertentu seperti buku,musik,dll. Sistem rekomendasi ditujukan untuk individu atau personal yang kurang memiliki pengalaman pribadi. Contoh Sistem rekomendasi buku adalah \textit{website} Amazon.com. Item yang ditawarkan sebagai daftar item peringkat. Sistem rekomendasi mencoba memprediksi produk dengan cara mengumpulkan referensi dari pengguna lainnya. %RS hanbook
-
-Pengembangan sistem rekomendasi dimulai dari pengamatan yang sederhana berupa rekomendasi yang diberikan oleh orang lain dalam membuat keputusan rutin sehari-hari bisa berupa buku, musik, film, rekrutmen karyawan, dll. %RS hanbook
-
-Sistem rekomendasi menghasilkan rekomendasi menggunakan berbagai jenis pengetahuan dan data tentang pengguna, item yang tersedia, dan transaksi sebelumnya, contohnya berupa e-commerce yang mengatasi masalah kelebihan informasi yang terjadi akibat transaksi pengguna sebelumnya.  %RS hanbook
+Sistem rekomendasi \cite{buku:sistem:rekomendasi} adalah alat dan teknik perangkat lunak yang menyediakan saran untuk item yang akan digunakan oleh pengguna. Rekomendasi tersebut berkaitan dengan penentuan keputusan seperti produk apa yang ingin dibeli, musik apa yang akan didengarkan, atau berita apa yang akan dibaca. Pengembangan sistem rekomendasi \cite{buku:sistem:rekomendasi} diawali dari pengamatan sederhana berupa rekomendasi yang diberikan oleh orang lain dalam membuat keputusan dalam kehidupan sehari-hari. Sistem rekomendasi ditujukan untuk individu atau personal yang kurang memiliki pengalaman pribadi. Contoh \textit{website} yang menggunakan sistem rekomendasi adalah Amazon.com. Sistem rekomendasi pada Amazon.com digunakan untuk mempersonalisasi toko \textit{online} untuk setiap pengguna. Karena dipersonalisasi hasil akan berbeda untuk pengguna yang berbeda. Item yang ditawarkan merupakan daftar item peringkat. Sistem rekomendasi mencoba memprediksi produk dengan cara mengumpulkan referensi dari pengguna lainnya.
 
 % kemungkinan besar dihapus (ga kepake di skripsi, cuman informasi aja)
 \subsection{Fungsi Sistem Rekomendasi}
-Fungsi utama sistem rekomendasi adalah menemukan item yang relevan dengan kebutuhan pengguna.Selain untuk menemukan item yang relevan terdapat juga beberapa fungsing sistem rekomendasi, yaitu  : %RS hanbook
+Berikut merupakan fungsi dari sistem rekomendasi \cite{buku:sistem:rekomendasi} :
 	\begin{enumerate}
 		\item Meningkatkan jumlah penjualan barang\\
-			Salah satu fungsi penting untuk sistem rekomendasi yang komersil. Peningkatan jumlah penjualan item ini disebabkan karena penjualan item dilakukan tepat sasaran kepada pembeli yang memang membutuhkan dan menginginkan item tersebut. Merekomendasikan item yang sesuai dengan kebutuhan atau minat pengguna.
+			Meningkatkan jumlah penjualan barang adalah fungsi yang paling penting untuk sistem rekomendasi komersial. Peningkatan jumlah penjualan item ini disebabkan karena penjualan item dilakukan tepat sasaran kepada pembeli yang memang membutuhkan dan menginginkan item tersebut. Tujuan ini tercapai karena barang yang direkomendasikan cenderung sesuai dengan kebutuhan dan keinginan pengguna.
 			
 		\item Menjual barang-barang yang lebih beragam\\
-			Memberikan rekomendasi item yang mungkin sulit ditemukan oleh pengguna jika tanpa menggunakan sistem rekomendasi.
+			Fungsi sistem rekomendasi lainnya adalah memungkinkan pengguna untuk memilih item yang mungkin sulit ditemukan tanpa rekomendasi yang tepat. Sistem rekomendasi akan merekomendasikan item yang tidak populer kepada pengguna yang tepat.
 			
 		\item Meningkatkan kepuasan pengguna\\
 			Sistem rekomendasi yang dirancang dengan baik memberikan rekomendasi yang sesuai dengan kebutuhan pengguna sehingga pengguna akan merasa senang menggunakan sistem tersebut.
@@ -34,32 +31,46 @@ Fungsi utama sistem rekomendasi adalah menemukan item yang relevan dengan kebutu
 
 \subsection{Sumber Data dan Pengetahuan}
 \label{sec:sumber data dan pengetahuan}
-Sistem rekomendasi adalah sistem pemrosesan informasi yang secara aktif mengumpulkan berbagai jenis data untuk membangun rekomendasinya. Data utama berupa data item yang disarankan dan pengguna yang akan menerima rekomendasi. Data yang digunakan sistem rekomendasi mencakup pada tige jenis objek, yaitu : %RS hanbook
+Sistem rekomendasi adalah sistem pemrosesan informasi yang secara aktif mengumpulkan berbagai jenis data untuk membangun rekomendasinya. Data utama berupa data item yang disarankan dan pengguna yang akan menerima rekomendasi. Data yang digunakan sistem rekomendasi mencakup pada tige jenis objek \cite{buku:sistem:rekomendasi}, yaitu :
 	\begin{enumerate}
-	\item Item\\
-		Item adalah objek yang direkomendasikan, item bisa ditandai oleh kompleksitasnya dan nilai atau kegunaannya. Bisa bernilai positif jika sesuai atau negatif jika tidak sesuai.
+	\item \textbf{Item}\\
+		Item adalah objek yang direkomendasikan, item bisa ditandai oleh kompleksitasnya dan nilai atau kegunaannya. Bisa bernilai positif jika sesuai atau negatif jika tidak sesuai dan pengguna membuat keputusan yang salah ketika memilih item dengan nilai negatif. Saat pengguna memperoleh item, pengguna akan dikenai \textit{cost}, berupa \textit{cognitive cost} untuk pencarian item tersebut dan \textit{the real monetary cost} yang dibayarkan untuk item tersebut.
+		
+		Sebagai contoh, perancangan sistem rekomendasi berita harus memperhitungkan kompelsitas item berita, Seperti struktur, representasi tekstual, dan kepentingan waktu yang bergantingan pada setiap item berita. Tetapi, pada saat yang sama, perancangan sistem rekomendasi harus memahami bahwa meskipun pengguna tidak membayar untuk membaca berita, selalu ada \textit{cognitive cost} yang terkait dengan mencari dan membaca item berita. Jika item yang dipilih relevan untuk pengguna, \textit{cost} didominasikan oleh manfaat memperoleh informasi yang berguna, jika item tidak relevan, nilai item untuk pengguna dan rekomendasinya negatif. Di domain lain, misalnya mobil atau investasi keuangan, \textit{the real monetary cost} dari item menjadi elemen penting untuk dipertimbangkan ketika memilih pendekatan rekomendasi yang paling tepat.
+		
+		Item dapat dikelompokkan menjadi dua kelompok, yaitu : item dengan kompleksitas dan nilai rendah dan item dengan kompleksitas dan nilai tinggi. Contoh dari item dengan kompleksitas dan nilai rendah adalah berita, halaman web, CD, dan film, sedangkan contoh untuk item dengan kompleksitas dan nilai tinggi adalah kamera digital, ponsel, PC, dll. Item paling kompleks yang telah dipertimbangkan adalah kebijakan asuransi, investasi keuangan, perjalanan, dan pekerjaan.
+		
+		Sistem rekomendasi dapat menggunakan berbagai properti dan fitur dari item yang digunakan. Misalnya pada sistem rekomendasi film  genre, sutradara, dan aktor dapat digunakan untuk menggambarkan film dan mempelajari bagaimana kegunaan suatu item berdasarkan fitur-fitur yang dimiliki item tersebut. Item dapat dipresentasikan menggunakan berbagai informasi dan pendekatan representasi, misalnya dalam cara meminimalis sebagai kode id tunggal atau dalam bentuk kumpulan atribut.
 	
-	\item Pengguna\\
-		Pengguna adalah objek yang menggunakan sistem, memiliki tujuan dan karakteristik beragam. Pengguna juga dapat dijelaskan oleh data pola perilaku (pola penelusuran web, atau pola pencarian perjalanan)
+	\item \textbf{Pengguna}\\
+		Pengguna adalah objek yang menggunakan sistem, memiliki tujuan dan karakteristik beragam. Untuk mempersonalisasi rekomendasi dan interaksi manusia komputer, sistem rekomendasi menggunakan berbagai informasi mengenai pengguna. Informasi ini dapat disusun dengan berbagai cara dan pemilihan informasi apa yang digunakan tergantung pada teknik rekomendasi yang digunakan.
+		
+		Sebagai contoh, dalam \textit{collaborative filtering} pengguna dimodelkan sebagai daftar sederhana yang berisikan peringkat yang disediakan oleh pengguna untuk beberapa item. Dalam sistem rekomendasi demografis, atribut sosiodemografi seperti usia, jenis kelamin, profesi, dan pendidikan akan digunakan. Data pengguna disebut model pengguna. Model pengguna berfungsi untuk mengkodekan preferensi dan kebutuhan. Sistem rekomendasi menghasilkan rekomendasi dengan membangun dan menggunakan model pengguna. Karena tidak ada sistem rekomendasi yang dipersonalisasi tanpa menggunakan model pengguna, kecuali sistem rekomendasi yang dibangun bukan sistem yang dipernonalisasi, seperti pemilihan \textit{top}-10.
+		
+		Pengguna juga dapat dijelaskan menggunakan data pola perilaku sperti pola penelusuran web atau pola pencarian perjalanan. Selain itu, data pengguna dapat mencakup hubungan antar pengguna seperti tingkat kepercayaan hubungan antara pengguna. Sistem rekomendasi munngkin menggunakan informasi ini untuk merekomendasikan item kepada pengguna yang memiliki selera serupa.
 	
-	\item Transaksi\\
-		Interaksi yang direkam antara pengguna sistem rekomendasi. Transaksi adalah data seperti log yang menyimpan informasi penting yang dihasilkan selama interaksi manusia-komputer dan berguna untuk algoritma pembuatan rekomendasi yang digunakan sistem. Bentuk dari peringkat yang populer di sistem rekomendasi :
+	\item \textbf{Transaksi}\\
+		Transaksi adalah interaksi yang direkam antara pengguna sistem rekomendasi. Transaksi adalah data seperti log yang menyimpan informasi penting yang dihasilkan selama interaksi manusia komputer dan berguna untuk algoritma pembuatan rekomendasi yang digunakan sistem. Misalnya, log transaksi dapat berisi referensi ke item yang dipilih oleh pengguna dan deksripsi konteks seperti tujuan atau \textit{query} untuk rekomendasi tersebut. 
+		
+		Faktanya, peringkat adalah bentuk data transaksi paling populer yang dikumpulkan oleh sistem rekomendasi. Peringkat ini dapat dikumpulkan secara eksplisit atau implisit. Dalam kumpulan peringkat eksplisit, pengguna diminta untuk memberikan pendapatnya tentang suatu item menggunakan skala. Berikut merupakan bentuk dari peringkat yang populer di sistem rekomendasi :
 		
 		\begin{itemize}
-			\item Peringkat numerik 1 - 5
+			\item Peringkat numerik seperti bintang 1 - 5 seperti yang disediakan oleh Amazon.com.
 		
-			\item Peringkat ordinal (sangat setuju, setuju, netral, tidak setuju, dan sangat tidak setuju)
+			\item Peringkat ordinal seperti sangat setuju, setuju, netral, tidak setuju, dan sangat tidak setuju, dimana pengguna diminta untuk memilih diantara kelima peringkat tersebut yang menunjukkan pendapatnya menganai suatu item.
 		
-			\item Peringkat biner, buruk (0) dan baik (1)
+			\item Peringkat biner yang memodelkan pilihan dimana pengguna hanya diminta untuk memutuskan apakah suatu barang tersebut baik atau buruk.
 		
-			\item Peringkat unary menunjukkan bahwa pengguna telah mengamati atau membeli barang atau menilai barang secara positif
+			\item Peringkat unary dapat menunjukkan bahwa pengguna telah mengamati atau membeli suatu item atau menilai item secara positif.
 		\end{itemize}
+		
+		Berdasarkan \cite{buku:sistem:rekomendasi:2}, Di antara alternatif yang ada untuk mengumpulkan pendapat pengguna, meminta peringkat item eksplisit adalah yang paling tepat. Masalah utama dalam peringkat eksplisit pengguna tidak bersedia memberikan peringkat selama nilainya tidak mudah dilihat, hal ini dapat menyebabkan peringkat yang tersedia terlalu sedikit, sehingga dapat menghasilkan kualitas rekomendasi yang buruk.
 		
 	\end{enumerate}
 	
 \subsection{Teknik Rekomendasi}
 \label{teknik rekomendasi}
-Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : %RS hanbook
+Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi \cite{buku:sistem:rekomendasi}: %RS hanbook
 
 \begin{enumerate}
 	\item \textit{Content-based}\\
@@ -85,31 +96,35 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : %RS 
 % jelasin konsep dasar Collabrative Filtering
 \subsection{\textit{Collaborative Filtering}}
 \label{sec:collaborative filtering}
-	Dalam pengembangan sistem rekomendasi dapat menggunkan teknik \textit{Collaborative Filtering}. \textit{Collaborative Filtering} menghasilkan rekomendasi item yang spesifik untuk pengguna berdasarkan peringkat tanpa memerlukan informasi tambahan mengenai item ataupun pengguna. Gagasan utamanya adalah peringkat pengguna u untuk item i cenderung mirip dengan pengguna v, jika u dan v memberikan peringkat item lain dengan nilai yang sama. %RS hanbook
+Dalam pengembangan sistem rekomendasi dapat menggunakan teknik \textit{Collaborative Filtering}. \textit{Collaborative Filtering} \cite{buku:sistem:rekomendasi} menghasilkan rekomendasi item yang spesifik untuk pengguna berdasarkan peringkat tanpa memerlukan informasi tambahan mengenai item ataupun pengguna. Gagasan utamanya adalah peringkat pengguna u untuk item i cenderung mirip dengan pengguna v, jika u dan v memberikan peringkat item lain dengan nilai yang sama. 
+
+%Contoh \textit{website} yang menggunakan sistem rekomendasi menggunakan teknik \textit{collaborative filtering} adalah Netflix. Netflix mengumpulkan peringkat untuk film. Peringkat yang digunakan merupakan peringkat eksplisit, dimana pengguna secara langsung memberikan peringkat kepada produk yang mereka minati.
 	
-	Tantangan dalam membangun sistem rekomendasi menggunakan teknik \textit{Collaborative Filtering} adalah sedikitnya jumlah data pengguna sebelumnya yang sudah memberikan peringkat kepada suatu item. Dalam \textit{Collaborative Filltering} terdapat salah satu algoritma yaitu \textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering}.
+Tantangan dalam membangun sistem rekomendasi menggunakan teknik \textit{Collaborative Filtering} adalah sedikitnya jumlah data pengguna sebelumnya yang sudah memberikan peringkat kepada suatu item. Dalam \textit{Collaborative Filltering} terdapat salah satu algoritma yaitu \textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering}.
 	
 \subsubsection{\textit{Neighborhood-based Collaborative Filtering}}
-\textit{Neighborhood-based Collaborative Filtering} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering} adalah algoritma pertama yang dikembangan untuk teknik \textit{Collaborative Filtering}. Pada algoritma ini \textit{rating} \textit{user-item} disimpan dalam sistem secara langsung digunakan untuk memprediksi peringkat item baru, dapat dilakukan dengan \textit{user-based model}. %RS hanbook
+\label{subsec:neighborhood}
+\textit{Neighborhood-based Collaborative Filtering} \cite{buku:sistem:rekomendasi} atau yang dikenal dengan \textit{Memory-base Collaborative Filtering} adalah algoritma pertama yang dikembangan untuk teknik \textit{Collaborative Filtering}. Pada algoritma ini peringkat \textit{user-item} disimpan dalam sistem secara langsung digunakan untuk memprediksi peringkat item baru, dapat dilakukan dengan \textit{user-based model}. %RS hanbook
 
 %berdasarkan RS Book 4.2.1
 \subsubsection{\textit{User-based Neighborhood Model}}
 \label{user-based}
-\textit{User-based} bekerja dengan mengidentifikasi pengguna yang akan diberikan rekomendasi dengan pengguna lain yang memiliki kesamaan. Aktivitas pengguna yang memiliki kesamaan ini akan menjadi dasar dalam memberikan rekomendasi kepada pengguna lain. Aktivitas bisa berupa memberikan \textit{rating} kepada item. Berikut adalah tahapan yang perlu dilakukan pada \textit{User-based Neighborhood Model} : 
+\textit{User-based} \cite{buku:sistem:rekomendasi} bekerja dengan mengidentifikasi pengguna yang akan diberikan rekomendasi dengan pengguna lain yang memiliki kesamaan. Aktivitas pengguna yang memiliki kesamaan ini akan menjadi dasar dalam memberikan rekomendasi kepada pengguna lain. Aktivitas bisa berupa memberikan peringkat kepada item. Berikut adalah tahapan yang perlu dilakukan pada \textit{User-based Neighborhood Model} : 
 
 \begin{enumerate}
 	%dilakukkan pada saat preprosesing	
-	\item Menghitung nilai rata-rata \textit{rating} yang sudah diberikan oleh pengguna lain.
+	\item Menghitung nilai rata-rata peringkat yang sudah diberikan oleh pengguna lain.
 	
-	\item Menghitung kesamaan atau similaritas pengguna menggunakan \textit{Pearson Correlation Coefficient} 2.1 :
+	\item Menghitung kemiripan pengguna menggunakan \textit{Pearson Correlation Coefficient} \cite{buku:sistem:rekomendasi} \ref{rumus pearson} :
 	
 	\begin{equation}
 		sim(i,j) = Pearson(i,j) = \frac{\Sigma _{k\epsilon} I_{i} \cap I_{j} (r_{i,k}-\mu_{i}) \cdot (r_{j,k}-\mu_{j})}{\sqrt{\Sigma _{k\epsilon} I_{i} \cap I_{j} (r_{i,k}-\mu_{i})^2} \cdot \sqrt{\Sigma _{k\epsilon} I_{i} \cap I_{j} (r_{j,k}-\mu_{j})^2 }}
+		\label{rumus pearson}
 	\end{equation}
 	
 	Keterangan : 
 	\begin{itemize}
-		\item sim(i,j) = Kesamaan atau similaritas antara pengguna i dan pengguna j
+		\item sim(i,j) = kemiripan antara pengguna i dan pengguna j
 		
 		\item $\Sigma _{k\epsilon} I_{i} \cap I_{j}$ = Himpunan item pengguna i dan pengguna j yang saling beririsan
 		
@@ -122,9 +137,10 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : %RS 
 		\item $\mu_{j}$ = Rata-rata nilai yang diberikan pengguna j
 	\end{itemize}\leavevmode
 	
-	\item Memilih nilai kesamaan atau similaritas yang bernilai lebih besar dari 0. Nilai keasamaan atau similaritas memiliki rentan nilai -1, 0, dan +1 untuk pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati -1, berarti pengguna tersebut kurang memiliki kesamaan dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati 0, berarti pengguna tersebut memiliki kesamaan yang cukup baik dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati +1, berarti pengguna tersebut memiliki kesamaan yang tinggi dengan pengguna yang akan diberikan rekomendasi.
+	\item Memilih nilai kemiripan yang bernilai lebih besar dari 0. Nilai keasamaan atau similaritas memiliki rentan nilai -1, 0, dan +1 untuk pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati -1, berarti pengguna tersebut kurang memiliki kesamaan dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati 0, berarti pengguna tersebut memiliki kesamaan yang cukup baik dengan pengguna yang akan diberikan rekomendasi. Jika hasil perhitungan mendekati +1, berarti pengguna tersebut memiliki kesamaan yang tinggi dengan pengguna yang akan diberikan rekomendasi.
 	%kayanya bagian ini ga usah, soalnya nnti ambil K tetangga terdekat, liat IPK + jurusan, filteri IPK > 2, trs count jurusannya, rekomendasiin
-	\item Menghitung nilai prediksi dengan rumus \textit{weighted sum} 2.2 :
+	
+	\item Menghitung nilai prediksi dengan rumus \textit{weighted sum} \cite{jurnal:hitung:prediksi} \ref{rumus prediksi} :
 	
 	%\begin{equation}
 	%	r_{i,k} = \mu_{i} + \frac{\Sigma _{j \epsilon} P_{i} Sim(i,j)\cdot (r_{j,k} - \mu_{j})}{\Sigma _{j \epsilon} P_{i(k)} |Sim(i,j)|}
@@ -132,13 +148,14 @@ Berikut adalah teknik-teknik yang dapat digunakan pada sistem rekomendasi : %RS 
 
 	\begin{equation}
 		r_{i,k} = \frac{\Sigma (Sim(i,j)*r_{j,k}) }{\Sigma Sim(i,j)}
+		\label{rumus prediksi}
 	\end{equation}		
 		
 	Keterangan :
 	\begin{itemize}
 		\item $r_{i,k}$ = Nilai prediksi pengguna i untuk item k
 		
-		\item Sim(i,j)= kesamaan atau similiaritas pengguna i dan pengguna j
+		\item Sim(i,j)= kemiripan pengguna i dan pengguna j
 		
 		\item $r_{j,k} $ = Penilaian pengguna j terhadap item k
 		
@@ -164,8 +181,8 @@ Faktor pertama yang harus dipertimbangkan adalah domain aplikasi yang akan diban
 	\item Services : rekomendasi servis travel, hotel, dan rumah
 \end{enumerate}
 
-\subsubsection{Evalusi}
-Sebuah sistem rekomendasi banyak digunakan untuk memberikan prediksi berupa saran item yang sesuai dengan minat pengguna. Prediksi yang diberikan sistem rekomendasi memiliki nilai keakuratan yang dapat berbeda sesuai dengan kasus yang dihadapi dan juga algoritma yang digunakan. Prediksi yang diberikan harus akurat, oleh karena itu diperlukan evaluasi pada sistem rekomndasi. Evalusasi dapat menggunakan tiga metode yaitu :
+\subsubsection{Evaluasi}
+Sebuah sistem rekomendasi banyak digunakan untuk memberikan prediksi berupa saran item yang sesuai dengan minat pengguna. Prediksi yang diberikan sistem rekomendasi memiliki nilai keakuratan yang dapat berbeda sesuai dengan kasus yang dihadapi dan juga algoritma yang digunakan. Prediksi yang diberikan harus akurat, oleh karena itu diperlukan evaluasi pada sistem rekomndasi. Evalusasi dapat menggunakan tiga metode \cite{buku:sistem:rekomendasi} yaitu :
 
 \begin{enumerate}
 	\item \textit{Offline}\\
@@ -179,25 +196,173 @@ Sebuah sistem rekomendasi banyak digunakan untuk memberikan prediksi berupa sara
 	
 \end{enumerate}
 
+Prediksi sistem rekomendasi dapat diukur dengan maetrik yang berbeda. Metrik yang digunakan tergantung pada tujuan algoritma dan tujuan pengukuran. Berikut merupakan metrik yang umum digunakan \cite{evaluation} :
+
+\begin{enumerate}
+    \item \textit{Mean Absolute Error} (MAE) \\
+        \textit{Mean Absolute Error} atau biasa disebut (MAE) adalah metrik yang digunakan untuk menghitung rata-rata dari semua perbedaan nilai absolut antara nilai sebenarnya dengan prediksi. Semakin rendah MAE maka akurasi yang diberikan semakin baik. Secara umum MAE dapat berikisar dari 0 sampai \textit{infinity}, dimana \textit{infinity} adalah kesalahan maksimum tergantung pada skala peringkat aplikasi yang diukur. Berikut merupakan rumus untuk menghitung MAE \ref{rumus mae} : 
+        
+        \begin{equation}
+            MAE = \frac{1}{n} * \Sigma \mid r_{u,i}-\hat{r}_{u,i} \mid
+            \label{rumus mae}
+        \end{equation}
+        
+        Keterangan : 
+        
+        \begin{itemize}
+            \item n adalah jumlah peringkat
+            \item $r_{u,i}$ adalah peringkat sesungguhnya pengguna u untuk item i
+            \item $\hat{r}_{u,i}$ adalah peringkat prediksi pengguna u untuk item i
+        \end{itemize}
+        
+    \item \textit{Root Mean Square Error} (RMSE) \\
+        \textit{Root Mean Square Error} atau biasa disebut (RMSE) menghitung nilai rata-rata dari semua perbedaaan kuadrat antara nilai sebeneranya dengan prediksi dan kemudian menghitung akar kuadrat dari hasil perhitungan. Semakin rendah nilai RMSE akurasi yang diberikan semakin baik. Berikut merupakan rumus untuk menghitung RMSE \ref{rumus rmse} :
+        
+        \begin{equation}
+            RMSE = \sqrt{\frac{1}{n} * \Sigma (r_{u,i}-\hat{r}_{u,i})^2}
+            \label{rumus rmse}
+        \end{equation}
+        
+        Keterangan : 
+        
+        \begin{itemize}
+            \item n adalah jumlah peringkat
+            \item $r_{u,i}$ adalah peringkat sesungguhnya pengguna u untuk item i
+            \item $\hat{r}_{u,i}$ adalah peringkat prediksi pengguna u untuk item i
+        \end{itemize}
+\end{enumerate}
+
 %Evaluasi diperlukan untuk sistem rekomendasi. Evaluasi \textit{offline} dilakukan dengan cara menjalankan beberapa algoritma pada data yang sama dan membandingkan kinerjanya. Evaluasi \textit{online} dilakukan saat sistem sudah diluncurkan, melibatkan pengguna nyata. \textit{Focused user study}, jika evaluasi online tidak layak atau terlalu beresiko, meminta beberapa pengguna untuk mencoba sistem.
 
-\section{\textit{Cluster}}
+\section{Anilisis \textit{Cluster}}
 \label{sec:cluster}
-%penjelasan cluster (dari buku hashrul)
-\textit{Clustering} adalah algoritma yang menganalisis objek data tanpa perlu label kelas. \textit{Clustering} bisa digunakan untuk menghasilkan label kelas untuk sebuah kelompok data. Tujuan dari algoritma \textit{cluster} adalah untuk meminimalkan jarak \textit{intra-cluster} sekaligus memaksimalkan jarak \textit{inter-cluster}. Kesamaan ditentukan dengan menggunakan ukuran jarak. Kelompok yang dihasilkan akan memiliki anggota yang memiliki kesamaan yang tinggi satu sama lain  didalam kelompok yang sama dan berbeda dengan kelompok lain.
+%Analisis \textit{cluster} adalah membagi data menjadi kelompok-kelompok(\textit{cluster}) yang bermakna, bermanfaat, atau keduanya.
+
+Analisis \textit{cluster} \cite{buku:data:mining} mengelompokkan objek data berdasarkan informasi yang ditemukan dalam data yang menggambarkan objek dan hubungannya. Tujuan dari pengelompokkan adalah agar objek-objek dalam suatu kelompok menjadi mirip satu sama lain dan berbeda dari objek-objek dalam kelompok yang berbeda. Semakin besar kemiripan dalam kelompok dan semakin besar perbedaan antar kelompok, semakin baik.
+
+Di beberapa aplikasi, gagasan tentang \textit{cluster} tidak didefinisikan dengan baik. Sebagai contoh, gambar \ref{fig:perbedaan cara clustering} terdapat dua puluh titik dan tiga cara berbeda dalam pembentukan \textit{cluster}. Pada gambar \ref{fig:perbedaan cara clustering} (b)  dan gambar \ref{fig:perbedaan cara clustering} (d) membagi data menjadi dua dan enam \textit{cluster}. Namun, pembagian yang jelas dari dua kelompok yang lebih besar manjadi tiga sub-kelompok mungkin hanya dari penglihatan manusia. Tidak masuk akal jika membagi menjadi empat \textit{cluster} seperti pada gambar \ref{fig:perbedaan cara clustering} (c). Gambar \ref{fig:perbedaan cara clustering} menggambarkan bahwa definisi dari \textit{cluster} tidak tepat dan definisi terbaik tergantung pada sifat data dan hasil yang diinginkan.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width= 8cm, height= 6cm]{doc/DokumenSkripsi/Gambar/gambar21.PNG}
+    \caption{Perbedaan cara \textit{clustering}}
+    \label{fig:perbedaan cara clustering}
+\end{figure}
+
+\subsection{Jenis-Jenis \textit{Clustering}}
+\label{subsec:jenis clustering}
+
+Seluruh kumpulan cluster biasanya disebut sebagai \textit{clustering}, berikut merupakan jenis-jenis dari \textit{clustering} \cite{buku:data:mining} :
+
+\begin{enumerate}
+    \item \textit{Hierarchical versus Partitional} \\
+        Pengelompokkan partional adalah sebuah pembagian set objek data kedalam subset (\textit{cluster}) yang tidak tumpang tindih sehingga setiap objek data berada dalam satu subset. Pada gambar \ref{fig:perbedaan cara clustering} adalah contoh pengelompokkan parsial.
+        
+        Pengelompokkan hierarkis adalah kumpulan \textit{cluster} bertingkat uang diorganisasikan sebagai \textit{tree}. Setiap node (\textit{cluster}) di \textit{tree} (kecuali untuk \textit{leaf node}) adalah \textit{subcluster} dan \textit{root} adalah \textit{cluster} yang berisikan semua objek data.
+    
+    \item \textit{Exclusive versus Overlapping versus Fuzzy} \\
+        Gambar \ref{fig:perbedaan cara clustering} merupakan pengelompokkan yang eksklusif, karena setiap objek berada didalam satu \textit{cluster}. Dalam situasi tertentu suatu objek dapat ditempatkan di lebih dari satu \textit{cluster}, untuk kasus seperti ini dapat di tangani oleh non-eksklusif atau \textit{overlapping}. \textit{Overlapping} digunakan untuk menggambarkan fakta bahwa suatu objek dapat secara bersamaan berada di lebih dari satu kelompok. Misalnya, seseorang di universitas dapat terdaftar sebagai mahasiswa dan karyawan.
+        
+        Dalam pengelompokkan fuzzy, setiap objek berada di setiap kelompok dengan bobot keanggotaan antara 0 (tidak termasuk dalam kelompok) dan 1 (termasuk dalam kelompok). Secara matematis himpunan fuzzy adalah himpunan di mana objek berada didalam setiap kelompok dengan bobot kenanggotaan 0 sampai 1. Karena bobot keanggotaan untuk objek berjumlah 1, pengelompokkan fuzzy tidak membahas situasi \textit{multiclass} yang sebenarnya, seperti kasus seorang mahasiswa yang segaligus karyawan pada sebuah universitas. Dalam praktiknya, pengelompokkan fuzzy sering dikonversi menjadi pengelompokkan eksklusif dengan menetepkan setiap objek kedalam kelompok dengan bobot keanggotaan tertinggi.
+        
+    \item \textit{Complete versus Partial}
+        Pengelompokkan lengkap menetapkan setiap objek ke sebuah kelompok, sedangakan pengelompokan parsial tidak. Motivasi dari pengelompokkan parsial adalah bahwa beberapa objek dalam kumpulan data mungkin bukan milik kelompok yang terdefinisi dengan baik. Banyak objek dalam kumpulan data dinyatakan sebagai \textit{noise}, \textit{outlier}, atau \textit{“uninteresting background”}.
+    
+\end{enumerate}
+
+
+\subsection{Jenis-Jenis \textit{Cluster}}
+\label{subsec:jeni cluster}
+\textit{Clustering} bertujuan untuk menemukan kelompok objek yang berguna, dimana kegunaan didefinisikan dengan tujuan analisis data. Terdapat beberapa konsep berbeda tentang \textit{cluster} yang dapat digunakan dalam praktik. Gambar \ref{fig:jenis cluster} merupakan contoh secara visual perbedaan diantara tipe-tipe \textit{cluster}, dengan menggunakan ruang dua dimensi. Berikut merupakan jenis-jenis \textit{cluster} \cite{buku:data:mining} :
+
+\begin{enumerate}
+    \item \textit{Well-Separated} \\
+        \textit{Cluster} adalah kumpulan objek dimana setiap objek dianggap dekat atau mirip dengan obejk di \textit{cluster} yang sama. \textit{Threshold} biasanya digunakan untuk menentukan bahawa semua objek dalam \textit{cluster} cukup mirip atau dekat satu sama lain. Gambar \ref{fig:jenis cluster} (a) memberikan contoh kelompok yang terpisah dengan baik yang terdiri dari dua kelompok dalam ruang dua dimensi. \textit{Cluster} yang dipisahkan dengan baik tidak harus berbentuk bola, tetapi dapat dalam bentuk lain.
+        
+    \item \textit{Prototype-Based} \\
+        \textit{Cluster} kumpulan objek dimana setiap objek lebih dekat atau mirip dengan prototipe yang mendefinisiakan \textit{cluster} dari pada prototipe \textit{cluster} lain. Untuk data dengan atribut kontinu, prototipe \textit{cluster} sering kali merupakan \textit{centroid}. \textit{Centroid} adalah rata-rata dari semua titik atau titik tengah dari \textit{cluster}. Ketika \textit{centroid} tidak dapat digunakan, seperti ketika data memiliki atribut kategorikal, prototipe sering kali disebut \textit{medoid}. \textit{Medoid} adalah titik representatif dari sebuah \textit{cluster}. Untuk beberapa jenis data, prototipe dianggap sebagai titik paling central, kelompok\textit{prototype-based} dianggap sebagai kelompok \textit{center-based}. \textit{Cluster} seperti ini cenderung bulat seperti pada gambar \ref{fig:jenis cluster} (b).
+            
+    \item \textit{Graph-Based}\\
+        Jika data direpresentasikan sebagai garik, dimana node adalah objek dan \textit{link} mewakili hubungan antara objek, maka sebuah \textit{cluster} dapat didefinisikan sebagai komponen yang terhubung, seperti sekelompok objek yang terhubung satu sama lain, tetapi tidak memiliki hubungan dengan objek diluar kelompok objek saat ini. Contoh penting dari \textit{cluster} berbasis grafik adalah \textit{cluster} berbasis kontiguitas, dimana dua objek terhubung hanya jika mereka berada dalam jarak yang ditentukan satu sama lain. Gambar \ref{fig:jenis cluster} (c) menunjukkan contoh dari cluster berbasis kontiguitas untuk ruang dua dimensi. Terdapat masalah ketia terdapat \textit{noise}, seperti pada gambar \ref{fig:jenis cluster} (c) jembatan dapat menghubungkan dua \textit{cluster} yang berbeda.
+        
+    \item \textit{Density-Based} \\
+        \textit{Cluster} adalah daerah padat dari objek yang dikelilingi oleh daerah yang kepadatannya rendah. \ref{fig:jenis cluster} (d) menunjukkan beberapa \textit{cluster} berbasis kepadatan untuk data yang dibuat dengan menambahkan \textit{noise} ke data pada gambar \ref{fig:jenis cluster} (c). Kedua \textit{cluster} tidak terhubung dengan jembatan, karena jembatan diantara \textit{cluster} menjadi \textit{noise}. \textit{Cluster} berbasis kepadatan biasa digunakan ketika data tidak teratur dan terdapat \textit{noise} dan \textit{outlier}. 
+        
+    \item \textit{Shared-Property (Conceptual Clusters)}
+        Secara lebih umum, \textit{cluster} adalah sebagai satu kumpulan objek yang berbagi beberapa properti. Definisi ini mencakup semua definisi \textit{cluster} sebelumnya, seperti objek dalam \textit{cluster} berbasis pusat berbagi properti yang sama dengan semua yang paling dekat dengan \textit{centroid} atau \textit{medoid} yang sama. Namun pendekatan ini juga mencakup ide baru. Sebagai contoh pada gambar \ref{fig:jenis cluster} (e), daerah dengan bentuk segitiga berdekatan dengan daerah berbentuk persegi panjang dan terdapat dua lingkaran yang saling beririsan. Dalam kedua kasus tersebut, algoritma pengelompokan akan membutuhkan konsek \textit{cluster} yang sangat spesifik untuk berhasil mendeteksi \textit{cluster} seperti pada gambar \ref{fig:jenis cluster} (e). Proses penemuan \textit{cluster} tersebut disebut \textit{conceptual clustering}.
+        
+    \item \textit{Road Map}
+        Berikut merupakan tiga teknik sederhana didalam \textit{road map} :
+        
+        \begin{enumerate}
+            \item K-Means\\
+                K-Means adalah teknik pengelompokan partisionalmberbasis prototipe yang mencoba untuk menemukan jumlah \textit{cluster} (k) yang ditentukan pengguna, yang mewakili centroid.
+            
+            \item \textit{Agglomerative Hierarchical Clustering}\\
+                Pendekatan pengelompokan ini mengacu pada kumpulan teknik pengelompokan yang terkait erat yang menghasilkan pengelompokan hierarkis dengan memulai dengan setiap objek sebagai satu \textit{cluster} dan kemudia berulang kali menggabungkan dua \textit{cluster} terdekat menjadi satu, semua \textit{cluster}  yang tersisa tetap ada.
+            
+            \item DBSCAN \\
+                DBSCAN adalah algoritma pengelompokan berbasis kepadatan yang menghasilkan pengelompokan parsial, dimana jumlah \textit{cluster} secara otomatis ditentukan algoritma. 
+            
+        \end{enumerate}
+    
+\end{enumerate}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 10cm, height = 12cm]{doc/DokumenSkripsi/Gambar/gambar22.PNG}
+    \caption{Jenis-Jenis \textit{Cluster}}
+    \label{fig:jenis cluster}
+\end{figure}
+
+
 
 \subsection{K-Means}
-% penjelasan k means (dari buku RS)
-K-Means adalah algoritma \textit{clustering} yang termasuk kategori \textit{partisial}. Kategori partisial adalah membagi item kedalam \textit{non-overlapping cluster} sehingga setiap item hanya ada pada satu \textit{cluster}. \textit{Cluster} akan dibentuk sebanyak K dan untuk setiap \textit{cluster} memiliki \textit{centroid} awal. \textit{Centroid} untuk setiap \textit{cluster} adalah titik dimana jumlah jarak minimum dari semua item dalam \textit{cluster}. Berikut merupakan tahapan-tahapan dalam pembutan \textit{cluster} :
+\label{subsec:dasar teori K-Means}
+K-Means \cite{buku:data:mining} mendefinisikan prototipe dalam hal centroid, yang biasanya merupakan rata-rata dari sekelompok data dan biasanya diaplikasikan pada objek dalam ruang n dimensi.
+
 \begin{enumerate}
-	\item Memilih secara acak K \textit{centroid}
-	
-	\item Menghitung jarak tiap objek ke titik \textit{centroid} menggunakan \textit{euclidean distance}
-	
-	\item Menghitung \textit{centroid} baru dari anggota yang berada didalam \textit{centroid}
-	
-	\item Lakukan tahap 1-3 hingga \textit{centroid} konvergen
-\end{enumerate} 
+    \item Dasar Algoritma K-Means \\
+        Berikut merupakan tahapan-tahapan pada dasar algoritma K-Means :
+        
+        \begin{enumerate}
+            \item Memilih K \textit{centroid} awal, dimana K adalah parameter yang ditentukan oleh pengguna. K adalah jumlah \textit{cluster} yang akan dibentuk.
+            
+            \item Menempatkan semua data ke \textit{centroid} terdekat.
+            
+            \item Menghitung \textit{centroid} baru berdasarkan data yang berada didalam \textit{cluster}.
+            
+            \item Mengulang tahap b-c sampai tidak ada data yang mengubah \textit{cluster}, sehingga \textit{centroid} tetap sama.
+        \end{enumerate}
+\end{enumerate}
+
+Gambar \ref{fig:ilustrasi K-Means} merupakan ilustrasi dari operasi K-Means yang menunjukan bagaimana pembentukan tiga \textit{cluster} dalam empat kali pengulangan. Setiap sub-gambar akan menunjukkan \textit{centroid} awal dan penempatan data ke \textit{centroid}. \textit{Centroid} ditandai menggunakan simbol "+", sedangkan data yang bukan \textit{centroid} menggunakan simbol segitiga. 
+
+Langkah pertama seperti pada gambar \ref{fig:ilustrasi K-Means} (a), memilih \textit{centroid} awal, menempatkan data ke \textit{centroid} terdekat, dan menghitung centroid baru. Pada langkah kedua, menempatkan data ke \textit{centroid} baru, dan menghitung \textit{centroid} baru. Pada langkah 2, 3, dan 4 ditunjukkan pada gambar \ref{fig:ilustrasi K-Means} (b), (c), dan (d). Algoritma K-Means berakhir pada gambar \ref{fig:ilustrasi K-Means} (d), karena tidak ada lagi perubahan yang terjadi.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width= 10cm, height=6cm]{doc/DokumenSkripsi/Gambar/gambar23.PNG}
+    \caption{Penggunaan K-Means untuk Menemukan Tiga \textit{Cluster}}
+    \label{fig:ilustrasi K-Means}
+\end{figure}
+
+Pada bagian ini akan dijelaskan tahap-tahap pada dasar algoritma K-Means lebih dalam.
+
+\begin{enumerate}
+    \item Memilih K \textit{centroid} awal \\
+        Pemilihan \textit{centroid} awal dilakukan secara acak, setiap kali algoritma K-Means dijalankan, akan menghasilkan \textit{cluster} yang berbeda-beda.
+        
+    \item Menempatkan semua data ke \textit{centroid} terdekat\\
+        Untuk menempatkan data ke \textit{centroid} terdekat dibutuhkan ukuran kedekatan. \textit{Euclidean distance} sering digunakan untuk data dalam ruang \textit{Euclidean}, sedangkan \textit{cosine similariy} lebih sesuai untuk dokumen.
+            
+    \item Menghitung \textit{centroid} baru\\
+        Pehitungan \textit{centroid} baru dilakukkan dengan cara menghitung rata-rata berdasarkan data yang terdapat pada \textit{cluster}.
+\end{enumerate}
+
+Salah satu masalah dalam dasar algoritma K-Means adalah \textit{cluster} kosong yang terjadi karena tidak ada data yang dotempatkan pada \textit{cluster} tersebut. Jika ini terjadi, maka diperlukan cara untuk memilih centroid pengganti. Salah satu cara yang dapat dilakukan adalah memilih data yang jauh dari \textit{centroid} saat ini.
+
 
 \section{\textit{Library} PHP-ML}
 \label{sec:library php-ml}

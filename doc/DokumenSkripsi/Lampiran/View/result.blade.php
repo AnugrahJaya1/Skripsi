@@ -20,7 +20,6 @@
         </tr>
         <?php
         $i = 1;
-        // print_r($predict);
         foreach ($result as $id_prodi => $value) {
             echo "<tr>";
             echo "<td>" . $i . "</td>";
